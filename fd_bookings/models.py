@@ -3,15 +3,16 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 
-EVENTS = ((0, "No Event"), (1, "Seasonal Event"), (2, "Easter Sunday Event"))
-
 class Booking(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    booking_date = models.DateField()
-    num_passengers = models.PositiveIntegerField()
+    user = models.ForeignKey(User, on_delete=models.PROTECT)
+    # first_name = models.CharField(max_length=100)
+    # last_name = models.CharField(max_length=100)
     created_on = models.DateTimeField(auto_now_add=True)
-    event = models.IntegerField(choices=EVENTS, default=0)
-    total_cost = models.DecimalField(decimal_places=2, max_digits=6)
+    modified_on = models.DateTimeField(auto_now=True)
+    booking_date = models.DateField()
+    num_passengers = models.PositiveSmallIntegerField()
+    # event = choices?
+    total_cost = models.DecimalField(decimal_places=2, max_digits=10)
 
     def __str__(self):
         return f"Booking {self.id} created by {self.user.username} for {self.booking_date}"
