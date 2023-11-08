@@ -3,4 +3,14 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 
-STATUS = ((0, "In Process"), (1, "Completed"))
+STATUS = ((0, "In Progress"), (1, "Completed"))
+EVENTS = ((0, "No Event"), (1, "Seasonal Event"), (2, "Easter Sunday Event"))
+
+class Booking(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    booking_date = models.DateField()
+    num_passengers = models.PositiveIntegerField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+    event = models.IntegerField(choices=EVENTS, default=0)
+    total_cost = models.DecimalField()
