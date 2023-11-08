@@ -12,3 +12,6 @@ class Booking(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     event = models.IntegerField(choices=EVENTS, default=0)
     total_cost = models.DecimalField()
+
+    def __str__(self):
+        return f"Booking {self.id} created by {self.user.username} for {self.booking_date}"
