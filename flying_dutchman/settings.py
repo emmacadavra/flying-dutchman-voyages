@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['flying-dutchman-voyages-f488bfe43a6a.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['flying-dutchman-voyages-f488bfe43a6a.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
