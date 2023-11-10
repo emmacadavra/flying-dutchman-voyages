@@ -7,12 +7,10 @@
 </h2>
 
 <div>
-    <!-- {% for booking in booking_list %}
-    <h3>{{ booking }}</h3>
-    {% endfor %} -->
+    
     <form action="" method="POST">
         {% csrf_token %}
-        
+
         {{ form.as_p }}
         <button type="submit">Book Now</button>
     </form>

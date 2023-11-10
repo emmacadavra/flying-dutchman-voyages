@@ -9,16 +9,20 @@ from fd_bookings.booking_functions.availability import check_availability
 # Create your views here.
 class RoomList(generic.ListView):
     model = Room
-    template_name = 'index.html'
+    template_name = 'room_list.html'
 
 
-# class BookingList(generic.ListView):
-#     model = Booking
-#     template_name = 'bookings.html'
+class BookingList(generic.ListView):
+    model = Booking
+    template_name = 'booking_list.html'
 
+
+
+
+# tutorial code
 class BookingView(generic.FormView):
     form_class = AvailabilityForm
-    template_name = 'bookings.html'
+    template_name = 'make_booking.html'
 
     def valid_form(self, form):
         data = form.cleaned_data
@@ -33,7 +37,7 @@ class BookingView(generic.FormView):
 
             room = available_rooms[0]
             booking = Booking.objects.create(
-                user = request.user,
+                user = self.request.user,
                 room = room,
                 booking_date = data['booking_date'],
             )
