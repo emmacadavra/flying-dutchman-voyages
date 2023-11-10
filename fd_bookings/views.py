@@ -4,3 +4,9 @@ from .models import Room, Booking
 
 
 # Create your views here.
+class RoomList(generic.ListView):
+    model=Room
+
+
+class BookingList(generic.ListView):
+    model=Booking
