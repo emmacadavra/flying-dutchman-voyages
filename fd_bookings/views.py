@@ -21,4 +21,10 @@ class BookingView(generic.FormView):
 
     def valid_form(self, form):
         data = form.cleaned_data
+        rooms = Room.object.filter(category=data['room_category'])
+        available_rooms = []
 
+        for room in rooms:
+            if check_availability(room, data['booking_date']):
+                available_rooms.append(room)
+            
