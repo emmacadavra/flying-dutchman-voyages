@@ -1,9 +1,9 @@
-from .views import RoomList, BookingList
+from . import views
 from django.urls import path
 
 app_name='fd_bookings'
 
 urlpatterns=[
-    path('room_list/', RoomList.as_view(), name='RoomList'),
-    path('booking_list/', BookingList.as_view(), name='BookingList'),
+    path('rooms/', views.RoomList.as_view(), name='rooms'),
+    path('bookings/', views.BookingList.as_view(), name='bookings'),
 ]

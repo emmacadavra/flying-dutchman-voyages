@@ -5,8 +5,10 @@ from .models import Room, Booking
 
 # Create your views here.
 class RoomList(generic.ListView):
-    model=Room
+    model = Room
+    template_name = "index.html"
 
 
 class BookingList(generic.ListView):
-    model=Booking
+    model = Booking
+    template_name = "bookings.html"
