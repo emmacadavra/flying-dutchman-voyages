@@ -5,8 +5,9 @@ from cloudinary.models import CloudinaryField
 
 class Room(models.Model):
     ROOM_CATEGORIES = (
-        ('CAP', 'CAPTAIN QUARTERS'),
-        ('OCB', 'OFFICER CABIN'),
+        ('CAP', 'CAPTAINS QUARTERS'),
+        ('OCD', 'DOUBLE CABIN'),
+        ('OCS', 'SINGLE CABIN'),
         ('CRW', 'CREW BUNKS'),
     )
 
