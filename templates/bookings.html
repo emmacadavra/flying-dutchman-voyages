@@ -6,6 +6,10 @@
     This is the booking page.
 </h2>
 
-{{booking_list}}
+<div>
+    {% for booking in booking_list %}
+    <h3>{{ booking }}</h3>
+    {% endfor %}
+</div>
 
 {% endblock %}
