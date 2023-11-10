@@ -15,9 +15,11 @@ class Room(models.Model):
     number = models.IntegerField()
     beds = models.IntegerField()
     capacity = models.IntegerField()
+    room_cost = models.DecimalField(decimal_places=2, max_digits=10)
+    # room_image = 
 
     def __str__(self):
-        return f'{self.category} ({self.number}) with {self.beds} bed(s) for {self.capacity} passenger(s).'
+        return f'{self.category} ({self.number}) with {self.beds} bed(s) for {self.capacity} passenger(s)'
 
 
 class Booking(models.Model):
@@ -30,4 +32,4 @@ class Booking(models.Model):
     total_cost = models.DecimalField(decimal_places=2, max_digits=10)
 
     def __str__(self):
-        return f"Booking {self.id} created by {self.user.username}. Room {self.room.category} {self.room.number} for {self.num_passengers} on {self.booking_date}"
+        return f"Booking {self.id} created by {self.user.username}. Room {self.room} on {self.booking_date}"
