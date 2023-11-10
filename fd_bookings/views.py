@@ -17,12 +17,10 @@ class BookingList(generic.ListView):
     template_name = 'booking_list.html'
 
 
-
-
 # tutorial code
 class BookingView(generic.FormView):
     form_class = AvailabilityForm
-    template_name = 'make_booking.html'
+    template_name = 'fd_bookings/make_booking.html'
 
     def valid_form(self, form):
         data = form.cleaned_data
