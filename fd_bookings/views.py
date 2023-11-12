@@ -86,9 +86,10 @@ class BookingView(generic.FormView):
     template_name = 'fd_bookings/room_detail.html'
     success_url = '/manage_bookings/'
 
-    def valid_form(self, form):
+    def form_valid(self, form):
+        print('hiiiii')
         data = form.cleaned_data
-        room_list = Room.object.filter(category=data['room_category'])
+        room_list = Room.objects.filter(category=data['room_category'])
         available_rooms = []
 
         for room in room_list:

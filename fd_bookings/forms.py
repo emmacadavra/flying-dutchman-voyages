@@ -11,3 +11,4 @@ class AvailabilityForm(forms.Form):
     
     room_category = forms.ChoiceField(choices=ROOM_CATEGORIES, required=True)
     booking_date = forms.DateField(required=True)
+    num_passengers = forms.IntegerField()
