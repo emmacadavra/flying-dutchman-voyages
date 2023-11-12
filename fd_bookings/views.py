@@ -41,7 +41,7 @@ class RoomDetailView(View):
     def get(self, request, *args, **kwargs):
         room_category = self.kwargs.get('category', None)
         form = AvailabilityForm()
-        room_list = Room.object.filter(category=room_category)
+        room_list = Room.objects.filter(category=room_category)
 
         if len(room_list)>0:
             room = room_list[0]
@@ -56,7 +56,7 @@ class RoomDetailView(View):
 
     def post(self, request, *args, **kwargs):
         room_category = self.kwargs.get('category', None)
-        room_list = Room.object.filter(category=room_category)
+        room_list = Room.objects.filter(category=room_category)
         form = AvailabilityForm(request.POST)
 
         if form.is_valid():
@@ -68,12 +68,13 @@ class RoomDetailView(View):
             if check_availability(room, data['booking_date']):
                 available_rooms.append(room)
 
-        if len(available_rooms)>0:
+        if len(available_rooms) > 0:
             room = available_rooms[0]
             booking = Booking.objects.create(
                 user = self.request.user,
                 room = room,
                 booking_date = data['booking_date'],
+                num_passengers = data['num_passengers']
             )
             booking.save()
             return HttpResponse(booking)
@@ -81,6 +82,7 @@ class RoomDetailView(View):
             return HttpResponse('This room is not available.')
 
 
+#tutorial code
 class BookingView(generic.FormView):
     form_class = AvailabilityForm
     template_name = 'fd_bookings/room_detail.html'
