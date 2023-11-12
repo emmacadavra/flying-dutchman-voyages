@@ -75,7 +75,7 @@ class RoomDetailView(View):
 class BookingView(generic.FormView):
     form_class = AvailabilityForm
     template_name = 'fd_bookings/room_detail.html'
-    success_url = '/'
+    success_url = '/manage_bookings/'
 
     def valid_form(self, form):
         data = form.cleaned_data
