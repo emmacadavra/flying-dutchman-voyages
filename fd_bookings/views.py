@@ -68,7 +68,7 @@ class RoomDetailView(View):
                 booking_date = data['booking_date'],
             )
             booking.save()
-            return HttpResponse(booking)
+            # return HttpResponse(booking)
         else:
             return HttpResponse('This room type is not available.')
 
