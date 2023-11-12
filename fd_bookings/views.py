@@ -84,10 +84,9 @@ class RoomDetailView(View):
 class BookingView(generic.FormView):
     form_class = AvailabilityForm
     template_name = 'fd_bookings/room_detail.html'
-    success_url = '/manage_bookings/'
 
     def form_valid(self, form):
-        print('hiiiii')
+
         data = form.cleaned_data
         room_list = Room.objects.filter(category=data['room_category'])
         available_rooms = []
@@ -103,8 +102,9 @@ class BookingView(generic.FormView):
                     user = self.request.user,
                     room = room,
                     booking_date = data['booking_date'],
+                    num_passengers = data['num_passengers']
                 )
                 booking.save()
                 return HttpResponse(booking)
             else:
-                return HttpResponse('This room is not available for the date selected.')
+                return HttpResponse('Unavailable - please try a different room.')

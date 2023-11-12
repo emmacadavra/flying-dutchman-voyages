@@ -30,7 +30,7 @@ class Booking(models.Model):
     # booking_date = models.DateField(validators=[validate_sun])
     room = models.ForeignKey(Room, on_delete=models.PROTECT, null=True)
     num_passengers = models.PositiveSmallIntegerField()
-    total_cost = models.DecimalField(decimal_places=2, max_digits=10)
+    # total_cost = models.DecimalField(decimal_places=2, max_digits=10)
 
     # def validate_sun(value):
     #     if value is not 1
