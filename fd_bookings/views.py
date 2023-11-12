@@ -8,7 +8,7 @@ from fd_bookings.booking_functions.availability import check_availability
 
 # Create your views here.
 def home(request):
-    return render(request, 'fd_bookings/index.html',)
+    return render(request, 'index.html',)
 
 
 class RoomList(generic.ListView):
