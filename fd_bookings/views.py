@@ -24,7 +24,10 @@ class RoomList(request):
     room_categories = dict(room.ROOM_CATEGORIES)
     room_values = room_categories.values()
     room_list = []
+
     for room_category in room_categories:
+        room = room_categories.get(room_category)
+        room_url = reverse('fd_bookings:RoomDetailView', kwargs={'category': room_category})
 
     context = {}
     return(render(request, 'fd_bookings/our_rooms.html', context))
