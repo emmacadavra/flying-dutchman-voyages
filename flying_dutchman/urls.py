@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('', include('fd_bookings.urls'), name='fd_bookings_urls'),
+    path('events/', views.events, name='events'),
+    path('contact/', views.contact, name='contact'),
 ]

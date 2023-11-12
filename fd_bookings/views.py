@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from .models import Room, Booking
 from .forms import AvailabilityForm
 from fd_bookings.booking_functions.availability import check_availability
@@ -9,6 +9,12 @@ from fd_bookings.booking_functions.availability import check_availability
 # Create your views here.
 def home(request):
     return render(request, 'index.html',)
+
+def events(request):
+    return render(request, 'events.html',)
+
+def contact(request):
+    return render(request, 'contact.html',)
 
 
 class RoomList(generic.ListView):
@@ -24,13 +30,33 @@ class BookingList(generic.ListView):
 
 
 # tutorial code
-class RoomDetailView(View):
-    def get(self, request, *args, **kwargs):
-        room_category = self.kwargs.get('category', None)
-        room_list = Room.objects.filter(category=category)
-        room = room_category[0]
+# class RoomDetailView(View):
+#     def get(self, request, *args, **kwargs):
+#         room_category = self.kwargs.get('category', None)
+#         rooms = Room.object.filter(category=category)
+#         room = room_category[0]
+#         return render()
+        
 
+#     def post(self, request, *args, **kwargs):
+#         rooms = Room.object.filter(category=category)
+#         available_rooms = []
 
+#         for room in rooms:
+#             if check_availability(room, data['booking_date']):
+#                 available_rooms.append(room)
+
+#         if len(available_rooms)>0:
+#             room = available_rooms[0]
+#             booking = Booking.objects.create(
+#                 user = self.request.user,
+#                 room = room,
+#                 booking_date = data['booking_date'],
+#             )
+#             booking.save()
+#             return HttpResponse(booking)
+#         else:
+#             return HttpResponse('This room type is not available.')
 
 class BookingView(generic.FormView):
     form_class = AvailabilityForm

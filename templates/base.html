@@ -14,19 +14,19 @@
     <!-- Header -->
     <header>
         <nav>
-            <a href="#"><h1>Flying Dutchman Voyages</h1></a>
+            <a href="{% url 'home' %}"><h1>Flying Dutchman Voyages</h1></a>
             <ul>
+                <!-- <li>
+                    <a href="{% url 'home' %}">Home</a>
+                </li> -->
                 <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
+                    <a href="{% url 'events' %}">Events</a>
                 </li>
                 <li>
                     <a href="#">Book Now!</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="{% url 'contact' %}">Contact</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li>
