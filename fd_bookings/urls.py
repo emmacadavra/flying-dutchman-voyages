@@ -8,5 +8,5 @@ urlpatterns=[
     path('our_rooms/', views.RoomList.as_view(), name='our_rooms'),
     path('manage_bookings/', views.ViewBookingList.as_view(), name='manage_bookings'),
     path('room_detail/', views.BookingView.as_view(), name='room_detail'),
-    path('room/<category>', views.RoomDetailView.as_view(), name='room_category'),
+    # path('room/<category>', views.RoomDetailView.as_view(), name='room_category'),
 ]

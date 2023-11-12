@@ -10,8 +10,10 @@ from fd_bookings.booking_functions.availability import check_availability
 def home(request):
     return render(request, 'index.html',)
 
+
 def events(request):
     return render(request, 'events.html',)
+
 
 def contact(request):
     return render(request, 'contact.html',)
@@ -34,8 +36,6 @@ class ViewBookingList(generic.ListView):
             return booking_list
 
 
-
-
 # tutorial code
 class RoomDetailView(View):
     def get(self, request, *args, **kwargs):
@@ -51,36 +51,17 @@ class RoomDetailView(View):
                 'form': form,
             }
             return render(request, 'room_detail.html', context)
-        
+        else:
+            return HttpResponse('Room category does not exist.')
 
     def post(self, request, *args, **kwargs):
-        rooms = Room.object.filter(category=room_category)
-        available_rooms = []
+        room_category = self.kwargs.get('category', None)
+        room_list = Room.object.filter(category=room_category)
+        form = AvailabilityForm(request.POST)
 
-        for room in rooms:
-            if check_availability(room, data['booking_date']):
-                available_rooms.append(room)
+        if form.is_valid():
+            data = form.cleaned_data
 
-        if len(available_rooms)>0:
-            room = available_rooms[0]
-            booking = Booking.objects.create(
-                user = self.request.user,
-                room = room,
-                booking_date = data['booking_date'],
-            )
-            booking.save()
-            # return HttpResponse(booking)
-        else:
-            return HttpResponse('This room type is not available.')
-
-class BookingView(generic.FormView):
-    form_class = AvailabilityForm
-    template_name = 'fd_bookings/room_detail.html'
-    success_url = '/manage_bookings/'
-
-    def valid_form(self, form):
-        data = form.cleaned_data
-        room_list = Room.object.filter(category=data['room_category'])
         available_rooms = []
 
         for room in room_list:
@@ -97,4 +78,32 @@ class BookingView(generic.FormView):
             booking.save()
             return HttpResponse(booking)
         else:
-            return HttpResponse('This room is not available for the date selected.')
+            return HttpResponse('This room is not available.')
+
+
+class BookingView(generic.FormView):
+    form_class = AvailabilityForm
+    template_name = 'fd_bookings/room_detail.html'
+    success_url = '/manage_bookings/'
+
+    def valid_form(self, form):
+        data = form.cleaned_data
+        room_list = Room.object.filter(category=data['room_category'])
+        available_rooms = []
+
+        for room in room_list:
+            if check_availability(room, data['booking_date']):
+                available_rooms.append(room)
+
+        if form.is_valid():
+            if len(available_rooms)>0:
+                room = available_rooms[0]
+                booking = Booking.objects.create(
+                    user = self.request.user,
+                    room = room,
+                    booking_date = data['booking_date'],
+                )
+                booking.save()
+                return HttpResponse(booking)
+            else:
+                return HttpResponse('This room is not available for the date selected.')
