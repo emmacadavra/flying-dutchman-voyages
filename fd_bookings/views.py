@@ -25,6 +25,13 @@ class RoomList(generic.ListView):
 class ViewBookingList(generic.ListView):
     model = Booking
     template_name = 'fd_bookings/view_bookings.html'
+    def get_queryset(self, *args, **kwargs):
+        if self.request.user.is_staff:
+            booking_list = Booking.objects.all()
+            return booking_list
+        else:
+            booking_list = Booking.objects.filter(user=self.request.user)
+            return booking_list
 
 
 
