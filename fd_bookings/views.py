@@ -24,6 +24,14 @@ class BookingList(generic.ListView):
 
 
 # tutorial code
+class RoomDetailView(View):
+    def get(self, request, *args, **kwargs):
+        room_category = self.kwargs.get('category', None)
+        room_list = Room.objects.filter(category=category)
+        room = room_category[0]
+
+
+
 class BookingView(generic.FormView):
     form_class = AvailabilityForm
     template_name = 'fd_bookings/make_booking.html'
