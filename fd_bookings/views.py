@@ -19,12 +19,12 @@ def contact(request):
 
 class RoomList(generic.ListView):
     model = Room
-    template_name = 'room_list.html'
+    template_name = 'fd_bookings/our_rooms.html'
 
 
-class BookingList(generic.ListView):
+class ViewBookingList(generic.ListView):
     model = Booking
-    template_name = 'booking_list.html'
+    template_name = 'fd_bookings/view_bookings.html'
 
 
 
