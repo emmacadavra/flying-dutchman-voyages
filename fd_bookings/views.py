@@ -19,9 +19,15 @@ def contact(request):
     return render(request, 'contact.html',)
 
 
-class RoomList(generic.ListView):
-    model = Room
-    template_name = 'fd_bookings/our_rooms.html'
+class RoomList(request):
+    room = Room.objects.all()[0]
+    room_categories = dict(room.ROOM_CATEGORIES)
+    room_values = room_categories.values()
+    room_list = []
+    for room_category in room_categories:
+
+    context = {}
+    return(render(request, 'fd_bookings/our_rooms.html', context))
 
 
 class ViewBookingList(generic.ListView):
