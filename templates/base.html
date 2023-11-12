@@ -10,7 +10,42 @@
     <title>Flying Dutchman Voyages</title>
 </head>
 <body>
-    <h1>Flying Dutchman Voyages</h1>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#"><h1>Flying Dutchman Voyages</h1></a>
+            <ul>
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">Book Now!</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="#">My Bookings</a>
+                </li>
+                <li>
+                    <a href="#">Log Out</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="#">Log In</a>
+                </li>
+                <li>
+                    <a href="#">Register</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
 
     {% block content %}
     <!-- Content Goes here -->
