@@ -44,10 +44,11 @@ class RoomDetailView(View):
         room_list = Room.object.filter(category=room_category)
 
         if len(room_list)>0:
-            room = room_category[0]
-            room_category = dict(room.ROOM_CATEGORIES).get(room.category)
+            room = room_list[0]
+            room_category = dict(room.ROOM_CATEGORIES).get(room.category, None)
             context = {
-                'room_category': room.category
+                'room_category': room_category,
+                'form': form,
             }
             return render(request, 'room_detail.html', context)
         
