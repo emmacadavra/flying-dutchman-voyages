@@ -7,6 +7,10 @@ from fd_bookings.booking_functions.availability import check_availability
 
 
 # Create your views here.
+def home(request):
+    return render(request, 'fd_bookings/index.html',)
+
+
 class RoomList(generic.ListView):
     model = Room
     template_name = 'room_list.html'
@@ -15,6 +19,8 @@ class RoomList(generic.ListView):
 class BookingList(generic.ListView):
     model = Booking
     template_name = 'booking_list.html'
+
+
 
 
 # tutorial code
