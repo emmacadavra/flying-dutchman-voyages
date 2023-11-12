@@ -1,6 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from .models import Room, Booking
 from .forms import AvailabilityForm
 from fd_bookings.booking_functions.availability import check_availability
@@ -24,7 +24,7 @@ class RoomList(generic.ListView):
 
 class ViewBookingList(generic.ListView):
     model = Booking
-    template_name = 'fd_bookings/view_bookings.html'
+    template_name = 'fd_bookings/manage_bookings.html'
     def get_queryset(self, *args, **kwargs):
         if self.request.user.is_staff:
             booking_list = Booking.objects.all()
@@ -37,44 +37,23 @@ class ViewBookingList(generic.ListView):
 
 
 # tutorial code
-# class RoomDetailView(View):
-#     def get(self, request, *args, **kwargs):
-#         room_category = self.kwargs.get('category', None)
-#         rooms = Room.object.filter(category=room_category)
-#         room = room_category[0]
-#         context = {
-#             'room_category': room.category
-#         }
-#         return render(request, 'room_detail.html', context)
+class RoomDetailView(View):
+    def get(self, request, *args, **kwargs):
+        room_category = self.kwargs.get('category', None)
+        form = AvailabilityForm()
+        room_list = Room.object.filter(category=room_category)
+
+        if len(room_list)>0:
+            room = room_category[0]
+            room_category = dict(room.ROOM_CATEGORIES).get(room.category)
+            context = {
+                'room_category': room.category
+            }
+            return render(request, 'room_detail.html', context)
         
 
-#     def post(self, request, *args, **kwargs):
-#         rooms = Room.object.filter(category=category)
-#         available_rooms = []
-
-#         for room in rooms:
-#             if check_availability(room, data['booking_date']):
-#                 available_rooms.append(room)
-
-#         if len(available_rooms)>0:
-#             room = available_rooms[0]
-#             booking = Booking.objects.create(
-#                 user = self.request.user,
-#                 room = room,
-#                 booking_date = data['booking_date'],
-#             )
-#             booking.save()
-#             return HttpResponse(booking)
-#         else:
-#             return HttpResponse('This room type is not available.')
-
-class BookingView(generic.FormView):
-    form_class = AvailabilityForm
-    template_name = 'fd_bookings/make_booking.html'
-
-    def valid_form(self, form):
-        data = form.cleaned_data
-        rooms = Room.object.filter(category=data['room_category'])
+    def post(self, request, *args, **kwargs):
+        rooms = Room.object.filter(category=room_category)
         available_rooms = []
 
         for room in rooms:
@@ -82,7 +61,6 @@ class BookingView(generic.FormView):
                 available_rooms.append(room)
 
         if len(available_rooms)>0:
-
             room = available_rooms[0]
             booking = Booking.objects.create(
                 user = self.request.user,
@@ -93,3 +71,29 @@ class BookingView(generic.FormView):
             return HttpResponse(booking)
         else:
             return HttpResponse('This room type is not available.')
+
+class BookingView(generic.FormView):
+    form_class = AvailabilityForm
+    template_name = 'fd_bookings/room_detail.html'
+    success_url = '/'
+
+    def valid_form(self, form):
+        data = form.cleaned_data
+        room_list = Room.object.filter(category=data['room_category'])
+        available_rooms = []
+
+        for room in room_list:
+            if check_availability(room, data['booking_date']):
+                available_rooms.append(room)
+
+        if len(available_rooms)>0:
+            room = available_rooms[0]
+            booking = Booking.objects.create(
+                user = self.request.user,
+                room = room,
+                booking_date = data['booking_date'],
+            )
+            booking.save()
+            return HttpResponse(booking)
+        else:
+            return HttpResponse('This room is not available for the date selected.')

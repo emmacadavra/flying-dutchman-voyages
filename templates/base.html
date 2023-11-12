@@ -30,7 +30,7 @@
                 </li>
                 {% if user.is_authenticated %}
                 <li>
-                    <a href="{% url 'fd_bookings:view_bookings' %}">My Bookings</a>
+                    <a href="{% url 'fd_bookings:manage_bookings' %}">My Bookings</a>
                 </li>
                 <li>
                     <a href="{% url 'account_logout' %}">Log Out</a>
