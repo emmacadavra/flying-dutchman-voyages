@@ -6,9 +6,14 @@
     This is the room detail page.
 </h2>
 
-<!-- <h3>
-    {{ room_category }}
-</h3> -->
+<div>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <button type="submit">Book Now</button>
+    </form>
+</div>
 
 
 {% endblock %}
