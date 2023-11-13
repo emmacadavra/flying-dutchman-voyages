@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404, reverse
-from django.views import generic, View
+from django.shortcuts import render, get_object_or_404
+from django.views import generic
 from django.http import HttpResponse
+from django.urls import reverse, reverse_lazy
 from .models import Room, Booking
 from .forms import AvailabilityForm
 from fd_bookings.booking_functions.availability import check_availability
@@ -50,7 +51,7 @@ class ViewBookingList(generic.ListView):
 
 
 # tutorial code
-class RoomDetailView(View):
+class RoomDetailView(generic.View):
     def get(self, request, *args, **kwargs):
         room_category = self.kwargs.get('category', None)
         form = AvailabilityForm()
@@ -124,6 +125,6 @@ class RoomDetailView(View):
 #             else:
 #                 return HttpResponse('Unavailable - please try a different room.')
 
-class CancelBooking(DeleteView):
+class CancelBooking(generic.DeleteView):
     model = Booking
-    
+    success_url = reverse_lazy('fd_bookings:ViewBookingList')
