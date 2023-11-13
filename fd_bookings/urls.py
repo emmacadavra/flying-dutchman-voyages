@@ -9,4 +9,5 @@ urlpatterns=[
     # path('room_detail/', views.BookingView.as_view(), name='room_detail'),
     path('manage_bookings/', views.ViewBookingList.as_view(), name='manage_bookings'),
     path('room/<category>', views.RoomDetailView.as_view(), name='RoomDetailView'),
+    path('manage_bookings/cancel/<pk>', views.CancelBooking.as_view(), name='cancel_booking'),
 ]

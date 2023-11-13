@@ -123,3 +123,7 @@ class RoomDetailView(View):
 #                 return HttpResponse(booking)
 #             else:
 #                 return HttpResponse('Unavailable - please try a different room.')
+
+class CancelBooking(DeleteView):
+    model = Booking
+    
