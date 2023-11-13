@@ -3,7 +3,7 @@ from django import forms
 
 class AvailabilityForm(forms.Form):
     ROOM_CATEGORIES = (
-        ('CAP', 'CAPTAINS QUARTERS'),
+        ('CAP', 'CAPTAIN\'S QUARTERS'),
         ('OCD', 'DOUBLE CABIN'),
         ('OCS', 'SINGLE CABIN'),
         ('CRW', 'CREW BUNKS'),

@@ -96,30 +96,30 @@ class RoomDetailView(View):
 
 
 #tutorial code
-class BookingView(generic.FormView):
-    form_class = AvailabilityForm
-    template_name = 'fd_bookings/room_detail.html'
+# class BookingView(generic.FormView):
+#     form_class = AvailabilityForm
+#     template_name = 'fd_bookings/room_detail.html'
 
-    def form_valid(self, form):
+#     def form_valid(self, form):
 
-        data = form.cleaned_data
-        room_list = Room.objects.filter(category=data['room_category'])
-        available_rooms = []
+#         data = form.cleaned_data
+#         room_list = Room.objects.filter(category=data['room_category'])
+#         available_rooms = []
 
-        for room in room_list:
-            if check_availability(room, data['booking_date']):
-                available_rooms.append(room)
+#         for room in room_list:
+#             if check_availability(room, data['booking_date']):
+#                 available_rooms.append(room)
 
-        if form.is_valid():
-            if len(available_rooms)>0:
-                room = available_rooms[0]
-                booking = Booking.objects.create(
-                    user = self.request.user,
-                    room = room,
-                    booking_date = data['booking_date'],
-                    num_passengers = data['num_passengers']
-                )
-                booking.save()
-                return HttpResponse(booking)
-            else:
-                return HttpResponse('Unavailable - please try a different room.')
+#         if form.is_valid():
+#             if len(available_rooms)>0:
+#                 room = available_rooms[0]
+#                 booking = Booking.objects.create(
+#                     user = self.request.user,
+#                     room = room,
+#                     booking_date = data['booking_date'],
+#                     num_passengers = data['num_passengers']
+#                 )
+#                 booking.save()
+#                 return HttpResponse(booking)
+#             else:
+#                 return HttpResponse('Unavailable - please try a different room.')

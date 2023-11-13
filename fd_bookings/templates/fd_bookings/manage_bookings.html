@@ -8,10 +8,11 @@
 
 {% for booking in booking_list %}
 <div>
-    <h3>{{ booking.room.category }}</h3>
+    <h3>Type: {{ booking.room.category }}</h3>
     <h4>Date of departure: {{ booking.booking_date }}</h4>
     <h4>Number of passengers: {{ booking.num_passengers }}</h4>
-    <!-- Cancel booking option to appear -->
+    <a href="#"><p>Cancel Booking</p></a>
+    <!-- {{ booking.cancel_booking }} -->
 </div>
 {% endfor %}
 

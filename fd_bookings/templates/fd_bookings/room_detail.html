@@ -11,15 +11,10 @@
         {% csrf_token %}
 
         <div>
-            <label for="id_room_category">
-                Room category:
-            </label>
-            <select id="id_room_category" name="room_category">
-                <option value="CAP">CAPTAIN'S QUARTERS</option>
-                <option value="OCD">DOUBLE CABIN</option>
-                <option value="OCS">SINGLE CABIN</option>
-                <option value="CRW">CREW BUNKS</option>
-            </select>
+            <h3>
+                {{ room_category }}
+            </h3>
+            
         </div>
 
         <div>
