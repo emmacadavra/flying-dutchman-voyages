@@ -36,8 +36,9 @@ class Booking(models.Model):
     #     if value is not 1
 
     def get_category_name(self):
-        room_categories = dict({self.room.ROOM_CATEGORIES}).get(self.room.category)
-        
+        room_categories = dict({self.room.ROOM_CATEGORIES})
+        room_category = room_categories.get(self.room.category)
+        return room_category
 
     def __str__(self):
         return f"Booking {self.id} created by {self.user.username}. Room {self.room} on {self.booking_date}"
