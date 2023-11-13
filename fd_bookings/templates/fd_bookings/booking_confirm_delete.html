@@ -2,6 +2,29 @@
 
 {% block content %}
 
+<h2>
+    Confirm booking cancellation.
+</h2>
 
+<div>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <div>
+            <h3>
+                Please confirm that you wish to delete this booking:
+            </h3>
+            <div>
+                <h3>{{ booking.get_room_name }}</h3>
+                <h4>Date of departure: {{ booking.booking_date }}</h4>
+                <h4>Number of passengers: {{ booking.num_passengers }}</h4>
+            </div>
+        </div>
+
+        <div>
+            <input type="submit" value="Cancel Booking">
+        </div>
+    </form>
+</div>
 
 {% endblock %}

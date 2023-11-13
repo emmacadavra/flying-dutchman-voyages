@@ -23,14 +23,14 @@
                     <a href="{% url 'events' %}">Events</a>
                 </li>
                 <li>
-                    <a href="{% url 'fd_bookings:our_rooms' %}">Our Rooms</a>
+                    <a href="{% url 'fd_bookings:RoomList' %}">Our Rooms</a>
                 </li>
                 <li>
                     <a href="{% url 'contact' %}">Contact</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li>
-                    <a href="{% url 'fd_bookings:manage_bookings' %}">My Bookings</a>
+                    <a href="{% url 'fd_bookings:ViewBookingList' %}">My Bookings</a>
                 </li>
                 <li>
                     <a href="{% url 'account_logout' %}">Log Out</a>

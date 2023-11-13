@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse, reverse_lazy
 from cloudinary.models import CloudinaryField
 
 
@@ -44,4 +45,5 @@ class Booking(models.Model):
         room_category = room_categories.get(self.room.category)
         return room_category
     
-    # def cancel_booking(self):
+    def get_cancel_booking(self):
+        return reverse_lazy('fd_bookings:CancelBooking', args=[self.pk])

@@ -127,4 +127,5 @@ class RoomDetailView(generic.View):
 
 class CancelBooking(generic.DeleteView):
     model = Booking
+    template_name = 'fd_bookings/booking_confirm_delete.html'
     success_url = reverse_lazy('fd_bookings:ViewBookingList')
