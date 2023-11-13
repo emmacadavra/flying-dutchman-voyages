@@ -63,6 +63,7 @@ class RoomDetailView(generic.View):
             context = {
                 'room_category': room_category,
                 'form': form,
+                'room': room,
             }
             return render(request, 'fd_bookings/room_detail.html', context)
         else:
