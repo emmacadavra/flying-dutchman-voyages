@@ -35,6 +35,9 @@ class Booking(models.Model):
     # def validate_sun(value):
     #     if value is not 1
 
+    def get_category_name(self):
+        room_categories = dict({self.room.ROOM_CATEGORIES}).get(self.room.category)
+        
 
     def __str__(self):
         return f"Booking {self.id} created by {self.user.username}. Room {self.room} on {self.booking_date}"
