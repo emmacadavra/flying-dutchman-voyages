@@ -6,8 +6,12 @@
     This is the room list page.
 </h2>
 
-{% for room_category in room_list %}
-<a href="../room_detail/"><h3>{{ room_category }} - BOOK HERE</h3></a>
+{% for room_category, room_url in room_list %}
+
+<a href="{{ room_url }}"><h2>{{ room_category }}</h2></a>
+
+<!-- <a href="../room_detail/"><h3>{{ room_category }} - BOOK HERE</h3></a> -->
+
 {% endfor %}
 
 {% endblock %}

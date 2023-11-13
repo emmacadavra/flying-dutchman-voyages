@@ -19,7 +19,7 @@ def contact(request):
     return render(request, 'contact.html',)
 
 
-class RoomList(request):
+def RoomList(request):
     room = Room.objects.all()[0]
     room_categories = dict(room.ROOM_CATEGORIES)
     room_values = room_categories.values()
@@ -28,8 +28,12 @@ class RoomList(request):
     for room_category in room_categories:
         room = room_categories.get(room_category)
         room_url = reverse('fd_bookings:RoomDetailView', kwargs={'category': room_category})
+        
+        room_list.append((room, room_url))
 
-    context = {}
+    context = {
+        "room_list": room_list,
+    }
     return(render(request, 'fd_bookings/our_rooms.html', context))
 
 
@@ -59,7 +63,7 @@ class RoomDetailView(View):
                 'room_category': room_category,
                 'form': form,
             }
-            return render(request, 'room_detail.html', context)
+            return render(request, 'fd_bookings/room_detail.html', context)
         else:
             return HttpResponse('Room category does not exist.')
 
