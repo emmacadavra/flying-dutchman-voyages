@@ -72,10 +72,11 @@ class RoomDetailView(generic.View):
         room_category = self.kwargs.get('category', None)
         room_list = Room.objects.filter(category=room_category)
         form = AvailabilityForm(request.POST)
-
+        print(form)
         if form.is_valid():
+            print('here')
             data = form.cleaned_data
-
+            print(data)
         available_rooms = []
 
         for room in room_list:
