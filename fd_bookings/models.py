@@ -6,13 +6,13 @@ from cloudinary.models import CloudinaryField
 
 class Room(models.Model):
     ROOM_CATEGORIES = (
-        ('CAP', 'CAPTAIN\'S QUARTERS'),
-        ('OCD', 'DOUBLE CABIN'),
-        ('OCS', 'SINGLE CABIN'),
-        ('CRW', 'CREW BUNKS'),
+        ('CAPQ', 'Captain\'s Quarters'),
+        ('DCBN', 'Double Cabin'),
+        ('SCBN', 'Single Cabin'),
+        ('CRWH', 'Crew Hammocks'),
     )
 
-    category = models.CharField(max_length=3, choices=ROOM_CATEGORIES)
+    category = models.CharField(max_length=4, choices=ROOM_CATEGORIES)
     number = models.IntegerField()
     beds = models.IntegerField()
     capacity = models.IntegerField()
