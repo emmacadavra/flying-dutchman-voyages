@@ -8,3 +8,5 @@ def book_room(request, room, booking_date, num_passengers):
             num_passengers = num_passengers,
         )
         booking.save()
+
+        return booking

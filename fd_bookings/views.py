@@ -75,10 +75,10 @@ class RoomDetailView(generic.View):
         if form.is_valid():
             data = form.cleaned_data
 
-        available_rooms = get_available_rooms()
+        available_rooms = get_available_rooms(room_category, data['booking_date'], data['num_passengers'])
 
         if available_rooms is not None:
-            book_room(request, available_rooms[0], data['booking_date'], data['num_passengers'])
+            booking = book_room(request, available_rooms[0], data['booking_date'], data['num_passengers'])
 
 # NEED TO UPDATE THESE TO BETTER RESPONSES/REDIRECTS
             return HttpResponse(booking)
