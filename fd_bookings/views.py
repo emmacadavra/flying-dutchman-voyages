@@ -41,7 +41,6 @@ class ViewBookingList(generic.ListView):
             return booking_list
 
 
-# tutorial code
 class RoomDetailView(generic.View):
     def get(self, request, *args, **kwargs):
         room_category = self.kwargs.get('category', None)
@@ -58,6 +57,7 @@ class RoomDetailView(generic.View):
             }
             return render(request, 'fd_bookings/room_detail.html', context)
         else:
+# NEED TO UPDATE THIS TO BETTER RESPONSES/REDIRECTS
             return HttpResponse('Room category does not exist.')
 
     def post(self, request, *args, **kwargs):
@@ -66,7 +66,6 @@ class RoomDetailView(generic.View):
         form = AvailabilityForm(request.POST)
         print(form)
         if form.is_valid():
-            print('here')
             data = form.cleaned_data
             print(data)
         available_rooms = []
@@ -84,6 +83,8 @@ class RoomDetailView(generic.View):
                 num_passengers = data['num_passengers']
             )
             booking.save()
+
+# NEED TO UPDATE THESE TO BETTER RESPONSES/REDIRECTS
             return HttpResponse(booking)
         else:
             return HttpResponse('This room is not available.')
