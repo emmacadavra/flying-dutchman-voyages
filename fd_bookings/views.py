@@ -142,7 +142,9 @@ class EditBooking(generic.View):
 
         if form.is_valid():
             form.save()
-
+            return HttpResponse(booking)
+        else:
+            return HttpResponse('This room is not available.')
 
 class CancelBooking(generic.DeleteView):
     # ADD DOCSTRING
