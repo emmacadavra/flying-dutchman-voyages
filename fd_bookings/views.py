@@ -132,6 +132,9 @@ class RoomDetailView(generic.View):
             return HttpResponse('This room is not available.')
 
 
+# class EditBooking(generic.View):
+
+
 
 class CancelBooking(generic.DeleteView):
     # ADD DOCSTRING
