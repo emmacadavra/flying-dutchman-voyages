@@ -38,13 +38,12 @@ class ViewBookingList(generic.ListView):
             return booking_list
         else:
             booking_list = Booking.objects.filter(user=self.request.user)
-            print(x)
             return booking_list
-
+        
 
 class RoomDetailView(generic.View):
     def get(self, request, *args, **kwargs):
-        room_category = self.kwargs.get('category', None)
+        room_category = kwargs.get('category', None)
         form = AvailabilityForm()
         room_list = Room.objects.filter(category=room_category)
 
@@ -62,7 +61,7 @@ class RoomDetailView(generic.View):
             return HttpResponse('Room category does not exist.')
 
     def post(self, request, *args, **kwargs):
-        room_category = self.kwargs.get('category', None)
+        room_category = kwargs.get('category', None)
         room_list = Room.objects.filter(category=room_category)
         form = AvailabilityForm(request.POST)
         print(form)
