@@ -6,6 +6,7 @@ from .models import Room, Booking
 from .forms import AvailabilityForm
 from fd_bookings.booking_functions.check_availability import check_availability
 from fd_bookings.booking_functions.get_room_category_urls import get_room_category_urls
+from fd_bookings.booking_functions.get_category_string import get_category_string
 
 
 def home_page(request):
@@ -44,14 +45,16 @@ class ViewBookingList(generic.ListView):
 class RoomDetailView(generic.View):
     def get(self, request, *args, **kwargs):
         room_category = kwargs.get('category', None)
+        category_string = get_category_string(room_category)
         form = AvailabilityForm()
 
         context = {
-            'room_category': room_category,
+            'room_category': category_string,
             'form': form,
             'room': room,
         }
-    return render(request, 'fd_bookings/room_detail.html', context)
+        
+        return render(request, 'fd_bookings/room_detail.html', context)
     # else:
     # # NEED TO UPDATE THIS TO BETTER RESPONSES/REDIRECTS
     # return HttpResponse('Room category does not exist.')
