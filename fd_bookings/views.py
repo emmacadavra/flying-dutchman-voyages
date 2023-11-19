@@ -10,18 +10,22 @@ from fd_bookings.booking_functions.get_category_string import get_category_strin
 
 
 def home_page(request):
+    # ADD DOCSTRING
     return render(request, 'index.html',)
 
 
 def events_page(request):
+    # ADD DOCSTRING
     return render(request, 'events.html',)
 
 
 def contact_page(request):
+    # ADD DOCSTRING
     return render(request, 'contact.html',)
 
 
 def RoomList(request):
+    # ADD DOCSTRING
     room_category_urls = get_room_category_urls()
 
     context = {
@@ -31,6 +35,7 @@ def RoomList(request):
 
 
 class ViewBookingList(generic.ListView):
+    # ADD DOCSTRING
     model = Booking
     template_name = 'fd_bookings/manage_bookings.html'
     def get_queryset(self, *args, **kwargs):
@@ -43,6 +48,7 @@ class ViewBookingList(generic.ListView):
         
 
 class RoomDetailView(generic.View):
+    # ADD DOCSTRING
     def get(self, request, *args, **kwargs):
         room_category = kwargs.get('category', None)
         category_string = get_category_string(room_category)
@@ -91,6 +97,7 @@ class RoomDetailView(generic.View):
 
 
 class CancelBooking(generic.DeleteView):
+    # ADD DOCSTRING
     model = Booking
     template_name = 'fd_bookings/booking_confirm_delete.html'
     success_url = reverse_lazy('fd_bookings:ViewBookingList')

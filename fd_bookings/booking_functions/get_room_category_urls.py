@@ -3,6 +3,7 @@ from django.urls import reverse, reverse_lazy
 
 
 def get_room_category_urls():
+    # ADD DOCSTRING
     room = Room.objects.all()[0]
     room_categories = dict(room.ROOM_CATEGORIES)
     room_category_urls = []

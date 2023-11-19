@@ -3,6 +3,7 @@ from fd_bookings.models import Room, Booking
 
 
 def check_availability(room, booking_date):
+    # ADD DOCSTRING
     available_list = []
     booking_list = Booking.objects.filter(room=room)
     for booking in booking_list:
