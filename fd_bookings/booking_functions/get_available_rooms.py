@@ -1,5 +1,5 @@
 from fd_bookings.models import Room
-from fd_bookings.booking_functions.check_availability import check_availability
+from .check_availability import check_availability
 
 
 def get_available_rooms(room_category, form):
