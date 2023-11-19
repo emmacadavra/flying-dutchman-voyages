@@ -138,6 +138,10 @@ class EditBooking(generic.View):
     def edit_booking(self, request, *args, **kwargs):
         booking_id = kwargs.get('booking_id')
         booking = get_object_or_404(Booking, id=booking_id)
+        form = AvailabilityForm(request.POST, instance=booking)
+
+        if form.is_valid():
+            form.save()
 
 
 class CancelBooking(generic.DeleteView):
