@@ -19,9 +19,9 @@ from fd_bookings import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('events/', views.events, name='events'),
-    path('contact/', views.contact, name='contact'),
+    path('', views.home_page, name='home'),
+    path('events/', views.events_page, name='events'),
+    path('contact/', views.contact_page, name='contact'),
     path('', include('fd_bookings.urls'), name='fd_bookings_urls'),
     path('accounts/', include('allauth.urls')),
 ]

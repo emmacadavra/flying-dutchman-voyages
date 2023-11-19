@@ -8,15 +8,15 @@ from fd_bookings.booking_functions.availability import check_availability
 from fd_bookings.booking_functions.room_category_urls import get_room_category_urls
 
 
-def home(request):
+def home_page(request):
     return render(request, 'index.html',)
 
 
-def events(request):
+def events_page(request):
     return render(request, 'events.html',)
 
 
-def contact(request):
+def contact_page(request):
     return render(request, 'contact.html',)
 
 
