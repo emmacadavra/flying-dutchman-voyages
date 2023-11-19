@@ -8,6 +8,7 @@ from fd_bookings.booking_functions.check_availability import check_availability
 from fd_bookings.booking_functions.get_room_category_urls import get_room_category_urls
 from fd_bookings.booking_functions.get_category_string import get_category_string
 from fd_bookings.booking_functions.get_available_rooms import get_available_rooms
+from fd_bookings.booking_functions.book_room import book_room
 
 
 def home_page(request):
@@ -71,10 +72,13 @@ class RoomDetailView(generic.View):
         room_category = kwargs.get('category', None)
         form = AvailabilityForm(request.POST)
 
+        if form.is_valid():
+            data = form.cleaned_data
+
         available_rooms = get_available_rooms()
 
         if available_rooms is not None:
-            book_room(available_rooms[0])
+            book_room(request, available_rooms[0], data['booking_date'], data['num_passengers'])
 
 # NEED TO UPDATE THESE TO BETTER RESPONSES/REDIRECTS
             return HttpResponse(booking)
