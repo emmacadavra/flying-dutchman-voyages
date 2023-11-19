@@ -5,6 +5,7 @@ from django.urls import reverse, reverse_lazy
 from .models import Room, Booking
 from .forms import AvailabilityForm
 from fd_bookings.booking_functions.availability import check_availability
+from fd_bookings.booking_functions.get_rooms import get_rooms
 
 
 def home(request):
