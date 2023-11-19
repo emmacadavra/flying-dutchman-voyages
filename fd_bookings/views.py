@@ -76,15 +76,6 @@ class RoomDetailView(generic.View):
         if available_rooms is not None:
             book_room(available_rooms[0])
 
-        if len(available_rooms) > 0:
-            booking = Booking.objects.create(
-                user = self.request.user,
-                room = room,
-                booking_date = data['booking_date'],
-                num_passengers = data['num_passengers']
-            )
-            booking.save()
-
 # NEED TO UPDATE THESE TO BETTER RESPONSES/REDIRECTS
             return HttpResponse(booking)
         else:
