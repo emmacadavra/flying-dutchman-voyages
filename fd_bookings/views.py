@@ -5,7 +5,7 @@ from django.urls import reverse, reverse_lazy
 from .models import Room, Booking
 from .forms import AvailabilityForm
 from fd_bookings.booking_functions.availability import check_availability
-from fd_bookings.booking_functions.get_rooms import get_rooms
+from fd_bookings.booking_functions.room_category_urls import get_room_category_urls
 
 
 def home(request):
@@ -21,7 +21,7 @@ def contact(request):
 
 
 def RoomList(request):
-    room_category_urls = get_rooms()
+    room_category_urls = get_room_category_urls()
 
     context = {
         "room_list": room_category_urls,
@@ -38,6 +38,7 @@ class ViewBookingList(generic.ListView):
             return booking_list
         else:
             booking_list = Booking.objects.filter(user=self.request.user)
+            print(x)
             return booking_list
 
 
