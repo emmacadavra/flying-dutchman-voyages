@@ -1,0 +1,1 @@
+from fd_bookings.models import Room

@@ -44,7 +44,7 @@ class ViewBookingList(generic.ListView):
 
 class RoomDetailView(generic.View):
     def get(self, request, *args, **kwargs):
-        room_category = self.kwargs.get('category', None)
+        room_category = kwargs.get('category', None)
         category_string = get_category_string(room_category)
         form = AvailabilityForm()
 
