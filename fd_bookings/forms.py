@@ -3,10 +3,10 @@ from django import forms
 
 class AvailabilityForm(forms.Form):
     ROOM_CATEGORIES = (
-        ('CAP', 'CAPTAIN\'S QUARTERS'),
-        ('OCD', 'DOUBLE CABIN'),
-        ('OCS', 'SINGLE CABIN'),
-        ('CRW', 'CREW BUNKS'),
+        ('CAPQ', 'CAPTAIN\'S QUARTERS'),
+        ('DCBN', 'DOUBLE CABIN'),
+        ('SCBN', 'SINGLE CABIN'),
+        ('CRWH', 'CREW BUNKS'),
     )
     
     booking_date = forms.DateField(required=True)
