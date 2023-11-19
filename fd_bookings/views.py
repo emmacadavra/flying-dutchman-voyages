@@ -4,7 +4,6 @@ from django.http import HttpResponse
 from django.urls import reverse, reverse_lazy
 from .models import Room, Booking
 from .forms import AvailabilityForm
-from fd_bookings.booking_functions.check_availability import check_availability
 from fd_bookings.booking_functions.get_room_category_urls import get_room_category_urls
 from fd_bookings.booking_functions.get_category_string import get_category_string
 from fd_bookings.booking_functions.get_available_rooms import get_available_rooms
