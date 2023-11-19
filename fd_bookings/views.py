@@ -132,8 +132,12 @@ class RoomDetailView(generic.View):
             return HttpResponse('This room is not available.')
 
 
-# class EditBooking(generic.View):
-
+class EditBooking(generic.View):
+    model = Booking
+    template_name = 'fd_bookings/edit_booking.html'
+    def edit_booking(self, request, *args, **kwargs):
+        booking_id = kwargs.get('booking_id')
+        booking = get_object_or_404(Booking, id=booking_id)
 
 
 class CancelBooking(generic.DeleteView):
