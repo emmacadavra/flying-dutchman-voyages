@@ -4,8 +4,8 @@ from django.http import HttpResponse
 from django.urls import reverse, reverse_lazy
 from .models import Room, Booking
 from .forms import AvailabilityForm
-from fd_bookings.booking_functions.availability import check_availability
-from fd_bookings.booking_functions.room_category_urls import get_room_category_urls
+from fd_bookings.booking_functions.check_availability import check_availability
+from fd_bookings.booking_functions.get_room_category_urls import get_room_category_urls
 
 
 def home_page(request):
@@ -64,10 +64,10 @@ class RoomDetailView(generic.View):
         room_category = kwargs.get('category', None)
         room_list = Room.objects.filter(category=room_category)
         form = AvailabilityForm(request.POST)
-        print(form)
+
         if form.is_valid():
             data = form.cleaned_data
-            print(data)
+
         available_rooms = []
 
         for room in room_list:

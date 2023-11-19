@@ -1,4 +1,5 @@
 from django import forms
+from django.core.exceptions import ValidationError
 
 
 class AvailabilityForm(forms.Form):
@@ -10,10 +11,11 @@ class AvailabilityForm(forms.Form):
     )
 
     # def validate_sunday(value):
-    #     if value is not 6:
+    #     if value != 6:
     #         raise ValidationError(
     #             ('%(value)s is not a valid day of departure'), params={'value': value},
     #         )
+
     # booking_date = forms.DateField(validators=[validate_sunday], required=True)
     booking_date = forms.DateField(required=True)
     num_passengers = forms.IntegerField(required=True)
