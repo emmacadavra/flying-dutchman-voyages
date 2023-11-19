@@ -44,19 +44,20 @@ class ViewBookingList(generic.ListView):
 
 class RoomDetailView(generic.View):
     def get(self, request, *args, **kwargs):
-        room_category = kwargs.get('category', None)
+        room_category = self.kwargs.get('category', None)
         category_string = get_category_string(room_category)
         form = AvailabilityForm()
 
-        context = {
-            'room_category': category_string,
-            'form': form,
-        }
-
-        return render(request, 'fd_bookings/room_detail.html', context)
-    # else:
-    # # NEED TO UPDATE THIS TO BETTER RESPONSES/REDIRECTS
-    # return HttpResponse('Room category does not exist.')
+        if category_string is not None:
+        #  NEED TO INVESTIGATE HOW TO DISPLAY BEDS + CAPACITY AS IT IS NOT CURRENTLY WORKING
+            context = {
+                'room_category': category_string,
+                'form': form,
+            }
+            return render(request, 'fd_bookings/room_detail.html', context)
+        else:
+    # NEED TO UPDATE THIS TO BETTER RESPONSES/REDIRECTS
+            return HttpResponse('Room category does not exist.')
 
 
     def post(self, request, *args, **kwargs):
