@@ -7,7 +7,6 @@ from .forms import AvailabilityForm
 from fd_bookings.booking_functions.availability import check_availability
 
 
-# Create your views here.
 def home(request):
     return render(request, 'index.html',)
 
@@ -22,8 +21,9 @@ def contact(request):
 
 def RoomList(request):
     room = Room.objects.all()[0]
+    # room_values = room_categories.values()
+
     room_categories = dict(room.ROOM_CATEGORIES)
-    room_values = room_categories.values()
     room_list = []
 
     for room_category in room_categories:
