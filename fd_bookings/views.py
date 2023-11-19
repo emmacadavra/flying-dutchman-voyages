@@ -51,9 +51,8 @@ class RoomDetailView(generic.View):
         context = {
             'room_category': category_string,
             'form': form,
-            'room': room,
         }
-        
+
         return render(request, 'fd_bookings/room_detail.html', context)
     # else:
     # # NEED TO UPDATE THIS TO BETTER RESPONSES/REDIRECTS
