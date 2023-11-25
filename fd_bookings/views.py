@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse, reverse_lazy
 from .models import Room, Booking
 from .forms import AvailabilityForm
@@ -127,7 +127,7 @@ class RoomDetailView(generic.View):
                 num_passengers = data['num_passengers']
             )
             booking.save()
-            return HttpResponse(booking)
+            return HttpResponseRedirect('fd_bookings/booking_success.html')
         else:
             return HttpResponse('This room is not available.')
 
@@ -142,9 +142,9 @@ class EditBooking(generic.View):
 
         if form.is_valid():
             form.save()
-            return HttpResponse(booking)
+            return HttpResponseRedirect('fd_bookings/booking_success.html')
         else:
-            return HttpResponse('This room is not available.')
+            return render(request, 'fd_bookings/edit_booking.html', {'form': form})
 
 class CancelBooking(generic.DeleteView):
     # ADD DOCSTRING
