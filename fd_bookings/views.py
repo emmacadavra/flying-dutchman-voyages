@@ -128,14 +128,14 @@ class RoomDetailView(generic.View):
                 num_passengers = data['num_passengers']
             )
             booking.save()
-            return HttpResponseRedirect('fd_bookings/booking_success.html')
+            return HttpResponseRedirect('/booking_success')
         else:
             return HttpResponse('This room is not available.')
         
 
 def booking_success(request):
     # ADD DOCSTRING
-    return render(request, 'booking_success.html',)
+    return render(request, 'fd_bookings/booking_success.html',)
 
 
 def amend_booking(request, *args, **kwargs):
@@ -146,7 +146,7 @@ def amend_booking(request, *args, **kwargs):
 
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect('fd_bookings/booking_success.html')
+        return HttpResponseRedirect('/booking_success')
     else:
         return render(request, 'fd_bookings/amend_booking.html', {'form': form})
 
