@@ -142,20 +142,26 @@ def amend_booking(request, *args, **kwargs):
     booking_id = kwargs.get('booking_id')
 
     booking = get_object_or_404(Booking, id=booking_id)
-
-    form = BookingForm()
-    context = {
-        'booking_id': booking_id,
-        'form': form,
-        'submitted': request.method == 'POST',
-        'is_valid': True,
-    }
+    print(booking.room.capacity)
+    
     
     if request.method == 'GET':
+        form = BookingForm()
+        context = {
+            'booking_id': booking_id,
+            'form': form,
+            'submitted': False,
+            'is_valid': True,
+        }
         return render(request, 'fd_bookings/amend_booking.html', context)
     else:
         form = BookingForm(request.POST)
-        context['is_valid'] = form.is_valid()
+        context = {
+            'booking_id': booking_id,
+            'form': form,
+            'submitted': True,
+            'is_valid': form.is_valid() and int(request.POST.get('num_passengers')) <= booking.room.capacity,
+        }
         if context['is_valid']:
             return render(request, 'fd_bookings/booking_success.html')
         else:

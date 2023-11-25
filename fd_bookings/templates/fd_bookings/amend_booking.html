@@ -31,8 +31,10 @@
 
     <form method="POST">
         {% csrf_token %}
+
+        {{ form }}
         
-        <div>
+        <!-- <div>
             <label for="id_booking_date">
                 Departure date:
             </label>
@@ -44,7 +46,7 @@
                 Number of passengers:
             </label>
             <input id="id_num_passengers" type="number" name="num_passengers">
-        </div>
+        </div> -->
 
         <div>
             <input type="submit" value="Book Now">
