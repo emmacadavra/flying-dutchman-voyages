@@ -12,8 +12,8 @@
     <h3>{{ booking.get_room_name }}</h3>
     <h4>Date of departure: {{ booking.booking_date }}</h4>
     <h4>Number of passengers: {{ booking.num_passengers }}</h4>
-    <a href="{{ booking.get_cancel_booking }}"><p>Cancel Booking</p></a>
-    <!-- <a href="#"></a> -->
+    <!-- <p><a href="{{ booking. }}">Amend Booking</a></p> -->
+    <p><a href="{{ booking.get_cancel_booking }}">Cancel Booking</a></p>
 </div>
 {% empty %}
 <div>

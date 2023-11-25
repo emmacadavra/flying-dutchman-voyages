@@ -26,7 +26,7 @@ def contact_page(request):
     return render(request, 'contact.html',)
 
 
-def RoomList(request):
+def room_list(request):
     # ADD DOCSTRING
     room_category_urls = get_room_category_urls()
 
@@ -131,11 +131,17 @@ class RoomDetailView(generic.View):
             return HttpResponseRedirect('fd_bookings/booking_success.html')
         else:
             return HttpResponse('This room is not available.')
+        
+
+def booking_success(request):
+    # ADD DOCSTRING
+    return render(request, 'booking_success.html',)
 
 
-def amend_booking(self, request, *args, **kwargs):
+def amend_booking(request, *args, **kwargs):
     booking_id = kwargs.get('booking_id')
     booking = get_object_or_404(Booking, id=booking_id)
+
     form = BookingForm(request.POST, instance=booking)
 
     if form.is_valid():
@@ -143,6 +149,7 @@ def amend_booking(self, request, *args, **kwargs):
         return HttpResponseRedirect('fd_bookings/booking_success.html')
     else:
         return render(request, 'fd_bookings/amend_booking.html', {'form': form})
+
 
 class CancelBooking(generic.DeleteView):
     # ADD DOCSTRING
