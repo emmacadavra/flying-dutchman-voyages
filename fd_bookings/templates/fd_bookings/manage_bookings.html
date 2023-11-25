@@ -6,13 +6,18 @@
     This is the booking list page.
 </h2>
 
+{% if user.is_authenticated %}
 {% for booking in booking_list %}
 <div>
     <h3>{{ booking.get_room_name }}</h3>
     <h4>Date of departure: {{ booking.booking_date }}</h4>
     <h4>Number of passengers: {{ booking.num_passengers }}</h4>
     <a href="{{ booking.get_cancel_booking }}"><p>Cancel Booking</p></a>
-    <a href="{{  }}"></a>
+    <!-- <a href="#"></a> -->
+</div>
+{% empty %}
+<div>
+    <p>You currently have no bookings.</p>
 </div>
 {% endfor %}
 
