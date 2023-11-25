@@ -143,20 +143,23 @@ def amend_booking(request, *args, **kwargs):
 
     booking = get_object_or_404(Booking, id=booking_id)
 
+    form = BookingForm()
     context = {
-        'booking_id': booking_id
+        'booking_id': booking_id,
+        'form': form,
+        'submitted': request.method == 'POST',
+        'is_valid': True,
     }
-    return render(request, 'fd_bookings/amend_booking.html', context)
-    # booking = get_object_or_404(Booking, id=booking_id)
-
-    # if request.method == 'POST':
-    #     form = BookingForm(request.POST, instance=booking)
-
-    #     if form.is_valid():
-    #         form.save()
-    #         return HttpResponseRedirect('/booking_success')
-    #     else:
-    #         return render(request, 'fd_bookings/amend_booking.html', {'form': form})
+    
+    if request.method == 'GET':
+        return render(request, 'fd_bookings/amend_booking.html', context)
+    else:
+        form = BookingForm(request.POST)
+        context['is_valid'] = form.is_valid()
+        if context['is_valid']:
+            return render(request, 'fd_bookings/booking_success.html')
+        else:
+            return render(request, 'fd_bookings/amend_booking.html', context)
 
 
 class CancelBooking(generic.DeleteView):

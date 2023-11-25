@@ -7,21 +7,31 @@
 </h2>
 
 <div>
+    <div>
+        <h3>
+            Booking ID: {{ booking_id }}<br />
+            {{ room_category }}
+        </h3>
+        <p>
+            Number of beds: {{ room.beds }}
+            <br>
+            Maximum number of passengers: {{ room.capacity }}
+        </p>
+    </div>
+
+    <div>
+        {% if submitted == True %}
+            This has been submitted.
+        {% endif %}
+
+        {% if is_valid == False %}
+            WAT EVEN
+        {% endif %}
+    </div>
+
     <form method="POST">
         {% csrf_token %}
-
-        <div>
-            <h3>
-                Booking ID: {{ booking_id }}<br />
-                {{ room_category }}
-            </h3>
-            <p>
-                Number of beds: {{ room.beds }}
-                <br>
-                Maximum number of passengers: {{ room.capacity }}
-            </p>
-        </div>
-
+        
         <div>
             <label for="id_booking_date">
                 Departure date:
