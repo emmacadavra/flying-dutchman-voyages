@@ -3,7 +3,7 @@ from django.views import generic
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse, reverse_lazy
 from .models import Room, Booking
-from .forms import AvailabilityForm
+from .forms import BookingForm
 from fd_bookings.booking_functions.check_availability import check_availability
 from fd_bookings.booking_functions.get_room_category_urls import get_room_category_urls
 from fd_bookings.booking_functions.get_category_string import get_category_string
@@ -87,9 +87,10 @@ class ViewBookingList(generic.ListView):
 #             return HttpResponse('This room is not available.')
 
 class RoomDetailView(generic.View):
+    # ADD DOCSTRINGS
     def get(self, request, *args, **kwargs):
         room_category = kwargs.get('category', None)
-        form = AvailabilityForm()
+        form = BookingForm()
         room_list = Room.objects.filter(category=room_category)
 
         if len(room_list)>0:
@@ -107,7 +108,7 @@ class RoomDetailView(generic.View):
     def post(self, request, *args, **kwargs):
         room_category = kwargs.get('category', None)
         room_list = Room.objects.filter(category=room_category)
-        form = AvailabilityForm(request.POST)
+        form = BookingForm(request.POST)
 
         if form.is_valid():
             data = form.cleaned_data
@@ -132,19 +133,16 @@ class RoomDetailView(generic.View):
             return HttpResponse('This room is not available.')
 
 
-class EditBooking(generic.View):
-    model = Booking
-    template_name = 'fd_bookings/edit_booking.html'
-    def edit_booking(self, request, *args, **kwargs):
-        booking_id = kwargs.get('booking_id')
-        booking = get_object_or_404(Booking, id=booking_id)
-        form = AvailabilityForm(request.POST, instance=booking)
+def amend_booking(self, request, *args, **kwargs):
+    booking_id = kwargs.get('booking_id')
+    booking = get_object_or_404(Booking, id=booking_id)
+    form = BookingForm(request.POST, instance=booking)
 
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('fd_bookings/booking_success.html')
-        else:
-            return render(request, 'fd_bookings/edit_booking.html', {'form': form})
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect('fd_bookings/booking_success.html')
+    else:
+        return render(request, 'fd_bookings/amend_booking.html', {'form': form})
 
 class CancelBooking(generic.DeleteView):
     # ADD DOCSTRING

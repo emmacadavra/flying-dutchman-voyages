@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 
 
-class AvailabilityForm(forms.Form):
+class BookingForm(forms.Form):
     ROOM_CATEGORIES = (
         ('CAPQ', 'Captain\'s Quarters'),
         ('DCBN', 'Double Cabin'),
