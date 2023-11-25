@@ -17,10 +17,10 @@ class Room(models.Model):
     beds = models.IntegerField()
     capacity = models.IntegerField()
     room_cost = models.DecimalField(decimal_places=2, max_digits=10, null=True)
-    # room_image = CloudinaryField()
+    room_image = CloudinaryField('image', default='placeholder')
 
     def __str__(self):
-        return f'{self.category} ({self.number}) with {self.beds} bed(s) for {self.capacity} passenger(s)'
+        return f'{self.category} ({self.number}) with {self.beds} bed(s) for up to {self.capacity} passenger(s)'
 
 
 class Booking(models.Model):
