@@ -14,6 +14,6 @@ class RoomAdmin(admin.ModelAdmin):
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
 
-    list_display =
-    search_fields =
-    list_filter =
+    list_display = ('user', 'booking_date', 'room', 'num_passengers', 'created_on', 'modified_on')
+    search_fields = ('user', 'email', 'booking_date', 'room', 'created_on')
+    list_filter = ('user', 'booking_date', 'room', 'created_on')
