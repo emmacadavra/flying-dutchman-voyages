@@ -3,15 +3,16 @@
 {% block content %}
 
 <h2>
-    This is the edit booking page.
+    Amend booking:
 </h2>
 
 <div>
-    <form action="" method="POST">
+    <form method="POST">
         {% csrf_token %}
 
         <div>
             <h3>
+                Booking ID: {{ booking_id }}<br />
                 {{ room_category }}
             </h3>
             <p>

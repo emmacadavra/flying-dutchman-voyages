@@ -140,15 +140,23 @@ def booking_success(request):
 
 def amend_booking(request, *args, **kwargs):
     booking_id = kwargs.get('booking_id')
+
     booking = get_object_or_404(Booking, id=booking_id)
 
-    form = BookingForm(request.POST, instance=booking)
+    context = {
+        'booking_id': booking_id
+    }
+    return render(request, 'fd_bookings/amend_booking.html', context)
+    # booking = get_object_or_404(Booking, id=booking_id)
 
-    if form.is_valid():
-        form.save()
-        return HttpResponseRedirect('/booking_success')
-    else:
-        return render(request, 'fd_bookings/amend_booking.html', {'form': form})
+    # if request.method == 'POST':
+    #     form = BookingForm(request.POST, instance=booking)
+
+    #     if form.is_valid():
+    #         form.save()
+    #         return HttpResponseRedirect('/booking_success')
+    #     else:
+    #         return render(request, 'fd_bookings/amend_booking.html', {'form': form})
 
 
 class CancelBooking(generic.DeleteView):
