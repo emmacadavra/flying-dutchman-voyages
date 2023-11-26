@@ -139,33 +139,41 @@ def booking_success(request):
 
 
 def amend_booking(request, *args, **kwargs):
-    booking_id = kwargs.get('booking_id')
+    booking_id = kwargs.get('booking_id') # Gets the <booking_id> from the URL
+    booking = get_object_or_404(Booking, id=booking_id) # Gets the booking info if the booking exists, else displays a 404
+    # print(booking.room.capacity)
 
-    booking = get_object_or_404(Booking, id=booking_id)
-    print(booking.room.capacity)
-    
-    
-    if request.method == 'GET':
-        form = BookingForm()
-        context = {
-            'booking_id': booking_id,
-            'form': form,
-            'submitted': False,
-            'is_valid': True,
+    if request.method == 'GET': # Default request - what the user sees
+        form = BookingForm() # Tells the code to insert the BookingForm form into the template
+        context = { # The information requested by the template
+            'booking_id': booking_id, # 'booking_id' in the template refers to the booking_id declared in this function
+            'form': form, # 'form' in the template refers to the form declared in this function (BookingForm)
+            'submitted': False, # Default value should always be False upon page load
+            'is_valid': True, # Default state of the form from a GET request is valid
         }
-        return render(request, 'fd_bookings/amend_booking.html', context)
+        return render(request, 'fd_bookings/amend_booking.html', context) # Renders the template URL with the correct context
     else:
-        form = BookingForm(request.POST)
-        context = {
-            'booking_id': booking_id,
-            'form': form,
-            'submitted': True,
-            'is_valid': form.is_valid() and int(request.POST.get('num_passengers')) <= booking.room.capacity,
+        form = BookingForm(request.POST) # When form is submitted, form data is sent as a POST request
+        context = { # As above
+            'booking_id': booking_id, # As above
+            'form': form, # As above
+            'submitted': True, # 'submitted' becomes True when the form is submitted as a POST request
+            'is_valid': form.is_valid() # Form must meet all requirements to be considered valid
         }
-        if context['is_valid']:
-            return render(request, 'fd_bookings/booking_success.html')
-        else:
-            return render(request, 'fd_bookings/amend_booking.html', context)
+        if context['is_valid']: # If all above requirements are met, and the form is valid...
+            booking.num_passengers = form.cleaned_data['num_passengers']
+            booking.save()
+            return HttpResponseRedirect('/booking_success') # ...Render the booking_success template.
+        else: # If the above requirements are NOT met...
+            return render(request, 'fd_bookings/amend_booking.html', context) # ... The page reloads the form with the incorrect data stored.
+        
+# "Bound and unbound form instances
+# The distinction between Bound and unbound forms is important:
+
+# An unbound form has no data associated with it. When rendered to the user, it will be empty or will contain default values.
+# A bound form has submitted data, and hence can be used to tell if that data is valid. If an invalid bound form is rendered,
+# it can include inline error messages telling the user what data to correct.
+# The form’s is_bound attribute will tell you whether a form has data bound to it or not."
 
 
 class CancelBooking(generic.DeleteView):

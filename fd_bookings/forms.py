@@ -1,4 +1,5 @@
 from django import forms
+from .models import Room, Booking
 from django.core.exceptions import ValidationError
 
 
@@ -20,3 +21,10 @@ class BookingForm(forms.Form):
     booking_date = forms.DateField(required=True)
     num_passengers = forms.IntegerField(required=True)
 
+
+    def clean(self):
+        booking = Booking.objects.get(id=1)
+        if self.cleaned_data['num_passengers'] > booking.room.capacity:
+            raise ValidationError(
+                "Number of passengers exceeds maximum capacity."
+            )
