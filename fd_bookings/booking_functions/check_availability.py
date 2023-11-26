@@ -11,5 +11,5 @@ def check_availability(room, booking_date):
             available_list.append(False)
         else:
             available_list.append(True)
-    
+
     return all(available_list)

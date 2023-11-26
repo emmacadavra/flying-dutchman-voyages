@@ -1,5 +1,5 @@
 from django import forms
-from .models import Room, Booking
+from .models import Room
 from django.core.exceptions import ValidationError
 
 

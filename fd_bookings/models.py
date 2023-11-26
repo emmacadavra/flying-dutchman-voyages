@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 from cloudinary.models import CloudinaryField
 
 
@@ -30,15 +30,15 @@ class Booking(models.Model):
     booking_date = models.DateField()
     room = models.ForeignKey(Room, on_delete=models.PROTECT, null=True)
     num_passengers = models.PositiveSmallIntegerField()
-    total_cost = models.DecimalField(decimal_places=2, max_digits=10, default=0)
+    total_cost = models.DecimalField(decimal_places=2, max_digits=9, default=0)
 
     def __str__(self):
-        return f"Booking {self.id} created by {self.user.username}. Room {self.room} on {self.booking_date}"
+        return f"Booking {self.id} created by {self.user.username} ({self.room} on {self.booking_date})"
 
     def get_room_name(self):
         room_categories = dict(self.room.ROOM_CATEGORIES)
         room_category = room_categories.get(self.room.category)
         return room_category
-    
+
     def get_cancel_booking(self):
         return reverse_lazy('fd_bookings:CancelBooking', args=[self.pk])

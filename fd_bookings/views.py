@@ -1,14 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.http import HttpResponseRedirect, HttpResponse
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 from .models import Room, Booking
 from .forms import BookingForm
 from fd_bookings.booking_functions.check_availability import check_availability
 from fd_bookings.booking_functions.get_room_category_urls import get_room_category_urls
-from fd_bookings.booking_functions.get_category_string import get_category_string
-from fd_bookings.booking_functions.get_available_rooms import get_available_rooms
-from fd_bookings.booking_functions.book_room import book_room
 
 
 def home_page(request):
@@ -33,13 +30,15 @@ def room_list(request):
     context = {
         "room_list": room_category_urls,
     }
-    return(render(request, 'fd_bookings/our_rooms.html', context))
+    return render(request, 'fd_bookings/our_rooms.html', context)
 
 
 class ViewBookingList(generic.ListView):
     # ADD DOCSTRING
+    # paginate_by = 5 (https://docs.djangoproject.com/en/4.2/topics/pagination/ - follow instructions in template)
     model = Booking
     template_name = 'fd_bookings/manage_bookings.html'
+
     def get_queryset(self, *args, **kwargs):
         if self.request.user.is_staff:
             booking_list = Booking.objects.all()
@@ -47,44 +46,7 @@ class ViewBookingList(generic.ListView):
         else:
             booking_list = Booking.objects.filter(user=self.request.user)
             return booking_list
-        
 
-# class RoomDetailView(generic.View):
-#     # ADD DOCSTRING
-#     def get(self, request, *args, **kwargs):
-#         room_category = kwargs.get('category', None)
-#         category_string = get_category_string(room_category)
-#         form = AvailabilityForm()
-
-#         if category_string is not None:
-#         #  NEED TO INVESTIGATE HOW TO DISPLAY BEDS + CAPACITY AS IT IS NOT CURRENTLY WORKING
-#             context = {
-#                 'room_category': category_string,
-#                 'form': form,
-#                 'room': room,
-#             }
-#             return render(request, 'fd_bookings/room_detail.html', context)
-#         else:
-#     # NEED TO UPDATE THIS TO BETTER RESPONSES/REDIRECTS
-#             return HttpResponse('Room category does not exist.')
-
-
-#     def post(self, request, *args, **kwargs):
-#         room_category = kwargs.get('category', None)
-#         form = AvailabilityForm(request.POST)
-
-#         if form.is_valid():
-#             data = form.cleaned_data
-
-#         available_rooms = get_available_rooms(room_category, data['booking_date'], data['num_passengers'])
-
-#         if available_rooms is not None:
-#             booking = book_room(request, available_rooms[0], data['booking_date'], data['num_passengers'])
-
-# # NEED TO UPDATE THESE TO BETTER RESPONSES/REDIRECTS
-#             return HttpResponse(booking)
-#         else:
-#             return HttpResponse('This room is not available.')
 
 class RoomDetailView(generic.View):
     # ADD DOCSTRINGS
@@ -92,9 +54,8 @@ class RoomDetailView(generic.View):
         room_category = kwargs.get('category', None)
         room_list = Room.objects.filter(category=room_category)
 
-        if len(room_list) > 0:
+        if len(room_list) > 0:  # Need to consider if this is necessary
             room = room_list[0]
-            print(room)
             form = BookingForm(room_id=room.id)
             room_category = dict(room.ROOM_CATEGORIES).get(room.category, None)
             context = {
@@ -102,7 +63,9 @@ class RoomDetailView(generic.View):
                 'form': form,
                 'room': room,
             }
+
             return render(request, 'fd_bookings/room_detail.html', context)
+
         else:
             return HttpResponse('Room category does not exist.')
 
@@ -112,19 +75,19 @@ class RoomDetailView(generic.View):
         room = room_list[0]
         form = BookingForm(request.POST, room_id=room.id)
 
-        if form.is_valid() != True:
-            return HttpResponse('Form validation error')
-        
+        if form.is_valid() is not True:
+            return HttpResponse('Form validation error')  # Need to amend
+
         data = form.cleaned_data
 
-        if check_availability(room, data['booking_date']) != True:
-            return HttpResponse('Room unavailable')
+        if check_availability(room, data['booking_date']) is not True:
+            return HttpResponse('Room unavailable')  # Need to amend
 
         booking = Booking.objects.create(
-            user = self.request.user,
-            room = room,
-            booking_date = data['booking_date'],
-            num_passengers = data['num_passengers']
+            user=self.request.user,
+            room=room,
+            booking_date=data['booking_date'],
+            num_passengers=data['num_passengers'],
         )
         booking.save()
         return HttpResponseRedirect('/booking_success')
@@ -136,41 +99,33 @@ def booking_success(request):
 
 
 def amend_booking(request, *args, **kwargs):
-    booking_id = kwargs.get('booking_id') # Gets the <booking_id> from the URL
-    booking = get_object_or_404(Booking, id=booking_id) # Gets the booking info if the booking exists, else displays a 404
-    # print(booking.room.capacity)
+    # ADD DOCSTRING
+    booking_id = kwargs.get('booking_id')
+    booking = get_object_or_404(Booking, id=booking_id)
 
-    if request.method == 'GET': # Default request - what the user sees
-        form = BookingForm(room_id=booking.room.id) # Tells the code to insert the BookingForm form into the template
-        context = { # The information requested by the template
-            'booking_id': booking_id, # 'booking_id' in the template refers to the booking_id declared in this function
-            'form': form, # 'form' in the template refers to the form declared in this function (BookingForm)
-            'submitted': False, # Default value should always be False upon page load
-            'is_valid': True, # Default state of the form from a GET request is valid
+    if request.method == 'GET':
+        form = BookingForm(room_id=booking.room.id)
+        context = {
+            'booking_id': booking_id,
+            'form': form,
+            'submitted': False,
+            'is_valid': True,
         }
-        return render(request, 'fd_bookings/amend_booking.html', context) # Renders the template URL with the correct context
+        return render(request, 'fd_bookings/amend_booking.html', context)
     else:
-        form = BookingForm(request.POST, room_id=booking.room.id) # When form is submitted, form data is sent as a POST request
-        context = { # As above
-            'booking_id': booking_id, # As above
-            'form': form, # As above
-            'submitted': True, # 'submitted' becomes True when the form is submitted as a POST request
-            'is_valid': form.is_valid() # Form must meet all requirements to be considered valid
+        form = BookingForm(request.POST, room_id=booking.room.id)
+        context = {
+            'booking_id': booking_id,
+            'form': form,
+            'submitted': True,
+            'is_valid': form.is_valid(),
         }
-        if context['is_valid']: # If all above requirements are met, and the form is valid...
+        if context['is_valid']:
             booking.num_passengers = form.cleaned_data['num_passengers']
             booking.save()
-            return HttpResponseRedirect('/booking_success') # ...Render the booking_success template.
-        else: # If the above requirements are NOT met...
-            return render(request, 'fd_bookings/amend_booking.html', context) # ... The page reloads the form with the incorrect data stored.
-        
-# "Bound and unbound form instances
-# The distinction between Bound and unbound forms is important:
-
-# An unbound form has no data associated with it. When rendered to the user, it will be empty or will contain default values.
-# A bound form has submitted data, and hence can be used to tell if that data is valid. If an invalid bound form is rendered,
-# it can include inline error messages telling the user what data to correct.
-# The form’s is_bound attribute will tell you whether a form has data bound to it or not."
+            return HttpResponseRedirect('/booking_success')
+        else:
+            return render(request, 'fd_bookings/amend_booking.html', context)
 
 
 class CancelBooking(generic.DeleteView):
