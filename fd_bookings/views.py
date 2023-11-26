@@ -90,11 +90,12 @@ class RoomDetailView(generic.View):
     # ADD DOCSTRINGS
     def get(self, request, *args, **kwargs):
         room_category = kwargs.get('category', None)
-        form = BookingForm()
         room_list = Room.objects.filter(category=room_category)
 
-        if len(room_list)>0:
+        if len(room_list) > 0:
             room = room_list[0]
+            print(room)
+            form = BookingForm(room_id=room.id)
             room_category = dict(room.ROOM_CATEGORIES).get(room.category, None)
             context = {
                 'room_category': room_category,
@@ -108,30 +109,26 @@ class RoomDetailView(generic.View):
     def post(self, request, *args, **kwargs):
         room_category = kwargs.get('category', None)
         room_list = Room.objects.filter(category=room_category)
-        form = BookingForm(request.POST)
+        room = room_list[0]
+        form = BookingForm(request.POST, room_id=room.id)
 
-        if form.is_valid():
-            data = form.cleaned_data
-
-        available_rooms = []
-
-        for room in room_list:
-            if check_availability(room, data['booking_date']):
-                available_rooms.append(room)
-
-        if len(available_rooms) > 0:
-            room = available_rooms[0]
-            booking = Booking.objects.create(
-                user = self.request.user,
-                room = room,
-                booking_date = data['booking_date'],
-                num_passengers = data['num_passengers']
-            )
-            booking.save()
-            return HttpResponseRedirect('/booking_success')
-        else:
-            return HttpResponse('This room is not available.')
+        if form.is_valid() != True:
+            return HttpResponse('Form validation error')
         
+        data = form.cleaned_data
+
+        if check_availability(room, data['booking_date']) != True:
+            return HttpResponse('Room unavailable')
+
+        booking = Booking.objects.create(
+            user = self.request.user,
+            room = room,
+            booking_date = data['booking_date'],
+            num_passengers = data['num_passengers']
+        )
+        booking.save()
+        return HttpResponseRedirect('/booking_success')
+
 
 def booking_success(request):
     # ADD DOCSTRING
@@ -144,7 +141,7 @@ def amend_booking(request, *args, **kwargs):
     # print(booking.room.capacity)
 
     if request.method == 'GET': # Default request - what the user sees
-        form = BookingForm() # Tells the code to insert the BookingForm form into the template
+        form = BookingForm(room_id=booking.room.id) # Tells the code to insert the BookingForm form into the template
         context = { # The information requested by the template
             'booking_id': booking_id, # 'booking_id' in the template refers to the booking_id declared in this function
             'form': form, # 'form' in the template refers to the form declared in this function (BookingForm)
@@ -153,7 +150,7 @@ def amend_booking(request, *args, **kwargs):
         }
         return render(request, 'fd_bookings/amend_booking.html', context) # Renders the template URL with the correct context
     else:
-        form = BookingForm(request.POST) # When form is submitted, form data is sent as a POST request
+        form = BookingForm(request.POST, room_id=booking.room.id) # When form is submitted, form data is sent as a POST request
         context = { # As above
             'booking_id': booking_id, # As above
             'form': form, # As above

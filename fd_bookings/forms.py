@@ -11,20 +11,18 @@ class BookingForm(forms.Form):
         ('CRWH', 'Crew Hammocks'),
     )
 
-    # def validate_sunday(value):
-    #     if value != 6:
-    #         raise ValidationError(
-    #             ('%(value)s is not a valid day of departure'), params={'value': value},
-    #         )
-
-    # booking_date = forms.DateField(validators=[validate_sunday], required=True)
+    room_id = None
     booking_date = forms.DateField(required=True)
     num_passengers = forms.IntegerField(required=True)
 
+    def __init__(self, *args, **kwargs):
+        self.room_id = kwargs.pop('room_id')
+        super(BookingForm, self).__init__(*args, **kwargs)
 
     def clean(self):
-        booking = Booking.objects.get(id=1)
-        if self.cleaned_data['num_passengers'] > booking.room.capacity:
+        room = Room.objects.get(id=self.room_id)
+
+        if self.cleaned_data['num_passengers'] > room.capacity:
             raise ValidationError(
                 "Number of passengers exceeds maximum capacity."
             )
