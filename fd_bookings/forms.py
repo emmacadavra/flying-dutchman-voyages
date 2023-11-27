@@ -31,7 +31,7 @@ class BookingForm(forms.Form):
 
         if 'booking_date' in self.cleaned_data and self.cleaned_data['booking_date'] <= today:
             raise ValidationError(
-                "Please select a future date of departure."
+                "Your selected date of departure must not be in the past."
             )
 
         if 'booking_date' in self.cleaned_data and self.cleaned_data['booking_date'].weekday() != 6:

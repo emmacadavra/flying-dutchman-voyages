@@ -3,14 +3,14 @@
 {% block content %}
 
 <h2>
-    Amend booking:
+    Amend your booking with us
 </h2>
 
 <div>
     <div>
         <h3>
-            Booking ID: {{ booking_id }}<br />
-            {{ booking.room.category }}
+            <!-- Booking ID: {{ booking_id }}<br />
+            {{ booking.room.category }} -->
         </h3>
         <p>
             Number of beds: {{ booking.room.beds }}
@@ -19,20 +19,10 @@
         </p>
     </div>
 
-    <div>
-        {% if submitted == True %}
-            This has been submitted.
-        {% endif %}
-
-        {% if is_valid == False %}
-            WAT EVEN
-        {% endif %}
-    </div>
-
     <form method="POST">
         {% csrf_token %}
 
-        {{ form }}
+        {{ form.as_p }}
         
         <!-- <div>
             <label for="id_booking_date">
