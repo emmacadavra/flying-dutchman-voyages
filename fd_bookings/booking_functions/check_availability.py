@@ -1,5 +1,4 @@
-import datetime
-from fd_bookings.models import Room, Booking
+from fd_bookings.models import Booking
 
 
 def check_availability(room, booking_date):

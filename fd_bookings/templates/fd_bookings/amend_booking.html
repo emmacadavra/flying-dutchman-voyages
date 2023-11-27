@@ -9,41 +9,46 @@
 <div>
     <div>
         <h3>
-            Current booking details:
+            {{ room_category }}
         </h3>
         <h4>
-            {{ room_category }}
+            Current booking details:
         </h4>
         <p>
-            Date of departure: {{ booking_date }}
-            <br>
-            Number of passengers: {{ num_passengers }}
+            Current date of departure: {{ booking_date }}
+        </p>
+        <p>
+            Current number of passengers: {{ num_passengers }}
         </p>
     </div>
+    <div>
+        <h4>
+            Amend booking details:
+        </h4>
+        <form method="POST">
+            {% csrf_token %}
 
-    <form method="POST">
-        {% csrf_token %}
+            {{ form.as_p }}
+            
+            <!-- <div>
+                <label for="id_booking_date">
+                    Departure date:
+                </label>
+                <input id="id_booking_date" type="date" name="booking_date">
+            </div>
 
-        {{ form.as_p }}
-        
-        <!-- <div>
-            <label for="id_booking_date">
-                Departure date:
-            </label>
-            <input id="id_booking_date" type="date" name="booking_date">
-        </div>
+            <div>
+                <label for="id_num_passengers">
+                    Number of passengers:
+                </label>
+                <input id="id_num_passengers" type="number" name="num_passengers">
+            </div> -->
 
-        <div>
-            <label for="id_num_passengers">
-                Number of passengers:
-            </label>
-            <input id="id_num_passengers" type="number" name="num_passengers">
-        </div> -->
-
-        <div>
-            <input type="submit" value="Book Now">
-        </div>
-    </form>
+            <div>
+                <input type="submit" value="Amend Booking">
+            </div>
+        </form>
+    </div>
 </div>
 
 
