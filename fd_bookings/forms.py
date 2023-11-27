@@ -1,3 +1,4 @@
+import datetime
 from django import forms
 from .models import Room
 from django.core.exceptions import ValidationError
@@ -21,11 +22,19 @@ class BookingForm(forms.Form):
 
     def clean(self):
         room = Room.objects.get(id=self.room_id)
-        
+        today = datetime.date.today()
 
-        if self.cleaned_data['num_passengers'] > room.capacity:
+        if 'num_passengers' in self.cleaned_data and self.cleaned_data['num_passengers'] > room.capacity:
             raise ValidationError(
-                "Number of passengers exceeds maximum capacity."
+                "Number of passengers exceeds maximum room capacity."
             )
-        
-        if self.cleaned_data['booking_date']
+
+        if 'booking_date' in self.cleaned_data and self.cleaned_data['booking_date'] <= today:
+            raise ValidationError(
+                "Please select a future date of departure."
+            )
+
+        if 'booking_date' in self.cleaned_data and self.cleaned_data['booking_date'].weekday() != 6:
+            raise ValidationError(
+                "Departures on Sundays ONLY"
+            )
