@@ -45,6 +45,3 @@ class Booking(models.Model):
         room_categories = dict(self.room.ROOM_CATEGORIES)
         room_category = room_categories.get(self.room.category)
         return room_category
-
-    def get_cancel_booking(self):
-        return reverse_lazy('fd_bookings:CancelBooking', args=[self.pk])
