@@ -117,8 +117,9 @@ def amend_booking(request, *args, **kwargs):
         context = {
             'booking_id': booking_id,
             'form': form,
-            'submitted': False,
-            'is_valid': True,
+            'room_category': booking.get_room_name,
+            'booking_date': booking.booking_date,
+            'num_passengers': booking.num_passengers,
         }
         return render(request, 'fd_bookings/amend_booking.html', context)
     else:
@@ -126,7 +127,9 @@ def amend_booking(request, *args, **kwargs):
         context = {
             'booking_id': booking_id,
             'form': form,
-            'submitted': True,
+            'room_category': booking.get_room_name,
+            'booking_date': booking.booking_date,
+            'num_passengers': booking.num_passengers,
             'is_valid': form.is_valid(),
         }
         if context['is_valid']:

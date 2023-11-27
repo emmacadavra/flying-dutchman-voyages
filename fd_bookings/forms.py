@@ -13,8 +13,8 @@ class BookingForm(forms.Form):
     )
 
     room_id = None
-    booking_date = forms.DateField(required=True)
-    num_passengers = forms.IntegerField(required=True)
+    booking_date = forms.DateField(label='Date of Departure:', required=True)
+    num_passengers = forms.IntegerField(label='Number of Passengers:', required=True)
 
     def __init__(self, *args, **kwargs):
         self.room_id = kwargs.pop('room_id')
@@ -26,15 +26,15 @@ class BookingForm(forms.Form):
 
         if 'num_passengers' in self.cleaned_data and self.cleaned_data['num_passengers'] > room.capacity:
             raise ValidationError(
-                "Number of passengers exceeds maximum room capacity."
+                'Number of passengers exceeds maximum room capacity.'
             )
 
         if 'booking_date' in self.cleaned_data and self.cleaned_data['booking_date'] <= today:
             raise ValidationError(
-                "Your selected date of departure must not be in the past."
+                'Your selected date of departure must not be in the past.'
             )
 
         if 'booking_date' in self.cleaned_data and self.cleaned_data['booking_date'].weekday() != 6:
             raise ValidationError(
-                "The Flying Dutchman only sets sail on Sundays!"
+                'The Flying Dutchman only sets sail on Sundays!'
             )

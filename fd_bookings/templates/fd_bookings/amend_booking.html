@@ -9,13 +9,15 @@
 <div>
     <div>
         <h3>
-            <!-- Booking ID: {{ booking_id }}<br />
-            {{ booking.room.category }} -->
+            Current booking details:
         </h3>
+        <h4>
+            {{ room_category }}
+        </h4>
         <p>
-            Number of beds: {{ booking.room.beds }}
+            Date of departure: {{ booking_date }}
             <br>
-            Maximum number of passengers: {{ booking.room.capacity }}
+            Number of passengers: {{ num_passengers }}
         </p>
     </div>
 
