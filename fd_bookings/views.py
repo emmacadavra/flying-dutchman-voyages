@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.conf import settings
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.views import generic
 from django.contrib.auth.decorators import login_required
@@ -71,31 +72,34 @@ class RoomDetailView(generic.View):
             #   CUSTOM 404
             return HttpResponse('Room category does not exist.')
 
-    @login_required
     def post(self, request, *args, **kwargs):
         room_category = kwargs.get('category', None)
         room_list = Room.objects.filter(category=room_category)
         room = room_list[0]
         form = BookingForm(request.POST, room_id=room.id)
 
-        if form.is_valid() is not True:
-            #   CUSTOM 404
-            return HttpResponse('Form validation error')  # Need to amend
+        if not request.user.is_authenticated:
+            return redirect(f"{settings.LOGIN_URL}?next={request.path}")
 
-        data = form.cleaned_data
+        else:
+            if form.is_valid() is not True:
+                #   CUSTOM 404
+                return HttpResponse('Form validation error')  # Need to amend
 
-        if check_availability(room, data['booking_date']) is not True:
-            #   CUSTOM 404
-            return HttpResponse('Room unavailable')  # Need to amend
+            data = form.cleaned_data
 
-        booking = Booking.objects.create(
-            user=self.request.user,
-            room=room,
-            booking_date=data['booking_date'],
-            num_passengers=data['num_passengers'],
-        )
-        booking.save()
-        return HttpResponseRedirect('/booking_success')
+            if check_availability(room, data['booking_date']) is not True:
+                #   CUSTOM 404
+                return HttpResponse('Room unavailable')  # Need to amend
+
+            booking = Booking.objects.create(
+                user=self.request.user,
+                room=room,
+                booking_date=data['booking_date'],
+                num_passengers=data['num_passengers'],
+            )
+            booking.save()
+            return HttpResponseRedirect('/booking_success')
 
 
 def booking_success(request):

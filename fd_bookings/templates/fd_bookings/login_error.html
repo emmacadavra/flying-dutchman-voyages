@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>
+    You must be logged in to continue.
+</h2>
+
+<p>
+    <a href="{% url 'account_login' %}">Log In</a>
+</p>
+<p>
+    <a href="{% url 'account_signup' %}">Register</a>
+</p>
+
+
+{% endblock %}
