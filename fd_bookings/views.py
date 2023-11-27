@@ -1,5 +1,4 @@
-from django.conf import settings
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.views import generic
 from django.contrib.auth.decorators import login_required
@@ -79,7 +78,7 @@ class RoomDetailView(generic.View):
         form = BookingForm(request.POST, room_id=room.id)
 
         if not request.user.is_authenticated:
-            return redirect(f"{settings.LOGIN_URL}?next={request.path}")
+            return render(request, '/fd_bookings/login_error.html')
 
         else:
             if form.is_valid() is not True:
