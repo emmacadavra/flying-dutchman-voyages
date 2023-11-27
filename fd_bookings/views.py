@@ -142,4 +142,11 @@ def amend_booking(request, *args, **kwargs):
 
 @login_required
 def cancel_booking(request, *args, **kwargs):
+    booking_id = kwargs.get('booking_id')
     booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+
+    if request.method == 'POST':
+        booking.delete()
+        return HttpResponseRedirect('/manage_bookings')
+
+    return render(request, 'fd_bookings/booking_confirm_delete.html', {'booking': booking})

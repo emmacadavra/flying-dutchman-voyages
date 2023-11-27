@@ -13,7 +13,7 @@
     <h4>Date of departure: {{ booking.booking_date }}</h4>
     <h4>Number of passengers: {{ booking.num_passengers }}</h4>
     <p><a href="/manage_bookings/amend/{{ booking.id }}">Amend Booking</a></p>
-    <p><a href="{{ booking.get_cancel_booking }}">Cancel Booking</a></p>
+    <p><a href="/manage_bookings/cancel/{{ booking.id }}">Cancel Booking</a></p>
 </div>
 {% empty %}
 <div>
