@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib import messages
 from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
-from django.urls import reverse_lazy
 from .models import Room, Booking
 from .forms import BookingForm
 from fd_bookings.booking_functions.check_availability import check_availability
@@ -147,6 +147,7 @@ def cancel_booking(request, *args, **kwargs):
 
     if request.method == 'POST':
         booking.delete()
+        messages.success(request, "Booking successfully cancelled.")
         return HttpResponseRedirect('/manage_bookings')
 
     return render(request, 'fd_bookings/booking_confirm_delete.html', {'booking': booking})
