@@ -36,5 +36,5 @@ class BookingForm(forms.Form):
 
         if 'booking_date' in self.cleaned_data and self.cleaned_data['booking_date'].weekday() != 6:
             raise ValidationError(
-                "Departures on Sundays ONLY"
+                "The Flying Dutchman only sets sail on Sundays!"
             )
