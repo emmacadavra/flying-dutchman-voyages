@@ -21,8 +21,11 @@ class BookingForm(forms.Form):
 
     def clean(self):
         room = Room.objects.get(id=self.room_id)
+        
 
         if self.cleaned_data['num_passengers'] > room.capacity:
             raise ValidationError(
                 "Number of passengers exceeds maximum capacity."
             )
+        
+        if self.cleaned_data['booking_date']

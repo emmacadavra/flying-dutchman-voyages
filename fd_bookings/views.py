@@ -130,18 +130,13 @@ def amend_booking(request, *args, **kwargs):
             'is_valid': form.is_valid(),
         }
         if context['is_valid']:
+            booking.booking_date = form.cleaned_data['booking_date']
             booking.num_passengers = form.cleaned_data['num_passengers']
             booking.save()
             return HttpResponseRedirect('/booking_success')
         else:
             return render(request, 'fd_bookings/amend_booking.html', context)
 
-
-# class CancelBooking(generic.DeleteView):
-#     # ADD DOCSTRING
-#     model = Booking
-#     template_name = 'fd_bookings/booking_confirm_delete.html'
-#     success_url = reverse_lazy('fd_bookings:ViewBookingList')
 
 @login_required
 def cancel_booking(request, *args, **kwargs):

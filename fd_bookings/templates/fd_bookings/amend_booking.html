@@ -10,12 +10,12 @@
     <div>
         <h3>
             Booking ID: {{ booking_id }}<br />
-            {{ room_category }}
+            {{ booking.room.category }}
         </h3>
         <p>
-            Number of beds: {{ room.beds }}
+            Number of beds: {{ booking.room.beds }}
             <br>
-            Maximum number of passengers: {{ room.capacity }}
+            Maximum number of passengers: {{ booking.room.capacity }}
         </p>
     </div>
 
