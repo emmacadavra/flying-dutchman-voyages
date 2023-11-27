@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse_lazy
 from .models import Room, Booking
@@ -67,8 +68,10 @@ class RoomDetailView(generic.View):
             return render(request, 'fd_bookings/room_detail.html', context)
 
         else:
+            #   CUSTOM 404
             return HttpResponse('Room category does not exist.')
 
+    @login_required
     def post(self, request, *args, **kwargs):
         room_category = kwargs.get('category', None)
         room_list = Room.objects.filter(category=room_category)
@@ -76,11 +79,13 @@ class RoomDetailView(generic.View):
         form = BookingForm(request.POST, room_id=room.id)
 
         if form.is_valid() is not True:
+            #   CUSTOM 404
             return HttpResponse('Form validation error')  # Need to amend
 
         data = form.cleaned_data
 
         if check_availability(room, data['booking_date']) is not True:
+            #   CUSTOM 404
             return HttpResponse('Room unavailable')  # Need to amend
 
         booking = Booking.objects.create(
@@ -98,10 +103,11 @@ def booking_success(request):
     return render(request, 'fd_bookings/booking_success.html',)
 
 
+@login_required
 def amend_booking(request, *args, **kwargs):
     # ADD DOCSTRING
     booking_id = kwargs.get('booking_id')
-    booking = get_object_or_404(Booking, id=booking_id)
+    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
 
     if request.method == 'GET':
         form = BookingForm(room_id=booking.room.id)
@@ -128,8 +134,12 @@ def amend_booking(request, *args, **kwargs):
             return render(request, 'fd_bookings/amend_booking.html', context)
 
 
-class CancelBooking(generic.DeleteView):
-    # ADD DOCSTRING
-    model = Booking
-    template_name = 'fd_bookings/booking_confirm_delete.html'
-    success_url = reverse_lazy('fd_bookings:ViewBookingList')
+# class CancelBooking(generic.DeleteView):
+#     # ADD DOCSTRING
+#     model = Booking
+#     template_name = 'fd_bookings/booking_confirm_delete.html'
+#     success_url = reverse_lazy('fd_bookings:ViewBookingList')
+
+@login_required
+def cancel_booking(request, *args, **kwargs):
+    booking = get_object_or_404(Booking, id=booking_id, user=request.user)
