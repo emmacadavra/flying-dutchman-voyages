@@ -147,3 +147,7 @@ def cancel_booking(request, *args, **kwargs):
 
 def login_error(request):
     return render(request, 'fd_bookings/login_error.html')
+
+
+def not_found_404(request, exception):
+    return render(request, '404_not_found.html')
