@@ -7,12 +7,12 @@
 </h2>
 
 <div>
-    <form action="" method="POST">
+    <form method="POST">
         {% csrf_token %}
 
         <div>
             <h3>
-                {{ room_category }}
+                {{ room_name }}
             </h3>
             <p>
                 Number of beds: {{ room.beds }}

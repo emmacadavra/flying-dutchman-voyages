@@ -5,8 +5,6 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from .models import Room, Booking
 from .forms import BookingForm
-from fd_bookings.booking_functions.check_availability import check_availability
-from fd_bookings.booking_functions.get_room_category_urls import get_room_category_urls
 
 
 def home_page(request):
@@ -26,10 +24,10 @@ def contact_page(request):
 
 def room_list(request):
     # ADD DOCSTRING
-    room_category_urls = get_room_category_urls()
+    room_list = Room.objects.all()
 
     context = {
-        "room_list": room_category_urls,
+        'room_list': room_list,
     }
     return render(request, 'fd_bookings/our_rooms.html', context)
 
@@ -56,9 +54,8 @@ class RoomDetailView(generic.View):
         room = get_object_or_404(Room, id=room_id)
 
         form = BookingForm(room_id=room.id)
-        room_category = dict(room.ROOM_CATEGORIES).get(room.category, None)
         context = {
-            'room_category': room_category,
+            'room_name': room.name,
             'form': form,
             'room': room,
         }
@@ -66,9 +63,8 @@ class RoomDetailView(generic.View):
         return render(request, 'fd_bookings/room_detail.html', context)
 
     def post(self, request, *args, **kwargs):
-        room_category = kwargs.get('category', None)
-        room_list = Room.objects.filter(category=room_category)
-        room = room_list[0]
+        room_id = kwargs.get('room_id')
+        room = get_object_or_404(Room, id=room_id)
         form = BookingForm(request.POST, room_id=room.id)
 
         if not request.user.is_authenticated:
@@ -77,10 +73,6 @@ class RoomDetailView(generic.View):
         elif form.is_valid():
 
             data = form.cleaned_data
-
-            # if check_availability(room, data['booking_date']) is not True:
-            #     #   CUSTOM 404
-            #     return HttpResponse('Room unavailable')  # Need to amend
 
             booking = Booking.objects.create(
                 user=self.request.user,
@@ -91,7 +83,12 @@ class RoomDetailView(generic.View):
             booking.save()
             return HttpResponseRedirect('/booking_success')
         else:
-            return HttpResponse('Form validation error')  # Need to amend
+            context = {
+                'room_name': room.name,
+                'form': form,
+                'room': room,
+            }
+            return render(request, 'fd_bookings/room_detail.html', context)
 
 
 def booking_success(request):
@@ -110,7 +107,7 @@ def amend_booking(request, *args, **kwargs):
         context = {
             'booking_id': booking_id,
             'form': form,
-            'room_category': booking.get_room_name,
+            'room_name': booking.room.name,
             'booking_date': booking.booking_date,
             'num_passengers': booking.num_passengers,
         }
@@ -120,7 +117,7 @@ def amend_booking(request, *args, **kwargs):
         context = {
             'booking_id': booking_id,
             'form': form,
-            'room_category': booking.get_room_name,
+            'room_name': booking.room.name,
             'booking_date': booking.booking_date,
             'num_passengers': booking.num_passengers,
             'is_valid': form.is_valid(),

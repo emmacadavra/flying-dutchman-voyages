@@ -9,7 +9,7 @@
 {% if user.is_authenticated %}
 {% for booking in booking_list %}
 <div>
-    <h3>{{ booking.get_room_name }}</h3>
+    <h3>{{ booking.room.name }}</h3>
     <h4>Date of departure: {{ booking.booking_date }}</h4>
     <h4>Number of passengers: {{ booking.num_passengers }}</h4>
     <p><a href="/manage_bookings/amend/{{ booking.id }}">Amend Booking</a></p>

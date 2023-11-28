@@ -6,9 +6,9 @@
     This is the room list page.
 </h2>
 
-{% for room_category, room_url in room_list %}
+{% for room in room_list %}
 
-<a href="{{ room_url }}"><h2>{{ room_category }}</h2></a>
+<a href="/room/{{ room.id }}"><h2>{{ room.name }}</h2></a>
 
 {% endfor %}
 

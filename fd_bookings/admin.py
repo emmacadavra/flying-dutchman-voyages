@@ -8,8 +8,8 @@ from .models import Room, Booking
 @admin.register(Room)
 class RoomAdmin(admin.ModelAdmin):
 
-    list_display = ('category', 'beds', 'capacity')
-    list_filter = ('category', 'beds', 'capacity')
+    list_display = ('name', 'beds', 'capacity')
+    list_filter = ('name', 'beds', 'capacity')
 
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
