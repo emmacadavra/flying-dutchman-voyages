@@ -4,15 +4,8 @@ from cloudinary.models import CloudinaryField
 
 
 class Room(models.Model):
-    # ROOM_CATEGORIES = (
-    #     ('CAPQ', 'Captain\'s Quarters'),
-    #     ('DCBN', 'Double Cabin'),
-    #     ('SCBN', 'Single Cabin'),
-    #     ('CRWH', 'Crew Hammocks'),
-    # )
 
     name = models.CharField(max_length=200, default='Room')
-    # category = models.CharField(max_length=4, choices=ROOM_CATEGORIES)
     beds = models.IntegerField()
     capacity = models.IntegerField()
     room_cost = models.DecimalField(decimal_places=2, max_digits=9, null=True)
@@ -22,7 +15,7 @@ class Room(models.Model):
         ordering = ['name']
 
     def __str__(self):
-        return f'{self.name} - {self.beds} bed(s) for up to {self.capacity} passenger(s)'
+        return f'{self.name} ({self.beds} bed(s) for up to {self.capacity} passenger(s))'
 
 
 class Booking(models.Model):

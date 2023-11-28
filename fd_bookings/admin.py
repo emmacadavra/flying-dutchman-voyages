@@ -2,14 +2,12 @@ from django.contrib import admin
 from .models import Room, Booking
 
 
-# admin.site.register(Room)
-# admin.site.register(Booking)
-
 @admin.register(Room)
 class RoomAdmin(admin.ModelAdmin):
 
     list_display = ('name', 'beds', 'capacity')
     list_filter = ('name', 'beds', 'capacity')
+
 
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):

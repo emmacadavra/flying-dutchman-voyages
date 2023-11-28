@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.views import generic
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from .models import Room, Booking
 from .forms import BookingForm
 
@@ -68,7 +68,7 @@ class RoomDetailView(generic.View):
         form = BookingForm(request.POST, room_id=room.id)
 
         if not request.user.is_authenticated:
-            return render(request, '/fd_bookings/login_error.html')
+            return HttpResponseRedirect('/login_error')
 
         elif form.is_valid():
 
@@ -143,3 +143,7 @@ def cancel_booking(request, *args, **kwargs):
         return HttpResponseRedirect('/manage_bookings')
 
     return render(request, 'fd_bookings/booking_confirm_delete.html', {'booking': booking})
+
+
+def login_error(request):
+    return render(request, 'fd_bookings/login_error.html')

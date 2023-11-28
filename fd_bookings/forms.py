@@ -1,8 +1,8 @@
 import datetime
 from django import forms
+from django.core.exceptions import ValidationError
 from .models import Room
 from fd_bookings.booking_functions.check_availability import check_availability
-from django.core.exceptions import ValidationError
 
 
 class BookingForm(forms.Form):
