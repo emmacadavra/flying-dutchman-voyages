@@ -52,24 +52,18 @@ class ViewBookingList(generic.ListView):
 class RoomDetailView(generic.View):
     # ADD DOCSTRINGS
     def get(self, request, *args, **kwargs):
-        room_category = kwargs.get('category', None)
-        room_list = Room.objects.filter(category=room_category)
+        room_id = kwargs.get('room_id')
+        room = get_object_or_404(Room, id=room_id)
 
-        if len(room_list) > 0:
-            room = room_list[0]
-            form = BookingForm(room_id=room.id)
-            room_category = dict(room.ROOM_CATEGORIES).get(room.category, None)
-            context = {
-                'room_category': room_category,
-                'form': form,
-                'room': room,
-            }
+        form = BookingForm(room_id=room.id)
+        room_category = dict(room.ROOM_CATEGORIES).get(room.category, None)
+        context = {
+            'room_category': room_category,
+            'form': form,
+            'room': room,
+        }
 
-            return render(request, 'fd_bookings/room_detail.html', context)
-
-        else:
-            #   CUSTOM 404
-            return HttpResponse('Room category does not exist.')
+        return render(request, 'fd_bookings/room_detail.html', context)
 
     def post(self, request, *args, **kwargs):
         room_category = kwargs.get('category', None)
@@ -80,16 +74,13 @@ class RoomDetailView(generic.View):
         if not request.user.is_authenticated:
             return render(request, '/fd_bookings/login_error.html')
 
-        else:
-            if form.is_valid() is not True:
-                #   CUSTOM 404
-                return HttpResponse('Form validation error')  # Need to amend
+        elif form.is_valid():
 
             data = form.cleaned_data
 
-            if check_availability(room, data['booking_date']) is not True:
-                #   CUSTOM 404
-                return HttpResponse('Room unavailable')  # Need to amend
+            # if check_availability(room, data['booking_date']) is not True:
+            #     #   CUSTOM 404
+            #     return HttpResponse('Room unavailable')  # Need to amend
 
             booking = Booking.objects.create(
                 user=self.request.user,
@@ -99,6 +90,8 @@ class RoomDetailView(generic.View):
             )
             booking.save()
             return HttpResponseRedirect('/booking_success')
+        else:
+            return HttpResponse('Form validation error')  # Need to amend
 
 
 def booking_success(request):
@@ -132,6 +125,7 @@ def amend_booking(request, *args, **kwargs):
             'num_passengers': booking.num_passengers,
             'is_valid': form.is_valid(),
         }
+
         if context['is_valid']:
             booking.booking_date = form.cleaned_data['booking_date']
             booking.num_passengers = form.cleaned_data['num_passengers']

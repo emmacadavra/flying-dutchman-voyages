@@ -1,6 +1,7 @@
 import datetime
 from django import forms
 from .models import Room
+from fd_bookings.booking_functions.check_availability import check_availability
 from django.core.exceptions import ValidationError
 
 
@@ -28,7 +29,7 @@ class BookingForm(forms.Form):
             raise ValidationError(
                 f'Number of passengers exceeds maximum room capacity {room.capacity}.'
             )
-        
+
         if 'num_passengers' in self.cleaned_data and self.cleaned_data['num_passengers'] <= 0:
             raise ValidationError(
                 'Number of passengers must be greater than 0.'
@@ -42,4 +43,9 @@ class BookingForm(forms.Form):
         if 'booking_date' in self.cleaned_data and self.cleaned_data['booking_date'].weekday() != 6:
             raise ValidationError(
                 'The Flying Dutchman only sets sail on Sundays!'
+            )
+
+        if 'booking_date' in self.cleaned_data and check_availability(self.room_id, self.cleaned_data['booking_date']) is not True:
+            raise ValidationError(
+                "This room is not available for this departure date."
             )
