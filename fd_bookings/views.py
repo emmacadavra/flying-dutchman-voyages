@@ -55,7 +55,7 @@ class RoomDetailView(generic.View):
         room_category = kwargs.get('category', None)
         room_list = Room.objects.filter(category=room_category)
 
-        if len(room_list) > 0:  # Need to consider if this is necessary
+        if len(room_list) > 0:
             room = room_list[0]
             form = BookingForm(room_id=room.id)
             room_category = dict(room.ROOM_CATEGORIES).get(room.category, None)

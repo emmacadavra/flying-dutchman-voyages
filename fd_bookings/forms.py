@@ -28,6 +28,11 @@ class BookingForm(forms.Form):
             raise ValidationError(
                 f'Number of passengers exceeds maximum room capacity {room.capacity}.'
             )
+        
+        if 'num_passengers' in self.cleaned_data and self.cleaned_data['num_passengers'] <= 0:
+            raise ValidationError(
+                'Number of passengers must be greater than 0.'
+            )
 
         if 'booking_date' in self.cleaned_data and self.cleaned_data['booking_date'] <= today:
             raise ValidationError(
