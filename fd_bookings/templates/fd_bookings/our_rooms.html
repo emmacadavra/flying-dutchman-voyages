@@ -10,7 +10,10 @@
 
 {% for room in room_list %}
 
-<a href="/room/{{ room.id }}"><h2>{{ room.name }}</h2></a>
+<a href="/room/{{ room.id }}">
+    <img src="{{ room.room_image.url }}" />
+    <h2>{{ room.name }}</h2>
+</a>
 
 {% endfor %}
 
