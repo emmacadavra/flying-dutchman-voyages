@@ -15,11 +15,11 @@
 
 <a href="/room/{{ room.id }}">
 
-    {% if 'placeholder' in room.room_image.url %}
+    {% if 'placeholder' in room.room_image_1.url %}
     <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" />
 
     {% else %}
-    <img src="{{ room.room_image.url }}" />
+    <img src="{{ room.room_image_1.url }}" />
 
     {% endif %}
     <h2>{{ room.name }}</h2>

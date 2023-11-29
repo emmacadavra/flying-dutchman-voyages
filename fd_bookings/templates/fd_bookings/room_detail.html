@@ -13,6 +13,17 @@
         {% csrf_token %}
 
         <div>
+            <div>
+                {{ room. room_image_1.url }}
+            </div>
+            <div>
+                {{ room. room_image_2.url }}
+            </div>
+            <div>
+                {{ room. room_image_3.url }}
+            </div>
+        </div>
+        <div>
             <p>
                 Number of beds: {{ room.beds }}
                 <br />
