@@ -1,3 +1,9 @@
-.homepage {
+.hero-image {
     background-image: url("https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701274327/The_Flying_Dutchman_by_Charles_Temple_Dix_p7m3yr.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
 }
