@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
+{% block title %}{{ room_name }} - Flying Dutchman Voyages{% endblock %}
+
 {% block content %}
 
 <h2>
-    This is the room detail page.
+    {{ room_name }}
 </h2>
 
 <div>
@@ -11,9 +13,6 @@
         {% csrf_token %}
 
         <div>
-            <h3>
-                {{ room_name }}
-            </h3>
             <p>
                 Number of beds: {{ room.beds }}
                 <br>
