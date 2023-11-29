@@ -6,12 +6,6 @@ from fd_bookings.booking_functions.check_availability import check_availability
 
 
 class BookingForm(forms.Form):
-    ROOM_CATEGORIES = (
-        ('CAPQ', 'Captain\'s Quarters'),
-        ('DCBN', 'Double Cabin'),
-        ('SCBN', 'Single Cabin'),
-        ('CRWH', 'Crew Hammocks'),
-    )
 
     room_id = None
     booking_date = forms.DateField(label='Date of Departure:', required=True)
