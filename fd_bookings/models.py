@@ -9,7 +9,9 @@ class Room(models.Model):
     beds = models.IntegerField()
     capacity = models.IntegerField()
     room_cost = models.DecimalField(decimal_places=2, max_digits=9, null=True)
-    room_image = CloudinaryField('image', default='placeholder')
+    room_image_1 = CloudinaryField('image', default='placeholder1')
+    room_image_2 = CloudinaryField('image', default='placeholder2')
+    room_image_3 = CloudinaryField('image', default='placeholder3')
 
     class Meta:
         ordering = ['name']
