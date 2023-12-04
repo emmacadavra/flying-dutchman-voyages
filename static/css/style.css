@@ -95,6 +95,18 @@
     font-style: italic;
 }
 
+.fd-room-link {
+    font-family: 'Charm', cursive;
+    font-weight: 700;
+    text-decoration: none;
+    color: #212529;
+}
+
+.fd-room-link:hover {
+    color: #000000;
+    font-style: italic;
+}
+
 /* Footer */
 
 .footer {
