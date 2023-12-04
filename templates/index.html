@@ -2,54 +2,50 @@
 
 {% block content %}
 
-    <div class="hero-image">
-        <div class="d-flex flex-column align-items-center justify-content-center">
+<div class="hero-image no-gutters">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+        <h1 class="hero-title text-center">
+            <strong>
+                <small>Welcome to</small>
+            <br />
+                <span class="hero-brand">Flying Dutchman
+            <br />
+                Voyages</span>
+            </strong>
+        </h1>
 
+        <p class="lead hero-text text-center">
+            <em>"...Sailing Until Doomsday!"</em>
+        </p>
 
-                    <h1 class="hero-title text-center">
-                        <strong>
-                            <small>Welcome to</small>
-                        <br />
-                            <span class="hero-brand">Flying Dutchman
-                        <br />
-                            Voyages</span>
-                        </strong>
-                    </h1>
-
-
-
-                    <p class="lead hero-text text-center">
-                        <em>"...Sailing Until Doomsday!"</em>
+        <div class="features-container d-flex align-items-center justify-content-center flex-wrap">
+            <div class="card text-center homepage-card">
+                <div class="card-body">
+                    <p class="card-text">
+                        Find out more about this magnificent spectral vessel's storied history...
                     </p>
-
-            <div class="d-flex align-items-center justify-content-center flex-wrap">
-                <div class="card text-center homepage-card">
-                    <div class="card-body">
-                        <p class="card-text">
-                            Find out more about this magnificent spectral vessel's storied history...
-                        </p>
-                        <a href="{% url 'about' %}" class="btn btn-lg btn-info homepage-btn">Find Out More</a>
-                    </div>
+                    <a href="{% url 'about' %}" class="btn btn-lg btn-info homepage-btn">Find Out More</a>
                 </div>
-                <div class="card text-center homepage-card">
-                    <div class="card-body">
-                        <p class="card-text">
-                            Feast your eyes on our unique selection of truly luxurious on-board rooms...
-                        </p>
-                        <a href="{% url 'fd_bookings:room_list' %}" class="btn btn-lg btn-info homepage-btn">View Our Rooms</a>
-                    </div>
+            </div>
+            <div class="card text-center homepage-card">
+                <div class="card-body">
+                    <p class="card-text">
+                        Feast your eyes on our unique selection of truly luxurious on-board rooms...
+                    </p>
+                    <a href="{% url 'fd_bookings:room_list' %}" class="btn btn-lg btn-info homepage-btn">View Our Rooms</a>
                 </div>
-                <div class="card text-center homepage-card">
-                    <div class="card-body">
-                        <p class="card-text">
-                            Discover our exclusive, one-of-a-kind special events throughout the year...
-                        </p>
-                        <a href="{% url 'events' %}" class="btn btn-lg btn-info homepage-btn">Discover Events</a>
-                    </div>
+            </div>
+            <div class="card text-center homepage-card">
+                <div class="card-body">
+                    <p class="card-text">
+                        Discover our exclusive, one-of-a-kind special events throughout the year...
+                    </p>
+                    <a href="{% url 'events' %}" class="btn btn-lg btn-info homepage-btn">Discover Events</a>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 

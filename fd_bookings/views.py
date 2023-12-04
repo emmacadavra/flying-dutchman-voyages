@@ -21,7 +21,6 @@ def about_page(request):
     # ADD DOCSTRING
     return render(request, 'about.html',)
 
-
 def room_list(request):
     # ADD DOCSTRING
     room_list = Room.objects.all()
