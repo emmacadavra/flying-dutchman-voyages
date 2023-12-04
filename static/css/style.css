@@ -34,6 +34,16 @@
     margin-top: 60%;
 }
 
+.page-background {
+    background-image: url("https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701694422/The_Flying_Dutchman_by_Charles_Temple_Dix_1_trcyf1.jpg");
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701274327/The_Flying_Dutchman_by_Charles_Temple_Dix_p7m3yr.jpg"); */
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+}
+
 @media screen and (min-width: 576px) {
     .hero-brand {
         font-size: 200%;

@@ -25,9 +25,17 @@
                     </p>
                 </div>
             </div>
-        </div>
-        <div>
-
+            <div class="row">
+                <div class="card">
+                    <a href="{% url 'about' %}" class="btn btn-lg btn-info">Find Out More</a>
+                </div>
+                <div class="card">
+                    <a href="{% url 'fd_bookings:room_list' %}" class="btn btn-lg btn-info">View Our Rooms</a>
+                </div>
+                <div class="card">
+                    <a href="{% url 'events' %}" class="btn btn-lg btn-info">Check Our Events</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
