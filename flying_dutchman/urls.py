@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home_page, name='home'),
     path('events/', views.events_page, name='events'),
-    path('contact/', views.contact_page, name='contact'),
+    path('about/', views.about_page, name='about'),
     path('', include('fd_bookings.urls'), name='fd_bookings_urls'),
     path('accounts/', include('allauth.urls')),
 ]

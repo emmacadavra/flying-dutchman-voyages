@@ -17,9 +17,9 @@ def events_page(request):
     return render(request, 'events.html',)
 
 
-def contact_page(request):
+def about_page(request):
     # ADD DOCSTRING
-    return render(request, 'contact.html',)
+    return render(request, 'about.html',)
 
 
 def room_list(request):
@@ -147,7 +147,3 @@ def cancel_booking(request, *args, **kwargs):
 
 def login_error(request):
     return render(request, 'fd_bookings/login_error.html')
-
-
-# def not_found_404(request, exception):
-#     return render(request, '404_not_found.html')

@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap');
 
+.navbar {
+    background-color: rgb(242, 239, 224, 0.2);
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-family: 'Charm', cursive;
+    font-weight: 700;
+}
+
 .hero-image {
     background-image: url("https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701274327/The_Flying_Dutchman_by_Charles_Temple_Dix_p7m3yr.jpg");
     /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701274327/The_Flying_Dutchman_by_Charles_Temple_Dix_p7m3yr.jpg"); */
@@ -7,21 +17,25 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: 0;
 }
 
 .hero-title {
     font-family: 'Charm', cursive;
     font-weight: 700;
     text-align: center;
-}
-
-.hero-brand {
-    font-size: 75px;
+    padding-top: 10%;
 }
 
 .hero-text {
     font-family: 'Charm', cursive;
     font-weight: 400;
     text-align: center;
-    margin-bottom: 0;
+    margin-top: 60%;
+}
+
+@media screen and (min-width: 576px) {
+    .hero-brand {
+        font-size: 200%;
+    }
 }
