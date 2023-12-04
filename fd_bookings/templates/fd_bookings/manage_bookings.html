@@ -4,26 +4,51 @@
 
 {% block content %}
 
-<h2>
-    This is the booking list page.
-</h2>
-
 {% if user.is_authenticated %}
-{% for booking in booking_list %}
-<div>
-    <h3><a href="/room/{{ booking.room.id }}" class="fd-room-link">{{ booking.room.name }}</a></h3>
-    <h4>Date of departure: {{ booking.booking_date }}</h4>
-    <h4>Number of passengers: {{ booking.num_passengers }}</h4>
-    <p><a href="/manage_bookings/amend/{{ booking.id }}">Amend Booking</a></p>
-    <p><a href="/manage_bookings/cancel/{{ booking.id }}">Cancel Booking</a></p>
-</div>
-{% empty %}
-<div>
-    <p>You currently have no bookings.</p>
-</div>
+
+
+<div class="page-background">
+    <div class="container">
+        <div class="row">
+            <h1 class="col-12 fd-page-header">
+                Your Bookings for the Flying Dutchman
+            </h1>
+        </div>
+        <div class="row">
+            <p class="col-12 lead fd-page-lead">
+                Manage your bookings here...
+            </p>
+        </div>
+    
+        {% for booking in booking_list %}
+
+        <div class="row">
+            <div class="col">
+                {% if 'placeholder' in booking.room.room_image_1.url %}
+                <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" />
+
+                {% else %}
+                <img src="{{ booking.room.room_image_1.url }}" />
+
+                {% endif %}
+            </div>
+            <div class="col">
+                <h2><a href="/room/{{ booking.room.id }}" class="fd-room-link">{{ booking.room.name }}</a></h2>
+                <p>Date of departure: {{ booking.booking_date }}</p>
+                <p>Number of passengers: {{ booking.num_passengers }}</p>
+                <a href="/manage_bookings/amend/{{ booking.id }}" class="btn btn-info">Amend Booking</a>
+                <a href="/manage_bookings/cancel/{{ booking.id }}" class="btn btn-secondary">Cancel Booking</a>
+            </div>
+        </div>
+
+        {% empty %}
+        <div>
+            <p>You currently have no bookings.</p>
+        </div>
+
 {% endfor %}
 {% endif %}
-
-
+    </div>
+</div>
 
 {% endblock %}
