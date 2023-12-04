@@ -4,52 +4,55 @@
 
 {% block content %}
 
-<div class="container">
-    <div class="row">
-        <div class="col text-center">
-        {% if 'placeholder' in room.room_image_1.url %}
-            <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" class="img-fluid" />
+<div class="page-background">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            {% if 'placeholder' in room.room_image_1.url %}
+                <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" class="img-fluid" />
 
-        {% else %}
-            <img src="{{ room.room_image_1.url }}" class="img-fluid" />
+            {% else %}
+                <img src="{{ room.room_image_1.url }}" class="img-fluid" />
 
-        {% endif %}
+            {% endif %}
+            </div>
 
-        {% if 'placeholder' in room.room_image_2.url %}
-            <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701278926/Ship-at-sea_lhh8r0.jpg" class="img-fluid" />
+            <div class="col">
+            {% if 'placeholder' in room.room_image_2.url %}
+                <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701278926/Ship-at-sea_lhh8r0.jpg" class="img-fluid" />
 
-        {% else %}
-            <img src="{{ room.room_image_2.url }}" class="img-fluid" />
+            {% else %}
+                <img src="{{ room.room_image_2.url }}" class="img-fluid" />
 
-        {% endif %}
+            {% endif %}
+            </div>
 
-        {% if 'placeholder' in room.room_image_3.url %}
-            <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701278903/p0y8tdgjbph51_kmbvov.jpg" class="img-fluid" />
-            
-        {% else %}
-            <img src="{{ room.room_image_3.url }}" class="img-fluid" />
-            
-        {% endif %}
+            <div class="col">
+            {% if 'placeholder' in room.room_image_3.url %}
+                <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701278903/p0y8tdgjbph51_kmbvov.jpg" class="img-fluid" />
+                
+            {% else %}
+                <img src="{{ room.room_image_3.url }}" class="img-fluid" />
+                
+            {% endif %}
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col text-center">
-            <h2>
+        <div class="row">
+            <h1 class="col-12 fd-page-header">
                 {{ room_name }}
-            </h2>
+            </h1>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <p>
-                Number of beds: {{ room.beds }}
-                <br />
-                Maximum number of passengers: {{ room.capacity }}
-            </p>
-        </div>
-    </div>
 
-    <div class="row">
+        <div class="row">
+            <div class="col">
+                <p>
+                    Number of beds: {{ room.beds }}
+                    <br />
+                    Maximum number of passengers: {{ room.capacity }}
+                </p>
+            </div>
+        </div>
+
         <div class="col">
             <form method="POST">
                 {% csrf_token %}
@@ -58,24 +61,11 @@
                     {{ form.as_p }}
                 </div>
 
-                <!-- <div>
-                    <label for="id_booking_date">
-                        Departure date:
-                    </label>
-                    <input id="id_booking_date" type="date" name="booking_date">
-                </div>
-
                 <div>
-                    <label for="id_num_passengers">
-                        Number of passengers:
-                    </label>
-                    <input id="id_num_passengers" type="number" name="num_passengers">
-                </div> -->
-
-                <div>
-                    <input type="submit" value="Book Now" />
+                    <input class="btn btn-info" type="submit" value="Book Now" />
                 </div>
             </form>
+        </div>
         </div>
     </div>
 </div>
