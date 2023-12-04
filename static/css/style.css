@@ -10,9 +10,16 @@
     font-weight: 700;
 }
 
+.navbar-light .navbar-nav .nav-item .nav-link {
+    color: rgb(48, 48, 48);
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: rgb(8, 8, 8);
+}
+
 .hero-image {
     background-image: url("https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701274327/The_Flying_Dutchman_by_Charles_Temple_Dix_p7m3yr.jpg");
-    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701274327/The_Flying_Dutchman_by_Charles_Temple_Dix_p7m3yr.jpg"); */
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -23,15 +30,20 @@
 .hero-title {
     font-family: 'Charm', cursive;
     font-weight: 700;
-    text-align: center;
-    padding-top: 10%;
+    margin-top: 15%;
 }
 
 .hero-text {
     font-family: 'Charm', cursive;
     font-weight: 400;
-    text-align: center;
-    margin-top: 60%;
+    margin-top: 50%;
+    font-size: 150%;
+}
+
+.homepage-card {
+    background: rgb(242, 239, 224, 0.5);
+    width: 250px;
+    margin: 2rem 0.5rem 0;
 }
 
 .page-background {
@@ -43,6 +55,8 @@
     background-size: cover;
     z-index: 0;
 }
+
+
 
 @media screen and (min-width: 576px) {
     .hero-brand {
