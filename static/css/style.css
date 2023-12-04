@@ -38,8 +38,7 @@ html, body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
 }
 
 .hero-title {
@@ -53,6 +52,10 @@ html, body {
     font-family: 'Charm', cursive;
     font-weight: 400;
     font-size: 200%;
+}
+
+.features-container {
+    margin-bottom: 70px;
 }
 
 .homepage-card {
@@ -77,9 +80,14 @@ html, body {
 } */
 
 .footer {
-    background-color: #3b4f44;
+    width: 100%;
+    background-color: rgb(59, 79, 68, 0.8);
     color: #7a8b7f;
     height: 56px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .footer p {
@@ -109,6 +117,6 @@ html, body {
 @media screen and (min-width: 1367px) {
     .hero-title {
         margin-top: 12%;
-        margin-bottom: 8%;
+        margin-bottom: 5%;
     }
 }
