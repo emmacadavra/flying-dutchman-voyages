@@ -1,9 +1,30 @@
 {% extends 'base.html' %}
 
-{% block title %} - Flying Dutchman Voyages{% endblock %}
+{% block title %}404 - {% endblock %}
 
 {% block content %}
 
-<h2>ERROR 404</h2>
+<div class="container-fluid">
+    <div class="hero-image">
+        <div class="container">
+            <div class="row">
+                <div class="col hero-title">
+                    <h1>Error 404</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="lead hero-text">
+                        Uh oh! It seems the page you are looking for cannot be found.
+                    </p>
+                    <p class="lead hero-text">
+                        <em><a href="{% url 'home' %}">Click here to return home.</a></em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-{% endblock %}
+
+{% endblock %}T
