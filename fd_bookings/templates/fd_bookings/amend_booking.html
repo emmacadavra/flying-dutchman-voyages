@@ -4,56 +4,62 @@
 
 {% block content %}
 
-<h2>
-    Amend your booking with us
-</h2>
+<div class="page-background">
+    <div class="container">
+        <div class="row">
+            <h1 class="col-12 fd-page-header">Amend your booking</h1>
+        </div>
 
-<div>
-    <div>
-        <h3>
-            {{ room_name }}
-        </h3>
-        <h4>
-            Current booking details:
-        </h4>
-        <p>
-            Current date of departure: {{ booking_date }}
-        </p>
-        <p>
-            Current number of passengers: {{ num_passengers }}
-        </p>
-    </div>
-    <div>
-        <h4>
-            Amend booking details:
-        </h4>
-        <form method="POST">
-            {% csrf_token %}
+        <div class="row">
+            <h2 class="col-12 fd-page-header">
+                {{ room_name }}
+            </h2>
+        </div>
+        <div class="row">
+            <h3 class="col-12">Current booking details:</h3>
+        </div>
 
-            {{ form.as_p }}
-            
-            <!-- <div>
-                <label for="id_booking_date">
-                    Departure date:
-                </label>
-                <input id="id_booking_date" type="date" name="booking_date">
+        <div class="row">    
+            <div class="col">
+            {% if 'placeholder' in room.room_image_1.url %}
+                <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" />
+
+            {% else %}
+                <img src="{{ room.room_image_1.url }}" />
+
+            {% endif %}
             </div>
 
-            <div>
-                <label for="id_num_passengers">
-                    Number of passengers:
-                </label>
-                <input id="id_num_passengers" type="number" name="num_passengers">
-            </div> -->
-
-            <div>
-                <input type="submit" value="Amend Booking" />
+            <div class="col">
+                <p>
+                    Current date of departure: {{ booking_date }}
+                </p>
+                <p>
+                    Current number of passengers: {{ num_passengers }}
+                </p>
             </div>
-        </form>
+        </div>
+
+        <div class="row">
+            <h3 class="col-12">Current booking details:</h3>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div>
+                        {{ form.as_p }}
+                    </div>
+
+                    <div>
+                        <input class="btn btn-info" type="submit" value="Amend Booking" />
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
-
-
 
 
 {% endblock %}
