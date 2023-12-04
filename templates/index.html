@@ -2,11 +2,10 @@
 
 {% block content %}
 
-<div class="container-fluid">
-    <div class="hero-image row g-0 fixed-top">
-        <div class="container d-flex flex-column align-items-center justify-content-center">
-            <div class="row">
-                <div class="col-12">
+    <div class="hero-image">
+        <div class="d-flex flex-column align-items-center justify-content-center">
+
+
                     <h1 class="hero-title text-center">
                         <strong>
                             <small>Welcome to</small>
@@ -16,38 +15,42 @@
                             Voyages</span>
                         </strong>
                     </h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
+
+
+
                     <p class="lead hero-text text-center">
                         <em>"...Sailing Until Doomsday!"</em>
                     </p>
-                </div>
-            </div>
-            <div class="row d-flex align-items-center justify-content-center flex-wrap">
+
+            <div class="d-flex align-items-center justify-content-center flex-wrap">
                 <div class="card text-center homepage-card">
                     <div class="card-body">
                         <p class="card-text">
-                            Learn more about the magnificent Flying Dutchman vessel
+                            Find out more about this magnificent spectral vessel's storied history...
                         </p>
-                        <a href="{% url 'about' %}" class="btn btn-lg btn-info">Find Out More</a>
+                        <a href="{% url 'about' %}" class="btn btn-lg btn-info homepage-btn">Find Out More</a>
                     </div>
                 </div>
                 <div class="card text-center homepage-card">
                     <div class="card-body">
-                        <a href="{% url 'fd_bookings:room_list' %}" class="btn btn-lg btn-info">View Our Rooms</a>
+                        <p class="card-text">
+                            Feast your eyes on our unique selection of truly luxurious on-board rooms...
+                        </p>
+                        <a href="{% url 'fd_bookings:room_list' %}" class="btn btn-lg btn-info homepage-btn">View Our Rooms</a>
                     </div>
                 </div>
                 <div class="card text-center homepage-card">
                     <div class="card-body">
-                        <a href="{% url 'events' %}" class="btn btn-lg btn-info">Check Our Events</a>
+                        <p class="card-text">
+                            Discover our exclusive, one-of-a-kind special events throughout the year...
+                        </p>
+                        <a href="{% url 'events' %}" class="btn btn-lg btn-info homepage-btn">Discover Events</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
 
 
 
