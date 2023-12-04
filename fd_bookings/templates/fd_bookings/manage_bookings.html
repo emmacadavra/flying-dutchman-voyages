@@ -6,7 +6,6 @@
 
 {% if user.is_authenticated %}
 
-
 <div class="page-background">
     <div class="container">
         <div class="row">
@@ -46,9 +45,11 @@
             <p>You currently have no bookings.</p>
         </div>
 
-{% endfor %}
-{% endif %}
+            {% endfor %}
+
     </div>
 </div>
+
+{% endif %}
 
 {% endblock %}

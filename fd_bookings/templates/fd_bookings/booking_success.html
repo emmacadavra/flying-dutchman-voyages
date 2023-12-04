@@ -4,11 +4,22 @@
 
 {% block content %}
 
-<h2>
-    Booking success!
-</h2>
+{% if user.is_authenticated %}
 
-<p><a href="{% url 'home' %}">Click here to return home.</a></p>
+<div class="hero-image no-gutters">
+    <div class="d-flex flex-column align-items-center justify-content-center">
+        <h1 class="hero-title">Booking Success!</h1>
 
+        <p class="lead hero-text text-center">
+            Your booking has been successfully created. We look forward to welcoming you aboard our spectral ship.
+        </p>
+
+        <p class="lead hero-text">
+            <em><a href="{% url 'fd_bookings:ViewBookingList' %}">Click here to view your booking details.</a></em>
+        </p>
+    </div>
+</div>
+
+{% endif %}
 
 {% endblock %}
