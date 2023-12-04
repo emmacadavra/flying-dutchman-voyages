@@ -4,16 +4,15 @@
 
 {% block content %}
 
-<h2>
-    You must be logged in to continue.
-</h2>
+<div class="hero-image no-gutters">
+    <div class="d-flex flex-column align-items-center justify-content-around text-center"></div>
+        <h1 class="hero-title">You must be logged in to continue.</h1>
 
-<p>
-    <a href="{% url 'account_login' %}">Log In</a>
-</p>
-<p>
-    <a href="{% url 'account_signup' %}">Register</a>
-</p>
+        <a href="{% url 'account_login' %}" class="btn btn-info">Log In</a>
+
+        <a href="{% url 'account_signup' %}" class="btn btn-warning">Register</a>
+    </div>
+</div>
 
 
 {% endblock %}
