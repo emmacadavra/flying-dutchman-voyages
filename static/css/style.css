@@ -5,10 +5,13 @@
     padding: 0;
 }
 
-html, body {
+.page-container {
     height: 100%;
     min-height: 100vh;
+    position:relative;
 }
+
+/* Header & Navbar */
 
 .header {
     position: absolute;
@@ -32,6 +35,8 @@ html, body {
 .navbar-light .navbar-nav .nav-link:hover {
     color: #080808;
 }
+
+/* Homepage */
 
 .hero-image {
     background: url("https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701274327/The_Flying_Dutchman_by_Charles_Temple_Dix_p7m3yr.jpg");
@@ -70,14 +75,24 @@ html, body {
     opacity: 0.8;
 }
 
-/* .page-background {
-    background-image: url("https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701694422/The_Flying_Dutchman_by_Charles_Temple_Dix_1_trcyf1.jpg");
-    height: 100vh;
+/* Templates */
+
+.page-background {
+    background: url("https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701717328/The_Flying_Dutchman_by_Charles_Temple_Dix_1_daafej.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 0;
-} */
+    min-height: 100%;
+    backdrop-filter: blur(1);
+}
+
+.fd-page-header {
+    font-family: 'Charm', cursive;
+    font-weight: 700;
+    padding: 70px 0.5rem;
+}
+
+/* Footer */
 
 .footer {
     width: 100%;

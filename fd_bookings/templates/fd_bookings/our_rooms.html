@@ -4,27 +4,33 @@
 
 {% block content %}
 
-<h1>
-    Stay Aboard the Flying Dutchman
-</h1>
-<p class="lead">
-    Feast your eyes on our unique selection of truly luxurious rooms...
-</p>
+<div class="page-background">
+    <div class="container">
+        <div class="row">
+            <h1 class="fd-page-header">
+                Stay Aboard the Flying Dutchman
+            </h1>
+        <div class="row">
+            <p class="lead">
+                Feast your eyes on our unique selection of truly luxurious rooms...
+            </p>
+        </div>
+        {% for room in room_list %}
 
-{% for room in room_list %}
+        <a href="/room/{{ room.id }}">
 
-<a href="/room/{{ room.id }}">
+            {% if 'placeholder' in room.room_image_1.url %}
+            <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" />
 
-    {% if 'placeholder' in room.room_image_1.url %}
-    <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" />
+            {% else %}
+            <img src="{{ room.room_image_1.url }}" />
 
-    {% else %}
-    <img src="{{ room.room_image_1.url }}" />
+            {% endif %}
+            <h2>{{ room.name }}</h2>
+        </a>
 
-    {% endif %}
-    <h2>{{ room.name }}</h2>
-</a>
-
-{% endfor %}
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}
