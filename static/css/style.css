@@ -83,13 +83,16 @@
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100%;
-    backdrop-filter: blur(1);
 }
 
 .fd-page-header {
     font-family: 'Charm', cursive;
     font-weight: 700;
-    padding: 70px 0.5rem;
+    padding: 70px 0.5rem 0.5rem;
+}
+
+.fd-page-lead {
+    font-style: italic;
 }
 
 /* Footer */
