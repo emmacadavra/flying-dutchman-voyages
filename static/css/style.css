@@ -72,9 +72,7 @@ body {
 }
 
 .homepage-card {
-    background: rgb(242, 239, 224, 0.5);
     width: 250px;
-    margin: 0.5rem;
 }
 
 .homepage-btn {
@@ -118,6 +116,11 @@ body {
     font-style: italic;
 }
 
+.fd-card {
+    background: rgb(242, 239, 224, 0.5);
+    margin: 0.5rem;
+}
+
 .fd-custom-btn {
     margin: 0.5rem;
 }
@@ -133,11 +136,6 @@ body {
 
 /* Our Rooms */
 
-.rooms-card {
-    background: rgb(242, 239, 224, 0.5);
-    margin: 0.5rem;
-}
-
 .rooms-card img {
     max-width: 500px;
     height: 100%;
@@ -152,11 +150,16 @@ body {
     padding: 0.2rem;
 }
 
+/* Room Details */
+
+.room-details-inner {
+    flex-direction: column;
+    margin: 0.5rem;
+}
+
 /* Manage & Amend Booking */
 
 .booking-card {
-    background: rgb(242, 239, 224, 0.5);
-    margin: 0.5rem;
     padding: 0.5rem;
     max-width: 770px;
     flex-direction: column;
@@ -225,6 +228,10 @@ body {
 
 @media screen and (min-width: 650px) {
     .amend-booking-details {
+        flex-direction: row;
+    }
+
+    .room-details-inner {
         flex-direction: row;
     }
 }

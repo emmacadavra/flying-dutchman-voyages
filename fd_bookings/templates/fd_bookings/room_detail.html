@@ -5,69 +5,78 @@
 {% block content %}
 
 <div class="page-background">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-            {% if 'placeholder' in room.room_image_1.url %}
-                <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" class="img-fluid" />
 
-            {% else %}
-                <img src="{{ room.room_image_1.url }}" class="img-fluid" />
+    <div class="card fd-card room-details-card d-flex flex-column align-items-center">
+        <div class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                {% if 'placeholder' in room.room_image_1.url %}
+                    <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" />
 
-            {% endif %}
-            </div>
+                {% else %}
+                    <img src="{{ room.room_image_1.url }}" />
 
-            <div class="col">
-            {% if 'placeholder' in room.room_image_2.url %}
-                <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" class="img-fluid" />
-
-            {% else %}
-                <img src="{{ room.room_image_2.url }}" class="img-fluid" />
-
-            {% endif %}
-            </div>
-
-            <div class="col">
-            {% if 'placeholder' in room.room_image_3.url %}
-                <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" class="img-fluid" />
-                
-            {% else %}
-                <img src="{{ room.room_image_3.url }}" class="img-fluid" />
-                
-            {% endif %}
-            </div>
-        </div>
-        <div class="row">
-            <h1 class="col-12 fd-page-header">
-                {{ room_name }}
-            </h1>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <p>
-                    Number of beds: {{ room.beds }}
-                    <br />
-                    Maximum number of passengers: {{ room.capacity }}
-                </p>
-            </div>
-        </div>
-
-        <div class="col">
-            <form method="POST">
-                {% csrf_token %}
-
-                <div>
-                    {{ form.as_p }}
+                {% endif %}
                 </div>
 
-                <div>
+                <div class=" carousel-item">
+                {% if 'placeholder' in room.room_image_2.url %}
+                    <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" />
+
+                {% else %}
+                    <img src="{{ room.room_image_2.url }}" />
+
+                {% endif %}
+                </div>
+
+                <div class="carousel-item">
+                {% if 'placeholder' in room.room_image_3.url %}
+                    <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" />
+                    
+                {% else %}
+                    <img src="{{ room.room_image_3.url }}" />
+                    
+                {% endif %}
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </button>
+        </div>
+
+        <div class="card fd-card room-details-card room-details-inner d-flex"></div>
+            <div class="card fd-card room-details-card d-flex flex-column align-items-center">
+                <h1 class="fd-page-header">
+                    {{ room_name }}
+                </h1>
+                <div class="booking-text-details">
+                    <p>
+                        Number of beds: {{ room.beds }}
+                    </p>
+                    <p>
+                        Maximum number of passengers: {{ room.capacity }}
+                    </p>
+                </div>
+            </div>
+            <div class="card fd-card room-details-card d-flex flex-column align-items-center">
+                <form method="POST">
+                    {% csrf_token %}
+    
+                    <div class="fd-form">
+                        {{ form.as_p }}
+                    </div>
+    
                     <input class="btn btn-info" type="submit" value="Book Now" />
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
         </div>
     </div>
+    
 </div>
 
 {% endblock %}
