@@ -96,11 +96,14 @@ body {
 .fd-page-header {
     font-family: 'Charm', cursive;
     font-weight: 700;
-    padding: 70px 0.5rem 0.5rem;
+    padding: 1rem;
+    text-align: center;
 }
 
 .fd-page-lead {
     font-style: italic;
+    padding: 1rem;
+    text-align: center;
 }
 
 .fd-room-link {
