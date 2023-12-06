@@ -57,8 +57,8 @@ body {
 .hero-title {
     font-family: 'Charm', cursive;
     font-weight: 700;
-    margin-top: 23%;
-    margin-bottom: 12%;
+    margin-top: 15%;
+    margin-bottom: 10%;
 }
 
 .hero-text {
@@ -119,6 +119,31 @@ body {
     margin: 0.5rem;
 }
 
+.fd-page-text {
+    padding: 2rem;
+}
+
+/* Our Rooms */
+
+.rooms-card {
+    background: rgb(242, 239, 224, 0.5);
+    margin: 0.5rem;
+}
+
+.rooms-card img {
+    max-width: 500px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.rooms-card h2 {
+    padding: 0.2rem;
+}
+
+.rooms-card p {
+    padding: 0.2rem;
+}
+
 /* Footer */
 
 .footer {
@@ -140,23 +165,18 @@ body {
     .hero-brand {
         font-size: 200%;
     }
-
-    .hero-title {
-        margin-top: 18%;
-        margin-bottom: 15%;
-    }
 }
 
 @media screen and (min-width: 992px) {
     .hero-title {
-        margin-top: 11%;
-        margin-bottom: 6%;
+        margin-top: 10%;
+        margin-bottom: 8%;
     }
 }
 
 @media screen and (min-width: 1367px) {
     .hero-title {
-        margin-top: 12%;
+        margin-top: 8%;
         margin-bottom: 5%;
     }
 }
