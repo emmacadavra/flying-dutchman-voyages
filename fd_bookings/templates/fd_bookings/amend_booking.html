@@ -5,57 +5,61 @@
 {% block content %}
 
 <div class="page-background">
-    <div class="container">
-        <div class="row">
-            <h1 class="col-12 fd-page-header">Amend your booking</h1>
-        </div>
 
-        <div class="row">
-            <h2 class="col-12 fd-page-header">
-                {{ room_name }}
-            </h2>
-        </div>
-        <div class="row">
-            <h3 class="col-12">Current booking details:</h3>
-        </div>
-
-        <div class="row">    
-            <div class="col">
-            {% if 'placeholder' in room.room_image_1.url %}
-                <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" />
-
-            {% else %}
-                <img src="{{ room.room_image_1.url }}" />
-
-            {% endif %}
+    <div class="d-flex flex-column align-items-center">  
+        <div class="card amend-booking-card d-flex flex-column align-items-center justify-content-center">
+            <div>
+                <h1 class="fd-page-header">
+                    Amend your booking:
+                    <br />
+                    {{ booking.room.name }}</h1>
             </div>
+            <div class="amend-booking-flex d-flex align-items-center justify-content-center">
+                <div class="booking-image d-flex">
+                    {% if 'placeholder' in booking.room.room_image_1.url %}
+                    <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" />
 
-            <div class="col">
-                <p>
-                    Current date of departure: {{ booking_date }}
-                </p>
-                <p>
-                    Current number of passengers: {{ num_passengers }}
-                </p>
-            </div>
-        </div>
+                    {% else %}
+                    <img src="{{ booking.room.room_image_1.url }}" />
 
-        <div class="row">
-            <h3 class="col-12">Current booking details:</h3>
-        </div>
-        <div class="row">
-            <div class="col">
-                <form method="POST">
-                    {% csrf_token %}
-
-                    <div>
-                        {{ form.as_p }}
+                    {% endif %}
+                </div>
+                <div class="amend-booking-details d-flex justify-content-between">
+                    <div class="card amend-booking-card d-flex flex-column align-items-center justify-content-center">
+                        <h2 class="fd-page-header text-center">
+                            Current booking details:
+                        </h2>
+                        <div class="booking-text d-flex flex-column justify-content-between">
+                            <div class="booking-text-details">
+                                <p>
+                                    Current date of departure:
+                                </p>
+                                <p>
+                                    {{ booking.booking_date }}
+                                </p>
+                                <p>
+                                    Current number of passengers: {{ booking.num_passengers }}
+                                </p>
+                            </div>
+                        </div>
                     </div>
-
-                    <div>
-                        <input class="btn btn-info" type="submit" value="Amend Booking" />
+                    <div class="card amend-booking-card d-flex flex-column align-items-center justify-content-center">
+                        <h2 class="fd-page-header text-center">
+                            New booking details:
+                        </h2>
+                        <div>
+                            <form method="POST" class="d-flex flex-column align-items-center">
+                                {% csrf_token %}
+                                
+                                <div class="fd-form">
+                                {{ form.as_p }}
+                                </div>
+                
+                                <input class="btn btn-info text-center" type="submit" value="Amend Booking" />
+                            </form>
+                        </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>

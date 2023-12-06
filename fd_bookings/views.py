@@ -106,21 +106,17 @@ def amend_booking(request, *args, **kwargs):
     if request.method == 'GET':
         form = BookingForm(room_id=booking.room.id)
         context = {
+            'booking': booking,
             'booking_id': booking_id,
             'form': form,
-            'room_name': booking.room.name,
-            'booking_date': booking.booking_date,
-            'num_passengers': booking.num_passengers,
         }
         return render(request, 'fd_bookings/amend_booking.html', context)
     else:
         form = BookingForm(request.POST, room_id=booking.room.id)
         context = {
+            'booking': booking,
             'booking_id': booking_id,
             'form': form,
-            'room_name': booking.room.name,
-            'booking_date': booking.booking_date,
-            'num_passengers': booking.num_passengers,
             'is_valid': form.is_valid(),
         }
 
