@@ -151,11 +151,19 @@ body {
 }
 
 /* Room Details */
+.room-details-card {
+    padding: 1rem;
+    max-width: 1230px;
+}
 
 .room-details-inner {
     flex-direction: column;
     margin: 0.5rem;
 }
+
+/* .carousel-container {
+
+} */
 
 /* Manage & Amend Booking */
 
@@ -184,8 +192,6 @@ body {
 }
 
 .amend-booking-card {
-    background: rgb(242, 239, 224, 0.5);
-    margin: 0.5rem;
     padding: 0.5rem;
     max-width: 1230px;
 }
