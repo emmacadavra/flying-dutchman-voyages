@@ -44,7 +44,7 @@ class ViewBookingList(generic.ListView):
         else:
             booking_list = Booking.objects.filter(user=self.request.user)
             return booking_list
-    
+
     paginate_by = 3
 
 

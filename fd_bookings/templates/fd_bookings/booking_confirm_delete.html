@@ -4,29 +4,58 @@
 
 {% block content %}
 
-<h2>
-    Confirm booking cancellation.
-</h2>
+<div class="page-background">
 
-<div>
-    <form action="" method="POST">
-        {% csrf_token %}
-
-        <div>
-            <h3>
-                Please confirm that you wish to delete this booking:
-            </h3>
+    <div class="d-flex flex-column align-items-center">  
+        <div class="card amend-booking-card d-flex flex-column align-items-center justify-content-center">
             <div>
-                <h3>{{ booking.get_room_name }}</h3>
-                <h4>Date of departure: {{ booking.booking_date }}</h4>
-                <h4>Number of passengers: {{ booking.num_passengers }}</h4>
+                <h1 class="fd-page-header">
+                    Cancel your booking for:
+                    <br />
+                    {{ booking.room.name }}
+                </h1>
+            </div>
+            <div class="amend-booking-flex d-flex align-items-center justify-content-center">
+                <div class="booking-image d-flex">
+                    {% if 'placeholder' in booking.room.room_image_1.url %}
+                    <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" />
+
+                    {% else %}
+                    <img src="{{ booking.room.room_image_1.url }}" />
+
+                    {% endif %}
+                </div>
+                <div class="amend-booking-details d-flex justify-content-between">
+                    <div class="card amend-booking-card d-flex flex-column align-items-center justify-content-center">
+                        <h2 class="fd-page-header text-center">
+                            Please confirm that you wish to cancel this booking:
+                        </h2>
+                        <div class="booking-text d-flex flex-column justify-content-between">
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                        
+                                <div class="booking-text-details">
+                                    <p>
+                                        Date of departure:
+                                    </p>
+                                    <p>
+                                        {{ booking.booking_date }}
+                                    </p>
+                                    <p>
+                                        Number of passengers: {{ booking.num_passengers }}
+                                    </p>
+                                </div>
+                                <div>
+                                    <input type="submit" class="btn btn-lg btn-danger" value="Cancel Booking" />
+                                    <a href="{% url 'fd_bookings:ViewBookingList' %}" class="btn btn-lg btn-secondary">Cancel</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div>
-            <input type="submit" value="Cancel Booking" />
-        </div>
-    </form>
+    </div>
 </div>
 
 {% endblock %}
