@@ -144,6 +144,33 @@ body {
     padding: 0.2rem;
 }
 
+/* Manage Booking */
+
+.booking-card {
+    background: rgb(242, 239, 224, 0.5);
+    margin: 0.5rem;
+    padding: 0.5rem;
+    max-width: 770px;
+    flex-direction: column;
+}
+
+.booking-card img {
+    max-width: 500px;
+}
+
+.booking-image {
+    padding: 0.5rem;
+}
+
+.booking-text {
+    padding: 0.5rem;
+}
+
+.booking-text-title {
+    margin: 1rem;
+}
+
+
 /* Footer */
 
 .footer {
@@ -164,6 +191,12 @@ body {
 @media screen and (min-width: 576px) {
     .hero-brand {
         font-size: 200%;
+    }
+}
+
+@media screen and (min-width: 830px) {
+    .booking-card {
+        flex-direction: row;
     }
 }
 
