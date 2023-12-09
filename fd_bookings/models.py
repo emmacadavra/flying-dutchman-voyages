@@ -9,7 +9,7 @@ class Room(models.Model):
     beds = models.IntegerField()
     capacity = models.IntegerField()
     summary = models.CharField(max_length=500, null=True)
-    description = models.TextField(blank=True)
+    description = models.TextField()
     room_cost = models.DecimalField(decimal_places=2, max_digits=9, null=True)
     room_image_1 = CloudinaryField('image', default='placeholder1')
     room_image_2 = CloudinaryField('image', default='placeholder2')
