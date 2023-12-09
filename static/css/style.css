@@ -242,15 +242,17 @@ main {
 .footer {
     width: 100%;
     background-image: linear-gradient(to left, #53adbb, #4aa1a9, #439698, #3e8a87, #397e77, #39776d, #396f63, #38685a, #3a6254, #3c5d4f, #3d574a, #3d5246);
-    color: #7a8b7f;
     height: 56px;
 }
 
-.footer p {
-    margin-bottom: 0;
+.footer-inner {
+    height: 100%;
 }
 
-
+.footer-link {
+    color: #f4f2e3;
+    font-size: 200%;
+}
 
 @media screen and (min-width: 576px) {
     .hero-brand {
