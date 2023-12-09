@@ -50,6 +50,7 @@
                 </button>
             </div>
         </div>
+
         <div class="room-details-inner d-flex">
             <div class="card fd-card room-details-card d-flex flex-column align-items-center">
                 <h1 class="fd-page-header">
@@ -57,14 +58,32 @@
                 </h1>
                 <div class="booking-text-details">
                     <p>
+                        {{ room.description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="room-details-inner d-flex">
+            <div class="card fd-card room-details-card info-card d-flex flex-column align-items-center">
+                <div class="booking-text-details">
+                    <p>
                         Number of beds: {{ room.beds }}
                     </p>
                     <p>
                         Maximum number of passengers: {{ room.capacity }}
                     </p>
+                    <p>
+                        Cost for 5 nights (Sunday - Friday)*: £{{ room.room_cost }}
+                    </p>
+                    <p class="room-detail-disclaimer">
+                        <small>
+                            *All bookings are made for a 5 night duration. The Flying Dutchman sets sail every Sunday at midday and returns on the following Friday at the same time.
+                        </small>
+                    </p>
                 </div>
             </div>
-            <div class="card fd-card room-details-card d-flex flex-column align-items-center">
+            <div class="card fd-card room-details-card form-card d-flex flex-column align-items-center">
                 <form method="POST">
                     {% csrf_token %}
     

@@ -25,10 +25,7 @@ body {
 }
 
 .navbar {
-    /* background-image: linear-gradient(to right bottom, #53adbb, #6cb7c3, #82c0ca, #98cad2, #acd4da, #b7dbdc, #c2e1df, #cee7e3, #d6eae1, #e0ede0, #eaf0e1, #f4f2e3); */
     background-image: linear-gradient(to right, #53adbb, #74bcb8, #96c9b9, #b6d5be, #d4e1ca, #e0e6d0, #eaebd8, #f4f0e0, #f4efde, #f3eddb, #f3ecd9, #f3ead7);
-    /* background-color: #C3BFAF; */
-    /* background-color: #F2FEDC; */
 }
 
 .navbar-brand {
@@ -161,6 +158,19 @@ body {
     margin: 0.5rem;
 }
 
+.room-detail-disclaimer {
+    font-style: italic;
+}
+
+.form-card {
+    min-width: 250px;
+}
+
+.booking-text-details {
+    padding-top: 0.5rem;
+}
+
+
 /* .carousel-container {
 
 } */
@@ -214,8 +224,6 @@ body {
 .footer {
     width: 100%;
     background-image: linear-gradient(to left, #53adbb, #4aa1a9, #439698, #3e8a87, #397e77, #39776d, #396f63, #38685a, #3a6254, #3c5d4f, #3d574a, #3d5246);
-    /* background-color: #3D5246; */
-    /* background-color: #21473a; */
     color: #7a8b7f;
     height: 56px;
 }
