@@ -138,7 +138,7 @@ def cancel_booking(request, *args, **kwargs):
 
     if request.method == 'POST':
         booking.delete()
-        sweetify.success(request, "Booking successfully cancelled.")
+        messages.success(request, "Booking successfully cancelled.")
         return HttpResponseRedirect('/manage_bookings')
 
     return render(request, 'fd_bookings/booking_confirm_delete.html', {'booking': booking})

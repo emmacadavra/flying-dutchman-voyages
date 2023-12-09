@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-    'sweetify',
     'fd_bookings',
     'fd_bookings.booking_functions',
 ]
