@@ -5,10 +5,14 @@ from .models import Room
 from fd_bookings.booking_functions.check_availability import check_availability
 
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+
 class BookingForm(forms.Form):
 
     room_id = None
-    booking_date = forms.DateField(label='Date of Departure:', required=True)
+    booking_date = forms.DateField(widget=DateInput, input_formats=['%d-%m-%Y'], label='Date of Departure:', required=True)
     num_passengers = forms.IntegerField(label='Number of Passengers:', required=True)
 
     def __init__(self, *args, **kwargs):
