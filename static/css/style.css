@@ -223,6 +223,13 @@ main {
     flex-direction: column;
 }
 
+/* Login/Logout/Signup */
+
+.login-logout-card {
+    padding: 1rem;
+    max-width: 750px;
+}
+
 /* Footer */
 
 .footer {

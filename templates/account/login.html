@@ -1,0 +1,35 @@
+{% extends "account/base_entrance.html" %}
+{% load i18n %}
+{% load allauth account socialaccount %}
+{% block head_title %}
+    {% trans "Sign In" %}
+{% endblock head_title %}
+{% block content %}
+
+<div class="hero-image">
+    <div class="card fd-card login-logout-card d-flex flex-column align-items-center justify-content-around mx-auto">
+        <div>
+            <h1 class="hero-title">{% trans "Sign In" %}</h1>
+
+            <p class="lead text-center">
+                {% blocktrans %}Log in to Flying Dutchman Voyages to make a new booking and manage existing bookings. If you have not yet created an account, then please <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+            </p>
+        </div>
+        <div class="card fd-card login-logout-card d-flex">
+            <form class="login" method="POST" action="{% url 'account_login' as login_url %}">
+                {% csrf_token %}
+                
+                {{ form.as_p }}
+                {% if redirect_field_value %}
+                <input type="hidden"
+                       name="{{ redirect_field_name }}"
+                       value="{{ redirect_field_value }}" />
+                {% endif %}
+                <button class="btn btn-lg btn-info mx-auto" type="submit">{% trans "Sign In" %}</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+{% endblock content %}
