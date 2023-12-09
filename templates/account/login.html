@@ -9,13 +9,13 @@
 <div class="hero-image">
     <div class="card fd-card login-signup-card d-flex flex-column align-items-center justify-content-around mx-auto">
         <div>
-            <h1 class="hero-title">{% trans "Sign In" %}</h1>
+            <h1 class="hero-title text-center">{% trans "Sign In" %}</h1>
 
             <p class="lead text-center">
                 {% blocktrans %}Log in to Flying Dutchman Voyages to make a new booking and manage existing bookings. If you have not yet created an account, then please <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
             </p>
         </div>
-        <div class="card fd-card d-flex">
+        <div class="card fd-card signup-inner">
             <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 
@@ -25,7 +25,9 @@
                        name="{{ redirect_field_name }}"
                        value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-lg btn-info mx-auto" type="submit">{% trans "Sign In" %}</button>
+                <div class="text-center">
+                    <button class="btn btn-lg btn-info mx-auto" type="submit">{% trans "Sign In" %}</button>
+                </div>
             </form>
         </div>
     </div>

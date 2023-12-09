@@ -231,7 +231,10 @@ main {
 
 .signup-inner {
     padding: 1rem;
-    width: 90%;
+}
+
+.signup ul {
+    margin-left: 1rem;
 }
 
 /* Footer */
