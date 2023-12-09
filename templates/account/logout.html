@@ -6,7 +6,7 @@
 {% block content %}
 
 <div class="hero-image">
-    <div class="card fd-card login-logout-card d-flex flex-column align-items-center justify-content-around mx-auto">
+    <div class="card fd-card login-signup-card d-flex flex-column align-items-center justify-content-around mx-auto">
         <div>
             <h1 class="hero-title">{% trans "Sign Out" %}</h1>
 
@@ -14,7 +14,7 @@
                 {% trans 'Are you sure you want to sign out?' %}
             </p>
         </div>
-        <div class="card fd-card login-logout-card d-flex">
+        <div class="card fd-card d-flex">
             <form method="POST" action="{% url 'account_logout' %}">
                 {% csrf_token %}
                 

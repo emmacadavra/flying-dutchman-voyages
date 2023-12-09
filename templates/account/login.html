@@ -7,7 +7,7 @@
 {% block content %}
 
 <div class="hero-image">
-    <div class="card fd-card login-logout-card d-flex flex-column align-items-center justify-content-around mx-auto">
+    <div class="card fd-card login-signup-card d-flex flex-column align-items-center justify-content-around mx-auto">
         <div>
             <h1 class="hero-title">{% trans "Sign In" %}</h1>
 
@@ -15,7 +15,7 @@
                 {% blocktrans %}Log in to Flying Dutchman Voyages to make a new booking and manage existing bookings. If you have not yet created an account, then please <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
             </p>
         </div>
-        <div class="card fd-card login-logout-card d-flex">
+        <div class="card fd-card d-flex">
             <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 
