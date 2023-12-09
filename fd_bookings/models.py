@@ -6,7 +6,6 @@ from cloudinary.models import CloudinaryField
 class Room(models.Model):
 
     name = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True, null=True, blank=False)
     beds = models.IntegerField()
     capacity = models.IntegerField()
     summary = models.CharField(max_length=500, null=True)
