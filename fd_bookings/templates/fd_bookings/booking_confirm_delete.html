@@ -26,7 +26,7 @@
                     {% endif %}
                 </div>
                 <div class="amend-booking-details d-flex justify-content-between">
-                    <div class="card amend-booking-card d-flex flex-column align-items-center justify-content-center">
+                    <div class="card fd-card amend-booking-card d-flex flex-column align-items-center justify-content-center">
                         <h2 class="fd-page-header text-center">
                             Please confirm that you wish to cancel this booking:
                         </h2>
@@ -45,9 +45,9 @@
                                         Number of passengers: {{ booking.num_passengers }}
                                     </p>
                                 </div>
-                                <div>
-                                    <input type="submit" class="btn btn-lg btn-danger" value="Cancel Booking" />
-                                    <a href="{% url 'fd_bookings:ViewBookingList' %}" class="btn btn-lg btn-secondary">Cancel</a>
+                                <div class="d-flex">
+                                    <input type="submit" class="btn btn-lg btn-danger fd-custom-btn" value="Cancel Booking" />
+                                    <a href="{% url 'fd_bookings:ViewBookingList' %}" class="btn btn-lg btn-secondary fd-custom-btn">Cancel</a>
                                 </div>
                             </form>
                         </div>

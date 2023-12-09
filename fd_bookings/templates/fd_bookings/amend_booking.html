@@ -55,8 +55,11 @@
                                 <div class="fd-form">
                                 {{ form.as_p }}
                                 </div>
-                
-                                <input class="btn btn-info text-center" type="submit" value="Amend Booking" />
+                                
+                                <div class="d-flex">
+                                <input class="btn btn-info text-center fd-custom-btn" type="submit" value="Amend Booking" />
+                                <a href="{% url 'fd_bookings:ViewBookingList' %}" class="btn btn-secondary fd-custom-btn">Cancel</a>
+                                </div>
                             </form>
                         </div>
                     </div>

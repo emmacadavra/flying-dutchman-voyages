@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from .models import Room, Booking
 from .forms import BookingForm
+import sweetify
 
 
 def home_page(request):
@@ -20,6 +21,7 @@ def events_page(request):
 def about_page(request):
     # ADD DOCSTRING
     return render(request, 'about.html',)
+
 
 def room_list(request):
     # ADD DOCSTRING
@@ -136,7 +138,7 @@ def cancel_booking(request, *args, **kwargs):
 
     if request.method == 'POST':
         booking.delete()
-        messages.success(request, "Booking successfully cancelled.")
+        sweetify.success(request, "Booking successfully cancelled.")
         return HttpResponseRedirect('/manage_bookings')
 
     return render(request, 'fd_bookings/booking_confirm_delete.html', {'booking': booking})
