@@ -186,7 +186,9 @@ a {
     padding-top: 0.5rem;
 }
 
-
+.carousel-item img {
+    max-width: 750px;
+}
 /* .carousel-container {
 
 } */
@@ -207,7 +209,6 @@ a {
 
 .booking-card img {
     max-width: 500px;
-    width: 100%;
     height: auto;
 }
 
@@ -239,6 +240,12 @@ a {
 
 .amend-booking-flex {
     flex-direction: column;
+}
+
+.custom-page-link {
+    background: rgb(242, 239, 224, 0.8);
+    color: #212529;
+    font-weight: bold;
 }
 
 /* Login/Logout/Signup */
