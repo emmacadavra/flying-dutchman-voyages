@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'sweetify',
     'fd_bookings',
     'fd_bookings.booking_functions',
 ]
@@ -90,6 +91,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'flying_dutchman.wsgi.application'
 
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
