@@ -16,7 +16,7 @@
             </p>
         </div>
         <div class="card fd-card login-logout-card d-flex">
-            <form class="login" method="POST" action="{% url 'account_login' as login_url %}">
+            <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 
                 {{ form.as_p }}
