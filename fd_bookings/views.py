@@ -5,7 +5,6 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from .models import Room, Booking
 from .forms import BookingForm
-import sweetify
 
 
 def home_page(request):
@@ -34,8 +33,6 @@ def room_list(request):
 
 
 class ViewBookingList(generic.ListView):
-    # ADD DOCSTRING
-    # paginate_by = 5 (https://docs.djangoproject.com/en/4.2/topics/pagination/ - follow instructions in template)
     model = Booking
     template_name = 'fd_bookings/manage_bookings.html'
 
@@ -141,7 +138,11 @@ def cancel_booking(request, *args, **kwargs):
         messages.success(request, "Booking successfully cancelled.")
         return HttpResponseRedirect('/manage_bookings')
 
-    return render(request, 'fd_bookings/booking_confirm_delete.html', {'booking': booking})
+    return render(
+        request,
+        'fd_bookings/booking_confirm_delete.html',
+        {'booking': booking}
+        )
 
 
 def login_error(request):
