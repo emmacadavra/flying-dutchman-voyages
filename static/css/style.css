@@ -153,7 +153,12 @@ a {
 /* Events */
 
 .holidays {
-    max-width: 1200px;
+    max-width: 1400px;
+    flex-direction: column;
+}
+
+.holidays-card {
+    padding: 0.5rem;
 }
 
 .holidays-image img {
@@ -309,6 +314,10 @@ a {
 
 @media screen and (min-width: 830px) {
     .booking-card {
+        flex-direction: row;
+    }
+
+    .holidays {
         flex-direction: row;
     }
 }
