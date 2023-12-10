@@ -61,6 +61,10 @@ a:hover {
     font-style: normal;
 }
 
+.btn:hover {
+    font-style: normal;
+}
+
 /* Homepage */
 
 .hero-image {
