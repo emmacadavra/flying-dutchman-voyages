@@ -4,7 +4,10 @@ from cloudinary.models import CloudinaryField
 
 
 class Room(models.Model):
-
+    """
+    Creates the fields available for Admin users when entering room details,
+    and stores the information in the database.
+    """
     name = models.CharField(max_length=200, unique=True)
     beds = models.IntegerField()
     capacity = models.IntegerField()
@@ -23,7 +26,9 @@ class Room(models.Model):
 
 
 class Booking(models.Model):
-
+    """
+    Handles information from user bookings and stores it in the database.
+    """
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     created_on = models.DateTimeField(auto_now_add=True)
     modified_on = models.DateTimeField(auto_now=True)

@@ -8,22 +8,30 @@ from .forms import BookingForm
 
 
 def home_page(request):
-    # ADD DOCSTRING
+    """
+    Homepage view.
+    """
     return render(request, 'index.html',)
 
 
 def events_page(request):
-    # ADD DOCSTRING
+    """
+    Events page view.
+    """
     return render(request, 'events.html',)
 
 
 def about_page(request):
-    # ADD DOCSTRING
+    """
+    About page view.
+    """
     return render(request, 'about.html',)
 
 
 def room_list(request):
-    # ADD DOCSTRING
+    """
+    Gathers the data from all rooms and returns them in a list.
+    """
     room_list = Room.objects.all()
 
     context = {
@@ -33,6 +41,10 @@ def room_list(request):
 
 
 class ViewBookingList(generic.ListView):
+    """
+    Retrieves all bookings made by a specific user and returns them in a list.
+    If the user is Admin, all bookings made by all users will be returned.
+    """
     model = Booking
     template_name = 'fd_bookings/manage_bookings.html'
 
@@ -48,8 +60,14 @@ class ViewBookingList(generic.ListView):
 
 
 class RoomDetailView(generic.View):
-    # ADD DOCSTRINGS
+    """
+    View for individual room details.
+    """
     def get(self, request, *args, **kwargs):
+        """
+        Retrieves the ID of the selected room and returns that room's details
+        as well as displaying the booking form.
+        """
         room_id = kwargs.get('room_id')
         room = get_object_or_404(Room, id=room_id)
 
@@ -63,6 +81,15 @@ class RoomDetailView(generic.View):
         return render(request, 'fd_bookings/room_detail.html', context)
 
     def post(self, request, *args, **kwargs):
+        """
+        When a user submits a POST request through the form, this function
+        gets the room ID so that the booking form can do its validation
+        checks. If the form is valid, and the user is authenticated, the
+        booking is created. If the form is not valid, the page updates with
+        a validation error to tell the user why it was not valid.
+        If the user is not authenticated, they are redirected to a page
+        telling them to log in or sign up.
+        """
         room_id = kwargs.get('room_id')
         room = get_object_or_404(Room, id=room_id)
         form = BookingForm(request.POST, room_id=room.id)
@@ -92,13 +119,20 @@ class RoomDetailView(generic.View):
 
 
 def booking_success(request):
-    # ADD DOCSTRING
+    """
+    Booking success view.
+    """
     return render(request, 'fd_bookings/booking_success.html',)
 
 
 @login_required
 def amend_booking(request, *args, **kwargs):
-    # ADD DOCSTRING
+    """
+    Takes the booking ID and feeds it into the template next to the form.
+    If the user makes a POST request through the form to amend their booking,
+    the form is validated in the same way as the post function under
+    RoomDetailView.
+    """
     booking_id = kwargs.get('booking_id')
     booking = get_object_or_404(Booking, id=booking_id, user=request.user)
 
@@ -130,6 +164,11 @@ def amend_booking(request, *args, **kwargs):
 
 @login_required
 def cancel_booking(request, *args, **kwargs):
+    """
+    Takes the booking ID and retrieves the information. If the user
+    confirms they want to cancel their booking, the booking is deleted
+    from the database and the user is notified.
+    """
     booking_id = kwargs.get('booking_id')
     booking = get_object_or_404(Booking, id=booking_id, user=request.user)
 
@@ -146,4 +185,8 @@ def cancel_booking(request, *args, **kwargs):
 
 
 def login_error(request):
+    """
+    View that appears when a user tries to make a booking but they
+    are not logged in.
+    """
     return render(request, 'fd_bookings/login_error.html')
