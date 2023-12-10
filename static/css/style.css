@@ -25,6 +25,11 @@ a {
     color: inherit;
 }
 
+a:hover {
+    color: inherit;
+    font-style: italic;
+}
+
 .underline {
     text-decoration: underline;
 }
@@ -50,6 +55,10 @@ a {
 
 .navbar-light .navbar-nav .nav-link:hover {
     color: #080808;
+}
+
+.navbar a:hover {
+    font-style: normal;
 }
 
 /* Homepage */
@@ -107,7 +116,6 @@ a {
 }
 
 .fd-page-lead {
-    font-style: italic;
     padding: 1rem;
     text-align: center;
 }
@@ -246,10 +254,6 @@ a {
     flex-direction: column;
     margin: 0.5rem;
     max-width: 1000px;
-}
-
-.room-detail-disclaimer {
-    font-style: italic;
 }
 
 .form-card {
