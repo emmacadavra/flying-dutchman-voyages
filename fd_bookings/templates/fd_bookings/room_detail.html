@@ -6,9 +6,9 @@
 
 <div class="page-background">
 
-    <div class="card fd-card room-details-card d-flex flex-column align-items-center justify-content-center mx-auto">
+    <div class="card fd-card room-details-outer room-details-card d-flex flex-column align-items-center justify-content-center mx-auto">
         <div id="fd-carousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
+            <div class="carousel-inner text-center">
                 <div class="carousel-item active">
                 {% if 'placeholder' in room.room_image_1.url %}
                     <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1702203941/captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" />
@@ -50,7 +50,7 @@
         </div>
 
         <div class="room-details-inner d-flex">
-            <div class="card fd-card room-details-card d-flex flex-column align-items-center">
+            <div class="card fd-card room-details-card d-flex flex-column align-items-center mx-auto">
                 <h1 class="fd-page-header">
                     {{ room_name }}
                 </h1>
@@ -63,7 +63,7 @@
         </div>
 
         <div class="room-details-inner d-flex">
-            <div class="card fd-card room-details-card info-card d-flex flex-column align-items-center">
+            <div class="card fd-card room-details-card d-flex flex-column align-items-center mx-auto">
                 <div class="booking-text-details">
                     <p>
                         Number of beds: {{ room.beds }}
@@ -81,7 +81,7 @@
                     </p>
                 </div>
             </div>
-            <div class="card fd-card room-details-card form-card d-flex flex-column align-items-center">
+            <div class="card fd-card room-details-card form-card d-flex flex-column align-items-center mx-auto">
                 <form method="POST">
                     {% csrf_token %}
     

@@ -152,6 +152,26 @@ a {
 
 /* Events */
 
+.easter-sunday {
+    max-width: 1400px;
+    padding: 0.5rem;
+}
+
+.easter-text {
+    width: 50%;
+    margin: 0.5rem;
+}
+
+.easter-image {
+    width: 50%;
+    margin: 0.5rem;
+}
+
+.easter-image img {
+    max-width: 100%;
+    height: auto;
+}
+
 .holidays {
     max-width: 1400px;
     flex-direction: column;
@@ -183,14 +203,19 @@ a {
 
 /* Room Details */
 
+.room-details-outer {
+    max-width: 90%;
+}
+
 .room-details-card {
     padding: 1rem;
-    max-width: 900px;
+    margin: 0.5rem;
 }
 
 .room-details-inner {
     flex-direction: column;
     margin: 0.5rem;
+    max-width: 1000px;
 }
 
 .room-detail-disclaimer {
@@ -206,7 +231,7 @@ a {
 }
 
 .carousel-item img {
-    max-width: 750px;
+    max-width: 90%;
 }
 
 /* Manage & Amend Booking */
@@ -336,6 +361,14 @@ a {
 
     .amend-booking-details {
         flex-direction: column;
+    }
+
+    .carousel-item img {
+        max-width: 900px;
+    }
+
+    .room-details-outer {
+        max-width: 1000px;
     }
 }
 
