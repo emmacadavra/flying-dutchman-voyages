@@ -152,8 +152,12 @@ a {
 
 /* Events */
 
-.events {
+.holidays {
+    max-width: 1200px;
+}
 
+.holidays-image img {
+    max-width: 100%;
 }
 
 /* Our Rooms */
