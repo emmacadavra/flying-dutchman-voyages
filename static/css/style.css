@@ -146,6 +146,16 @@ a {
     margin-left: 0.5rem;
 }
 
+/* About Us */
+
+
+
+/* Events */
+
+.events {
+
+}
+
 /* Our Rooms */
 
 .rooms-card img {
@@ -166,7 +176,7 @@ a {
 
 .room-details-card {
     padding: 1rem;
-    max-width: 1230px;
+    max-width: 900px;
 }
 
 .room-details-inner {
