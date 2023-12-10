@@ -153,18 +153,18 @@ a {
 /* Events */
 
 .easter-sunday {
-    max-width: 1400px;
-    padding: 0.5rem;
+    max-width: 95%;
+    padding: 0 0.5rem;
 }
 
 .easter-text {
-    width: 50%;
-    margin: 0.5rem;
+    max-width: 50%;
+    padding: 0.5rem;
 }
 
 .easter-image {
-    width: 50%;
-    margin: 0.5rem;
+    max-width: 50%;
+    padding: 0.5rem;
 }
 
 .easter-image img {
@@ -173,7 +173,7 @@ a {
 }
 
 .holidays {
-    max-width: 1400px;
+    max-width: 95%;
     flex-direction: column;
 }
 
@@ -376,5 +376,15 @@ a {
     .hero-title {
         margin-top: 8%;
         margin-bottom: 5%;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .easter-sunday {
+        max-width: 1400px;
+    }
+
+    .holidays {
+        max-width: 1400px;
     }
 }
