@@ -60,11 +60,26 @@ When planning the project, I initially made a mind map of what I felt the projec
 
 ![Original project mind map](link)
 
-From here, I was able to break down these requirements into three categories: 'must have', 'should have', and 'could have'. By doing this, I was able to determine the MVP, as well as consider the agile epics that could be broken down into user stories. 
+From here, I was able to break down these requirements into three categories: 'must have', 'should have', and 'could have'. By doing this, I was able to determine the MVP, as well as consider the agile epics that could be broken down into user stories.
 
 ### **User Stories**
 
+The four agile epics that were determined by the scope mindmap are as follows:
 
+1. **Login/Registration (Must Have):**
+    * User - the ability for new users to create an account, and returning users to log in to access content only available for authorised users.
+    * Admin - the ability for administrators to securely log in to access the site and admin dashboard.
+
+1. **Bookings (Must Have):**
+    * User - the ability to access booking functionality on the website, create bookings that are saved into a database, and amend/cancel those bookings from a convenient and secure view.
+    * Admin - the ability to access booking data that has been made by all users on the website, and view/amend/cancel those individual bookings when needed from the secure admin dashboard.
+
+1. **Events (Should Have):**
+    * User - the ability to access information about the various events held by Flying Dutchman Voyages.
+
+1. **Contact (Could Have):**
+    * User - the ability to securely send enquiries through a contact form on the website.
+    * Admin - the ability to securely access enquiries sent by users, and respond to them.
 
 ### **Structure**
 
