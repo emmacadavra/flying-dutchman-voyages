@@ -56,8 +56,14 @@ Additionally, from the perspective of site admins, it provides a user-friendly w
 
 ### **Scope**
 
+When planning the project, I initially made a mind map of what I felt the project should contain - both from the user perspective and the admin perspective.
+
+![Original project mind map](link)
+
+From here, I was able to break down these requirements into three categories: 'must have', 'should have', and 'could have'. By doing this, I was able to determine the MVP, as well as consider the agile epics that could be broken down into user stories. 
 
 ### **User Stories**
+
 
 
 ### **Structure**
