@@ -96,7 +96,7 @@ From these four epics, the following user stories were created:
 * **Manage bookings (user):** As a _Site User_ I can manage any bookings I have made so that I can edit or delete them as necessary.
 
 **Events (Should Have):**
-* **Access event information:** As a _Site User_ I can clearly navigate to the events section so that I can see all upcoming events that might be of interest to me.
+* **Access event information:** As a _Site User_ I can clearly navigate to the events section so that I can see all events that might be of interest to me.
 
 **Contact (Could Have):**
 * **Contact (user):** As a _Site User_ I can clearly access the contact form so that I am able to make enquiries.

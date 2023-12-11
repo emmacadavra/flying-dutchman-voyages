@@ -11,8 +11,10 @@ For this project, I adopted an agile approach in order to better organise the wo
     - [**First Sprint**](#site-validation)
     - [**Second Sprint**](#site-validation)
     - [**Third Sprint**](#site-validation)
-1. [**User Story Notes and Revisions**](#user-story-notes-and-revisions)
-    - [**User Stories Still In Process**](#user-stories-still-in-process)
+1. [**User Story Notes**](#user-story-notes-and-revisions)
+    - [**Reflections**](#reflections)
+    - [**Revisions**](#revisions)
+    - [**User Stories Still To Do**](#user-stories-still-in-process)
 
 ## **Sprints**
 
@@ -49,7 +51,7 @@ By the end of this sprint, there was still absolutely zero styling on the client
 
 Technically, the third sprint only had one User Story attached to it, which was:
 
-* **Access event information:** As a _Site User_ I can clearly navigate to the events section so that I can see all upcoming events that might be of interest to me.
+* **Access event information:** As a _Site User_ I can clearly navigate to the events section so that I can see all events that might be of interest to me.
 
 However, this is misleading as it was really only a very small part of the work undertaken throughout this sprint - which was working on the entirity of the website's content and styling! This User Story started out much bigger in my mind at the beginning of the project, but ended up being dialled back enormously due to other things taking priority (I reflect on this in more detail in the [**_User Story Notes and Revisions_**](#user-story-notes-and-revisions) section below).
 
@@ -59,12 +61,20 @@ Throughout the styling process, I found many opportunities to improve on my Room
 
 At the end of this sprint, I had a complete project that I was able to review and perform post-development tests on, in order to make any final tweaks before completion. More about this can be found in the **Post Development Testing** section of my separate [TESTING.md](TESTING.md) document.
 
-## **User Story Notes and Revisions**
+## **User Story Notes**
 
-[notes about how I should have broken down user stories more, and potentially included ones specific only to the Django code]
+### **Reflections**
 
-[notes about how the events user story originally said “all UPCOMING events” and how I dialled back on it because I had massively oversimplified it in my head - also mention why the events were, to me, considered more important than a contact form]
+Upon reflection, I feel that I might have benefited from breaking down my User Stories into smaller, more specific ones. While I started out with my main epics and broke them down a little, I do think they were too broad in some areas, and didn't cover many aspects of the development process at all. Looking in particular at my third sprint, at no point did I create User Stories specifically pertaining to the styling of the website, nor, in my first sprint, did I include ones that covered the basic project set-up, and so on. In future, I plan to make sure I pay attention to this as I have found that when the User Stories are too broad, it is easier to get 'lost' as to where you are in the overall development process.
 
-### **User Stories Still In Process**
+### **Revisions**
 
-[notes about 'Contact' (link to Future Considerations)]
+As briefly mentioned above in the **Third Sprint** section, the User Story for accessing events information had to undergo a necessary revision during development. Originally, the User Story read "As a _Site User_ I can clearly navigate to the events section so that I can see all **upcoming** events that might be of interest to me." This is because I had originally hoped to explore a number of different options that I had vastly oversimplified in my mind when planning the project. These were things like, having a calendar that would automatically inform a user of the event taking place if they picked a date of an event, by changing the page template to thematically match the event with additional images, flavour text, etc.
+
+It didn't take long for me to realise the sheer complexity of what I was envisioning, and how unfeasible it was considering both time contraints and the current limitations of my knowledge. Therefore, I made the decision to strip this particular User Story down to its simplest form, which is the form currently present on the website. However, I did decide to keep this feature of the website as a "Should Have", rather than move it down to a "Could Have", due to how integral the concept of the Easter Sunday event was to my vision for the project.
+
+### **User Stories Still To Do**
+
+Currently, there are two User Stories on my [**_GitHub Project Board_**](https://github.com/users/emmacadavra/projects/3/views/1) that are still in the 'To Do' column. These are both User Stories relating to having a page on the website that serves as a Contact form. I marked both of these as a "Could Have", as they were not integral to the overall project but would be nice to have if there was time. Unfortunately, as I mentioned above, time constraints along with the current scope of my knowledge led me to decide that completing these User Stories would not be possible, so I opted instead to feature an email address on the 'About Us' and 'Events' pages.
+
+The reason I've decided to keep these User Stories on the project board is that, in future, I would like to implement this feature to the project in my own time, as I plan to continue building on this project going forward.
