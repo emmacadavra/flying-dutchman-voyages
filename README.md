@@ -23,8 +23,6 @@ Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fable
         - [**_Themes/Colours/Typography_**](#themes)
 1. [**Technologies Used**](#technologies-used)
 1. [**Agile Development**](#agile-development)
-    -[**Sprints**](#sprints)
-    -[**User Story Notes and Revisions**](#user-story-notes-and-revisions)
 1. [**Current Features**](#current-features)
     - [**Header and Navigation**](#header-and-navigation)
     - [**Home Page**](#home-page)
@@ -103,7 +101,7 @@ From these four epics, the following user stories were created:
 * **Contact (user):** As a _Site User_ I can clearly access the contact form so that I am able to make enquiries.
 * **Contact (admin):** As a _Site Admin_ I can securely access messages sent through the website so that I can respond to user queries.
 
-The user stories were entered into the [**_GitHub Project Board linked to the Flying Dutchman Voyages repo_**](https://github.com/users/emmacadavra/projects/3/views/1) for me to monitor and keep track of my progress with them whilst building this project. Further notes on these can be found in the [**_User Story Notes and Revisions section_**](#user-story-notes-and-revisions) below.
+The user stories were entered into the [**_GitHub Project Board linked to the Flying Dutchman Voyages repo_**](https://github.com/users/emmacadavra/projects/3/views/1) for me to monitor and keep track of my progress with them whilst building this project. Further notes on these can be found in the **User Story Notes and Revisions section** of my separate [**_AGILE.md_**](AGILE.md) document.
 
 
 ### **Server Side**
@@ -120,24 +118,33 @@ ERD
 
 #### **Colour Scheme**
 
+!['The Flying Dutchman' by Charles Temple Dix](docs/images/the-flying-dutchman-charles-temple-dix.jpg)
+
+![Original colour palette from mycolor.space](docs/images/initial-colour-palette.png)
+
+contrast-grid.eightshapes.com
 
 #### **Typography**
 
+Charm by Google Fonts
 
 ## **Technologies Used**
 
+* Python
+* Django
+* HTML5
+* CSS3
+* Bootstrap4
+* Javascript (indirectly)
 
 ## **Agile Development**
 
-
-### **Sprints**
-
+Throughout this project, I adopted an agile approach, which I have detailed and reflected on in my separate [**_AGILE.md_**](AGILE.md) document.
 
 ### **User Story Notes and Revisions**
 
 
 ## **Current Features**
-
 
 ### **Header and Navigation
 
@@ -259,8 +266,8 @@ ERD
 
 ## **Considerations for Future Enhancements**
 
-
 ### **Contact Form**
+
 
 
 ### **Additional Booking Functionality**
