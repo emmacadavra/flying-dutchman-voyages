@@ -1,8 +1,9 @@
-# **Flying Dutchman Voyages**
+# **Flying Dutchman Voyages - _"Sailing Until Doomsday!_**
 
 ## **Project Overview**
 
-Blurb
+Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fabled ghost ship, The Flying Dutchman. Clients are able to choose from a modest selection of unique rooms on board, from the opulant Captain's Quarters (of which the spectral Captain Hendrick Van der Decken no longer has any need), to 'The Brig' - lovingly named so for its location, though it is anything but a prison. They can make and manage bookings, learn a little about the vessel itself, as well as discover the spectacular events Flying Dutchman Voyages has to offer.
+
 
 ![Am I responsive screenshot](docs/screenshots/am-i-responsive-screenshot.png)
 
