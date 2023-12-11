@@ -85,40 +85,31 @@ The four agile epics that were determined by the scope mindmap are as follows:
 
 From these four epics, the following user stories were created:
 
-**Login/Registration (Must Have): Admin login**
-* As a **Site Admin** I can **securely login to the admin dashboard** so that I can **view and manage booking options, manage/delete user accounts, and amend details of available bookings.**
+**Login/Registration (Must Have):**
+* **Admin login:** As a _Site Admin_ I can securely login to the admin dashboard so that I can view and manage booking options, manage/delete user accounts, and amend details of available bookings.
+* **User registration:** As a _Site User_ I can create an account so that I am able to make and manage my bookings.
+* **User login:** As a _Site User_ I can clearly see that I am logged in so that I know I am able to make and manage my bookings.
 
-**Login/Registration (Must Have): User registration**
-* As a **Site User** I can **create an account** so that **I am able to make and manage my bookings.**
+**Booking (Must Have):**
+* **Manage bookings (admin):** As a _Site Admin_ I can see bookings that have been made so that I can modify and delete them if necessary/contact the user with relevant information.
+* **Access booking calendar:** As a _Site User_ I can access the booking calendar so that I can see the dates available to book trips.
+* **Create booking:** As a _Site User_ I can create a booking so that I can secure a place on a voyage.
+* **Manage bookings (user):** As a _Site User_ I can manage any bookings I have made so that I can edit or delete them as necessary.
 
-**Login/Registration (Must Have): User login**
-* As a **Site User** I can **clearly see that I am logged in** so that **I know I am able to make and manage my bookings.**
+**Events (Should Have):**
+* **Access event information:** As a _Site User_ I can clearly navigate to the events section so that I can see all upcoming events that might be of interest to me.
 
-**Booking (Must Have): Manage bookings (admin)**
-* As a **Site Admin** I can **see bookings that have been made** so that **I can modify and delete them if necessary/contact the user with relevant information.**
+**Contact (Could Have):**
+* **Contact (user):** As a _Site User_ I can clearly access the contact form so that I am able to make enquiries.
+* **Contact (admin):** As a _Site Admin_ I can securely access messages sent through the website so that I can respond to user queries.
 
-**Booking (Must Have): Access booking calendar**
-* As a **Site User** I can **access the booking calendar** so that **I can see the dates available to book trips.**
-
-**Booking (Must Have): Create booking**
-* As a **Site User** I can **create a booking** so that **I can secure a place on a voyage.**
-
-**Booking (Must Have): Manage bookings (user)**
-* As a **Site User** I can **manage any bookings I have made** so that **I can edit or delete them as necessary.**
-
-**Events (Should Have): Access event information**
-* As a **Site User** I can **clearly navigate to the events section** so that **I can see all upcoming events that might be of interest to me.**
-
-**Contact (Could Have): Contact (user)**
-* As a **Site User** I can **clearly access the contact form** so that **I am able to make enquiries.**
-
-**Contact (Could Have): Contact (admin)**
-* As a **Site Admin** I can **securely access messages sent through the website** so that **I can respond to user queries.**
-
-The user stories were entered into the [GitHub Project Board linked to the Flying Dutchman Voyages repo](https://github.com/users/emmacadavra/projects/3/views/1) for me to monitor and keep track of my progress with them whilst building this project. Further notes on these can be found in the [**User Story Notes and Revisions section**](#user-story-notes-and-revisions) below.
+The user stories were entered into the [**_GitHub Project Board linked to the Flying Dutchman Voyages repo_**](https://github.com/users/emmacadavra/projects/3/views/1) for me to monitor and keep track of my progress with them whilst building this project. Further notes on these can be found in the [**_User Story Notes and Revisions section_**](#user-story-notes-and-revisions) below.
 
 
 ### **Structure**
+
+
+####
 
 
 ### **Client Side**
