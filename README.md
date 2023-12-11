@@ -5,7 +5,7 @@
 Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fabled ghost ship, The Flying Dutchman. Customers are able to choose from a modest selection of unique rooms on board, from the opulant Captain's Quarters (of which the spectral Captain Hendrick Van der Decken no longer has any need), to 'The Brig' - lovingly named so for its location, though it is anything but a prison. They can make and manage bookings, learn a little about the vessel itself, as well as discover the spectacular events Flying Dutchman Voyages has to offer.
 
 
-![Am I responsive screenshot](docs/screenshots/am-i-responsive-screenshot.png)
+![Am I responsive screenshot](docs/images/am-i-responsive-screenshot.png)
 
 [**_Please follow this link to the final deployed version of this project._**](https://flying-dutchman-voyages-f488bfe43a6a.herokuapp.com/)
 
@@ -141,23 +141,35 @@ ERD
 
 ### **Header and Navigation
 
-![Navbar full](docs/screenshots/navbar-full.png)
+![Navbar full](docs/images/navbar-full.png)
 
-![Navbar collapsed](docs/screenshots/navbar-collapsed.png)
+![Navbar collapsed](docs/images/navbar-collapsed.png)
 
-![Navbar expanded](docs/screenshots/navbar-expanded.png)
+![Navbar expanded](docs/images/navbar-expanded.png)
 
 ### **Home Page**
 
-![Homepage on desktop](docs/screenshots/homepage.png)
+![Homepage on desktop](docs/images/homepage.png)
 
-![Homepage mobile 320x480px](docs/screenshots/homepage-mobile-320x480px.png)
+![Homepage mobile 320x480px](docs/images/homepage-mobile-320x480px.png)
 
 ### **About Us Page**
 
+![About Us page landing view desktop](docs/images/about-page-landing-desktop.png)
+
+![About Us page landing view iPhone 12 Pro](docs/images/about-page-landing-iphone12pro.png)
+
+![About Us main section 1 desktop](docs/images/about-page-section-1.png)
+
+![About Us main section 2 desktop](docs/images/about-page-section-2.png)
+
+![About Us sections on tablet video](link)
 
 ### **Events Page**
 
+![Events page landing view desktop](docs/images/events-landing-desktop.png)
+
+![Events page landing view iPhone 12 Pro](docs/images/events-landing-iphone12pro.png)
 
 ### **Our Rooms Page**
 
