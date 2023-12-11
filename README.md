@@ -199,6 +199,30 @@ ERD
 
 ![Booking Success page iPhone 12 Pro](docs/images/booking-success-iphone12pro.png)
 
+### **My Bookings Page**
+
+![My Bookings page landing desktop](docs/images/my-bookings-landing-desktop.png)
+
+![My Bookings page landing iPhone 12 Pro](docs/images/my-bookings-landing-iphone12pro.png)
+
+
+#### **Amend Booking Page**
+
+![Amend Booking page landing desktop](docs/images/amend-booking-desktop.png)
+
+![Amend Booking page landing iPhone 12 Pro](docs/images/amend-booking-landing-iphone12pro.png)
+
+
+#### **Cancel Booking Page**
+
+![Cancel Booking page landing iPhone 12 Pro](docs/images/cancel-booking-desktop.png)
+
+![Cancel Booking confirmation message desktop](docs/images/cancel-booking-confirmation-message-desktop.png)
+
+![Cancel Booking page landing iPhone 12 Pro](docs/images/cancel-booking-landing-iphone12pro.png)
+
+![Cancel Booking confirmation message iPhone 12 Pro](docs/images/cancel-booking-confirmation-message-iphone12pro.png)
+
 ### **AllAuth Pages**
 
 #### **Register Page**
@@ -226,21 +250,6 @@ ERD
 ![Logout page iPhone 12 Pro](docs/images/logout-iphone12pro.png)
 
 ![Logout confirmation message iPhone 12 Pro](docs/images/logout-confirmation-message-iphone12pro.png)
-
-
-### **My Bookings Page**
-
-![My Bookings page landing iPhone 12 Pro](docs/images/my-bookings-landing-iphone12pro.png)
-
-
-#### **Amend Booking Page**
-
-![Amend Booking page landing iPhone 12 Pro](docs/images/amend-booking-landing-iphone12pro.png)
-
-
-#### **Cancel Booking Page**
-
-![Cancel Booking page landing iPhone 12 Pro](docs/images/cancel-booking-landing-iphone12pro.png)
 
 ### **Error Pages**
 
