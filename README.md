@@ -2,7 +2,7 @@
 
 ## **Project Overview**
 
-Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fabled ghost ship, The Flying Dutchman. Clients are able to choose from a modest selection of unique rooms on board, from the opulant Captain's Quarters (of which the spectral Captain Hendrick Van der Decken no longer has any need), to 'The Brig' - lovingly named so for its location, though it is anything but a prison. They can make and manage bookings, learn a little about the vessel itself, as well as discover the spectacular events Flying Dutchman Voyages has to offer.
+Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fabled ghost ship, The Flying Dutchman. Customers are able to choose from a modest selection of unique rooms on board, from the opulant Captain's Quarters (of which the spectral Captain Hendrick Van der Decken no longer has any need), to 'The Brig' - lovingly named so for its location, though it is anything but a prison. They can make and manage bookings, learn a little about the vessel itself, as well as discover the spectacular events Flying Dutchman Voyages has to offer.
 
 
 ![Am I responsive screenshot](docs/screenshots/am-i-responsive-screenshot.png)
@@ -11,7 +11,7 @@ Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fable
 
 ## **Table of Contents:**
 
-1. [**Application Overview**](#application-overview)
+1. [**Project Overview**](#project-overview)
 1. [**Planning Stages**](#planning-stages)
     - [**Site Aims**](#site-aims)
     - [**Scope**](#scope)
@@ -50,6 +50,9 @@ Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fable
 
 ### **Site Aims**
 
+The primary aim for the Flying Dutchman Voyages project is to provide a seamless, user-friendly link between the services offered by Flying Dutchman Voyages, and potential customers looking to make a booking for a voyage. This link crucially includes information about The Flying Dutchman, and provides site users with a clear view of the rooms available to them. It provides the means to make a booking, amend existing bookings, and cancel bookings with ease - remaining clear and consistent for a smooth user experience.
+
+Additionally, from the perspective of site admins, it provides a user-friendly way to manage site content by adding, removing and updating rooms, as well as the ability to view, update and cancel all bookings made by users through the site - all from one convenient admin page.
 
 ### **Scope**
 
