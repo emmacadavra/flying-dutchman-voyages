@@ -18,10 +18,10 @@
             <div class="amend-booking-flex d-flex align-items-center justify-content-center">
                 <div class="booking-image d-flex">
                     {% if 'placeholder' in booking.room.room_image_1.url %}
-                    <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" />
+                    <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" />
 
                     {% else %}
-                    <img src="{{ booking.room.room_image_1.url }}" />
+                    <img src="{{ booking.room.room_image_1.url }}" alt="{{ room.room_image_1_alt }}" />
 
                     {% endif %}
                 </div>
