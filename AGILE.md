@@ -53,7 +53,7 @@ Technically, the third sprint only had one User Story attached to it, which was:
 
 * **Access event information:** As a _Site User_ I can clearly navigate to the events section so that I can see all events that might be of interest to me.
 
-However, this is misleading as it was really only a very small part of the work undertaken throughout this sprint - which was working on the entirity of the website's content and styling! This User Story started out much bigger in my mind at the beginning of the project, but ended up being dialled back enormously due to other things taking priority (I reflect on this in more detail in the [**_User Story Notes and Revisions_**](#user-story-notes-and-revisions) section below).
+However, this is misleading as it was really only a very small part of the work undertaken throughout this sprint - which was working on the entirity of the website's content and styling! This User Story started out much bigger in my mind at the beginning of the project, but ended up being dialled back enormously due to other things taking priority (I reflect on this in more detail in the [**_User Story Notes_**](#user-story-notes) section below).
 
 I had started collating images and content ahead of this sprint, and thankfully had already come across the beautiful painting 'The Flying Dutchman' by Charles Temple Dix which I knew I wanted to use as my main homepage background. Although it is one of the simplest pages, I spent time making sure I was happy with homepage before moving on to the Room Detail page and other pages that interact with the models database. The events page was actually one of the last pages I focused on, as it is one of the pages that does not interact with Django beyond standard template rendering functionality.
 
