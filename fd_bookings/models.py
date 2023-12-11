@@ -15,8 +15,11 @@ class Room(models.Model):
     description = models.TextField()
     room_cost = models.DecimalField(decimal_places=2, max_digits=9, null=True)
     room_image_1 = CloudinaryField('image', default='placeholder1')
+    room_image_1_alt = models.CharField('alt text', max_length=500, default='Image description')
     room_image_2 = CloudinaryField('image', default='placeholder2')
+    room_image_2_alt = models.CharField('alt text', max_length=500, default='Image description')
     room_image_3 = CloudinaryField('image', default='placeholder3')
+    room_image_3_alt = models.CharField('alt text', max_length=500, default='Image description')
 
     class Meta:
         ordering = ['name']
