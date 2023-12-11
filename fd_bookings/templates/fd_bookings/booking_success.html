@@ -6,15 +6,15 @@
 
 {% if user.is_authenticated %}
 
-<div class="hero-image">
+<div class="main-image">
     <div class="card fd-card booking-success d-flex flex-column align-items-center justify-content-around mx-auto">
-        <h1 class="hero-title">Booking Success!</h1>
+        <h1 class="main-title">Booking Success!</h1>
 
         <p class="lead text-center">
             Your booking has been successfully created. We look forward to welcoming you aboard our spectral ship.
         </p>
 
-        <p class="hero-text">
+        <p class="main-text">
             <em><a class="underline" href="{% url 'fd_bookings:ViewBookingList' %}">Click here to view your booking details.</a></em>
         </p>
     </div>
