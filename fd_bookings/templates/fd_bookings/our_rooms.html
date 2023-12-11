@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load cloudinary %}
 {% block title %}Our Rooms - {% endblock %}
 
 {% block content %}
@@ -23,7 +23,8 @@
                     <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1702203941/captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" />
 
                     {% else %}
-                    <img src="{{ room.room_image_1.url }}" alt="{{ room.room_image_1_alt }}" />
+                    <!-- <img src="{{ room.room_image_1.url }}" alt="{{ room.room_image_1_alt }}" /> -->
+                    {% cloudinary room.room_image_1 width=500 alt=room.room_image_1_alt %}
 
                     {% endif %}
                     <h2 class="card-title">{{ room.name }}</h2>

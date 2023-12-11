@@ -18,7 +18,6 @@
 
 ## **Testing Throughout Development**
 
-
 ### **Manual Testing Methods**
 
 
@@ -27,24 +26,54 @@
 
 ## **Noteable Bugs During Development**
 
+* Using & installing python & django on ubuntu - my_venv
+
+* Linking templates
+
+* "valid_form()"
+
+* success_url & reverse/reverse_lazy (now removed from code)
+
+* unable to make booking after removing room category name from template (+ screenshot)
+
+* database
+
+* changing from room categories to room names had a bigger knock-on effect than anticipated
+
+* trying to use Bootstrap grid and flex in the same page = break
+
+* trying to input form manually meant that no validation errors could be generated
+
+* sweetify/sweet alert 2 css overriding bootstrap css (now removed)
+
+* images not shrinking responsively when everything else was
+
+
 
 ## **Post Development Testing**
 
 ### **Responsive Design and Functionality**
 
-BrowserStack
+Tested and confirmed working on all browsers except for one page when using safari (see unresolved bugs)
 
 #### **Post Development Bugs**
 
+* static files (Debug = False)
+
+* issue with check_availability
 
 ### **Site Validation**
 
+HTML - link to Accessibility below
+
 #### **Accessibility**
 
-Mention how HTML validation made me realise that Cloudinary alt text wasn't pulling through and how it led to amending the Room model to include it
+HTML validation made me realise that Cloudinary alt text wasn't pulling through, leading to amending the Room model to include it
 
 #### **Lighthouse Scores and PageSpeed Insights**
 
 
 ### **Unresolved Bugs**
+
+* our rooms - safari (screenshot)
 

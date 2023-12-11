@@ -57,8 +57,6 @@ class BookingForm(forms.Form):
                 'The Flying Dutchman only sets sail on Sundays!'
             )
 
-        print(self.cleaned_data['booking_date'])
-
         if 'booking_date' in self.cleaned_data and check_availability(self.room_id, self.cleaned_data['booking_date']) is not True:
             raise ValidationError(
                 "This room is not available for this departure date."
