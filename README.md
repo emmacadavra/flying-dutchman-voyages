@@ -16,8 +16,9 @@ Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fable
     - [**Site Aims**](#site-aims)
     - [**Scope**](#scope)
     - [**User Stories**](#user-stories)
-    - [**Structure**](#structure)
-        - [**_ERD_**](#erd)
+    - [**Server Side**](#server-side)
+        - [**_Data Models_**](#data-models)
+        - [**_Entity Relationship Diagram_**](#entity-relationship-diagram)
     - [**Client Side**](#client-side)
         - [**_Themes/Colours/Typography_**](#themes)
 1. [**Technologies Used**](#technologies-used)
@@ -48,7 +49,6 @@ Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fable
     - [**Code and Content References**](#code-and-content-references)
 
 ## **Planning Stages**
-
 
 ### **Site Aims**
 
@@ -106,13 +106,22 @@ From these four epics, the following user stories were created:
 The user stories were entered into the [**_GitHub Project Board linked to the Flying Dutchman Voyages repo_**](https://github.com/users/emmacadavra/projects/3/views/1) for me to monitor and keep track of my progress with them whilst building this project. Further notes on these can be found in the [**_User Story Notes and Revisions section_**](#user-story-notes-and-revisions) below.
 
 
-### **Structure**
+### **Server Side**
 
+#### **Data Models**
 
-####
+Data models
 
+#### **Entity Relationship Diagram**
+
+ERD
 
 ### **Client Side**
+
+#### **Colour Scheme**
+
+
+#### **Typography**
 
 
 ## **Technologies Used**
@@ -132,9 +141,17 @@ The user stories were entered into the [**_GitHub Project Board linked to the Fl
 
 ### **Header and Navigation
 
+![Navbar full](docs/screenshots/navbar-full.png)
+
+![Navbar collapsed](docs/screenshots/navbar-collapsed.png)
+
+![Navbar expanded](docs/screenshots/navbar-expanded.png)
 
 ### **Home Page**
 
+![Homepage on desktop](docs/screenshots/homepage.png)
+
+![Homepage mobile 320x480px](docs/screenshots/homepage-mobile-320x480px.png)
 
 ### **About Us Page**
 
@@ -180,7 +197,7 @@ The user stories were entered into the [**_GitHub Project Board linked to the Fl
 
 ## **Testing**
 
-A separate file has been created for information about testing. Please click the following link to access it: [**TESTING.md**](TESTING.md)
+A separate file has been created for information about testing. Please click the following link to access it: [**_TESTING.md_**](TESTING.md)
 
 ## **Deployment**
 
@@ -189,9 +206,9 @@ A separate file has been created for information about testing. Please click the
 
 ### **Honourable Mentions**
 
-- [**Damon Kreft**](https://github.com/damon-kreft)
+- [**_Damon Kreft_**](https://github.com/damon-kreft)
 
-- [**Richard Wells**](https://github.com/D0nni387)
+- [**_Richard Wells_**](https://github.com/D0nni387)
 
 ### **Code and Content References**
 
