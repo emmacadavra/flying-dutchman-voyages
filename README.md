@@ -40,6 +40,7 @@ Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fable
     - [**Contact Form**](#contact-form)
     - [**Additional Booking Functionality**](#additional-booking-functionality)
     - [**Email as Username**](#email-as-username)
+    - [**Slugs**](#slugs)
 1. [**Testing**](#testing)
 1. [**Deployment**](#deployment)
 1. [**Credits**](#credits)
@@ -268,12 +269,15 @@ Throughout this project, I adopted an agile approach, which I have detailed and 
 
 ### **Contact Form**
 
-
+[link to User Stories Still In Process section of AGILE.md]
 
 ### **Additional Booking Functionality**
 
 
 ### **Email as Username**
+
+
+### **Slugs**
 
 
 ## **Testing**

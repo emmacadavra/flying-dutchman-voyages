@@ -12,6 +12,7 @@ For this project, I adopted an agile approach in order to better organise the wo
     - [**Second Sprint**](#site-validation)
     - [**Third Sprint**](#site-validation)
 1. [**User Story Notes and Revisions**](#user-story-notes-and-revisions)
+    - [**User Stories Still In Process**](#user-stories-still-in-process)
 
 ## **Sprints**
 
@@ -38,8 +39,31 @@ My second sprint focused almost entirely on the following two User Stories:
 * **Manage bookings (admin):** As a _Site Admin_ I can see bookings that have been made so that I can modify and delete them if necessary/contact the user with relevant information.
 * **Manage bookings (user):** As a _Site User_ I can manage any bookings I have made so that I can edit or delete them as necessary.
 
-Although by the end of the first sprint I had imlemented the ability for administrators and users to _cancel_ their bookings, I had not done anything to include functionality to _amend_ bookings. It was at this point that I realised I had put together a lot of code that I didn't fully understand, or that was poorly written/overly verbose.
+Despite the fact that, by the end of the first sprint, I had imlemented the functionality for administrators and users to _cancel_ bookings, I had not included the functionality to _amend_ bookings. It was at this point that I realised I had put together a lot of code that had become quite messy, to the point that I felt I didn't fully understand a lot of it. This was largely due to adding/removing small amounts of code as I went, without considering the larger picture of what that code was doing/how it was interacting with the rest of the code. It created a 'tangled web' of sorts that was overly complicated and difficult to keep track of.
 
-It was because of this that I dedicated this sprint first of all to refactoring much of my code, as well as reviewing the complexity of what I was trying to achieve in some cases. I realised I had allowed some scope creep by being too ambitious with how I wanted the project to work, and worked to bring it back in line with something that guaranteed the MVP was delivered first and foremost.
+It was because of this that I dedicated this sprint first of all to refactoring much of my code, as well as reviewing the complexity of what I was trying to achieve in some cases. I realised I had allowed some scope creep by being too ambitious with how I wanted the project to work, and worked to bring it back in line with something that was more realistic and less complicated. During this process I struggled with the relationship between the booking form and code I'd written for the views, but the process of refactoring eased this struggle and allowed me to successfully implement the ability for users to amend their bookings.
 
-By the end of this sprint, there was still 0 styling at all on the client side, 
+By the end of this sprint, there was still absolutely zero styling on the client side, as my focus remained entirely on making sure that the MVP was met, and that the functionality of the website was solid as a top priority. However, I had started collating potential images and information to use on the website
+
+### **Third Sprint**
+
+Technically, the third sprint only had one User Story attached to it, which was:
+
+* **Access event information:** As a _Site User_ I can clearly navigate to the events section so that I can see all upcoming events that might be of interest to me.
+
+However, this is misleading as it was really only a very small part of the work undertaken throughout this sprint - which was working on the entirity of the website's content and styling! This User Story started out much bigger in my mind at the beginning of the project, but ended up being dialled back enormously due to other things taking priority (I reflect on this in more detail in the [**_User Story Notes and Revisions_**](#user-story-notes-and-revisions) section below).
+
+I had started collating images and content ahead of this sprint, and thankfully had already come across the beautiful painting 'The Flying Dutchman' by Charles Temple Dix which I knew I wanted to use as my main homepage background. Although it is one of the simplest pages, I spent time making sure I was happy with homepage before moving on to the Room Detail page and other pages that interact with the models database. The events page was actually one of the last pages I focused on, as it is one of the pages that does not interact with Django beyond standard template rendering functionality.
+
+Throughout the styling process, I found many opportunities to improve on my Room model, which improved the site overall. I added a short room summary, longer summary description, additional images so that I could implement a carousel effect, and alt text for those images (detailed in the **Accessibility** section of my separate [TESTING.md](TESTING.md) document). These changes meant that the website was much less bare in some places and overall made the website feel more refined.
+
+
+## **User Story Notes and Revisions**
+
+[notes about how I should have broken down user stories more, and potentially included ones specific only to the Django code]
+
+[notes about how the events user story originally said “all UPCOMING events” and how I dialled back on it because I had massively oversimplified it in my head - also mention why the events were, to me, considered more important than a contact form]
+
+### **User Stories Still In Process**
+
+[notes about 'Contact' (link to Future Considerations)]
