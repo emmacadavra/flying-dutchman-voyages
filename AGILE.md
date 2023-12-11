@@ -57,6 +57,7 @@ I had started collating images and content ahead of this sprint, and thankfully 
 
 Throughout the styling process, I found many opportunities to improve on my Room model, which improved the site overall. I added a short room summary, longer summary description, additional images so that I could implement a carousel effect, and alt text for those images (detailed in the **Accessibility** section of my separate [TESTING.md](TESTING.md) document). These changes meant that the website was much less bare in some places and overall made the website feel more refined.
 
+At the end of this sprint, I had a complete project that I was able to review and perform post-development tests on, in order to make any final tweaks before completion. More about this can be found in the **Post Development Testing** section of my separate [TESTING.md](TESTING.md) document.
 
 ## **User Story Notes and Revisions**
 
