@@ -188,12 +188,14 @@ ERD
 
 ### **Room Detail Page**
 
+![Room Detail page landing desktop](docs/images/room-detail-landing-desktop.png)
+
 ![Room Detail page landing iPhone 12 Pro](docs/images/room-detail-landing-iphone12pro.png)
 
 
 #### **Booking Success Page**
 
-![Booking Success page desktop]()
+![Booking Success page desktop](docs/images/booking-success-desktop.png)
 
 ![Booking Success page iPhone 12 Pro](docs/images/booking-success-iphone12pro.png)
 
@@ -201,15 +203,25 @@ ERD
 
 #### **Register Page**
 
+![Register page desktop](docs/images/register-desktop.png)
+
 ![Register page iPhone 12 Pro](docs/images/register-landing-iphone12pro.png)
 
 #### **Login Page**
+
+![Login page desktop](docs/images/login-desktop.png)
+
+![Login confirmation message desktop](docs/images/login-confirmation-message-desktop.png)
 
 ![Login page iPhone 12 Pro](docs/images/login-landing-iphone12pro.png)
 
 ![Login confirmation message iPhone 12 Pro](docs/images/login-confirmation-message-iphone12pro.png)
 
 #### **Logout Page**
+
+![Logout page desktop](docs/images/logout-desktop.png)
+
+![Logout confirmation message desktop](docs/images/logout-confirmation-message-desktop.png)
 
 ![Logout page iPhone 12 Pro](docs/images/logout-iphone12pro.png)
 
@@ -232,7 +244,9 @@ ERD
 
 ### **Error Pages**
 
-![404 error page desktop](docs/images/404-page.png)
+![404 error page desktop](docs/images/custom-404-page.png)
+
+![500 error page desktop](docs/images/custom-500-page.png)
 
 ## **Considerations for Future Enhancements**
 
