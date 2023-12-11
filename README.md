@@ -4,7 +4,9 @@
 
 Blurb
 
-[**_Please follow this link to the final deployed version of this project._**](link)
+![Am I responsive screenshot](docs/screenshots/am-i-responsive-screenshot.png)
+
+[**_Please follow this link to the final deployed version of this project._**](https://flying-dutchman-voyages-f488bfe43a6a.herokuapp.com/)
 
 ## **Table of Contents:**
 
