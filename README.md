@@ -153,6 +153,8 @@ ERD
 
 ![Homepage mobile 320x480px](docs/images/homepage-mobile-320x480px.png)
 
+![Homepage iPhone 12 Pro](docs/images/homepage-iphone12pro.png) 
+
 ### **About Us Page**
 
 ![About Us page landing view desktop](docs/images/about-page-landing-desktop.png)
@@ -171,7 +173,17 @@ ERD
 
 ![Events page landing view iPhone 12 Pro](docs/images/events-landing-iphone12pro.png)
 
+![Holiday Events section desktop](docs/images/holiday-events-desktop.png)
+
+![Easter Sunday Event section 1 desktop](docs/images/easter-event-desktop-1.png)
+
+![Easter Sunday Event section 2 desktop](docs/images/easter-event-desktop-2.png)
+
 ### **Our Rooms Page**
+
+![Our Rooms page landing view desktop](docs/images/our-rooms-landing-desktop.png)
+
+![Our Rooms page landing iPhone 12 Pro](docs/images/our-rooms-landing-iphone12pro.png)
 
 
 ### **Room Detail Page**

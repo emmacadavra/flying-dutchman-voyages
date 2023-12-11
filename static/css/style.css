@@ -286,13 +286,14 @@ a:hover {
     flex-direction: column;
 }
 
-.booking-card img {
-    max-width: 500px;
-    height: auto;
-}
-
 .booking-image {
     padding: 0.5rem;
+}
+
+.booking-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
 }
 
 .booking-text {
