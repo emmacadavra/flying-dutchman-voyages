@@ -188,24 +188,51 @@ ERD
 
 ### **Room Detail Page**
 
+![Room Detail page landing iPhone 12 Pro](docs/images/room-detail-landing-iphone12pro.png)
+
 
 #### **Booking Success Page**
 
+![Booking Success page desktop]()
+
+![Booking Success page iPhone 12 Pro](docs/images/booking-success-iphone12pro.png)
 
 ### **AllAuth Pages**
+
+#### **Register Page**
+
+![Register page iPhone 12 Pro](docs/images/register-landing-iphone12pro.png)
+
+#### **Login Page**
+
+![Login page iPhone 12 Pro](docs/images/login-landing-iphone12pro.png)
+
+![Login confirmation message iPhone 12 Pro](docs/images/login-confirmation-message-iphone12pro.png)
+
+#### **Logout Page**
+
+![Logout page iPhone 12 Pro](docs/images/logout-iphone12pro.png)
+
+![Logout confirmation message iPhone 12 Pro](docs/images/logout-confirmation-message-iphone12pro.png)
 
 
 ### **My Bookings Page**
 
+![My Bookings page landing iPhone 12 Pro](docs/images/my-bookings-landing-iphone12pro.png)
+
 
 #### **Amend Booking Page**
+
+![Amend Booking page landing iPhone 12 Pro](docs/images/amend-booking-landing-iphone12pro.png)
 
 
 #### **Cancel Booking Page**
 
+![Cancel Booking page landing iPhone 12 Pro](docs/images/cancel-booking-landing-iphone12pro.png)
 
 ### **Error Pages**
 
+![404 error page desktop](docs/images/404-page.png)
 
 ## **Considerations for Future Enhancements**
 
