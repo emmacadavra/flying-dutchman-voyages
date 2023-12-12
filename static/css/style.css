@@ -105,7 +105,7 @@ a:hover {
 /* Templates */
 
 .page-background {
-    background: url("https://res.cloudinary.com/dw7gzqpa3/image/upload/q_80/The_Flying_Dutchman_by_Charles_Temple_Dix_1_daafej.jpg");
+    background: url("https://res.cloudinary.com/dw7gzqpa3/image/upload/q_50/The_Flying_Dutchman_by_Charles_Temple_Dix_1_daafej.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -401,6 +401,14 @@ a:hover {
 }
 
 @media screen and (min-width: 830px) {
+    .page-background {
+        background: url("https://res.cloudinary.com/dw7gzqpa3/image/upload/q_80/The_Flying_Dutchman_by_Charles_Temple_Dix_1_daafej.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        flex-grow: 1;
+    }
+    
     .booking-card {
         flex-direction: row;
     }
