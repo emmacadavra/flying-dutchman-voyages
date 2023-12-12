@@ -19,7 +19,7 @@
         - [**_Lighthouse Scores and Cloudinary_**](#lighthouse-scores-and-cloudinary)
         - [**_PageSpeed Insights_**](#pagespeed-insights)
     - [**Unresolved Bugs**](#unresolved-bugs)
-    - [**Testing Final Deployed Site**](#testing-final-deployed-site)
+        - [**_Safari_**](#safari)
 
 
 ## **Testing Throughout Development**
@@ -250,5 +250,20 @@ Across the board, my PageSpeed Insights were lower than the Lighthouse scores - 
 
 ### **Unresolved Bugs**
 
-* our rooms - safari (screenshots of it broken + of it working)
+#### **Safari**
 
+As mentioned in the [**_Responsive Design and Functionality_**](#responsive-design-and-functionality) section above, there is a potential issue with one page of the website in particular when viewed in the Safari browser, though I cannot confirm how consistent this is. When testing the website across multiple browsers, I was able to briefly utilise [**_BrowserStack_**](https://www.browserstack.com/) to see how the website rendered in Safari on various devices. When I loaded the Our Rooms page, these were the results I got:
+
+![BrowserStack view - Safari on Mac](docs/testing/browserstack-safari-mac.png)
+
+![BrowserStack view - Safari on iPad](docs/testing/browserstack-safari-tablet.png)
+
+Unfortunately, as I don't own any Apple products, I wasn't able to replicate this or text it thoroughly in order to determine the issue. My own research into this suggests that the issue may be down to flex-wrap.
+
+However, I sent the website link to a friend who does own a Mac, and he sent back the following screenshots, suggesting that it is working as intended:
+
+![Safari screenshot 1](docs/testing/safari-testing-1.png)
+
+![Safari screenshot 2](docs/testing/safari-testing-2.png)
+
+He was unable to replicate what I seen on BrowserStack, however I am still including it here as acknowledgement that this may need future consideration.
