@@ -68,7 +68,7 @@ Below is an example of using comments as I go to make sure I understand what eac
 
 #### **Front End Testing**
 
-Using the 'python3 manage.py runserver' command, I had a locally hosted version of this project running in the browser for 99% of the time spent working on it - however for the front end testing it played a much more interactive part thanks to Google Chrome's DevTools. With this, I was able to test and play around with stylig elements, as well as getting a feel for the visual side of the user journey and how it looked on various different devices. This meant that when I wanted to implement a structural change to the page, or add new features such as a carousel of images, I was able to first test how those things would interact with the existing styling of the page, and make decisions about additional styling that may need to be included.
+Using the 'python3 manage.py runserver' command, I had a locally hosted version of this project running in the browser for 99% of the time spent working on it - however for the front end testing it played a much more interactive part thanks to Google Chrome's DevTools. With this, I was able to test and play around with styling elements, as well as getting a feel for the visual side of the user journey and how it looked on various different devices. This meant that when I wanted to implement a structural change to the page, or add new features such as a carousel of images, I was able to first test how those things would interact with the existing styling of the page, and make decisions about additional styling that may need to be included.
 
 It was absolutely instrumental in ensuring that the site not only functioned as users expected in terms of the user journey and site logic, but also in seamless responsive design that is adaptive whilst retaining all the core site features.
 
@@ -82,7 +82,7 @@ The first major issue I encountered as part of this project was that, due to usi
 
 #### **Linking Templates**
 
-Early on in the project, I had some issue getting to grips with the file paths needed to link templates to views. Two of my original templates linked to the views by wrapping just the filename in single quotes, 'rooms-list.html' and 'booking_list.html', but a third template, 'make_booking.html' would not work. I fixed this issue by learning that I needed to specify the filepath as 'fd_bookings/make_booking.html'.
+Early on in the project, I had some issue getting to grips with the file paths needed to link templates to views. Two of my original templates linked to the views by wrapping just the filename in single quotes, 'rooms-list.html' and 'booking_list.html', but a third template, 'make_booking.html' would not work. I fixed this issue by learning that I needed to specify the file path as 'fd_bookings/make_booking.html'.
 
 #### **Valid Form**
 
@@ -126,7 +126,7 @@ I made sure to add sizing rules to all images and flex styling to their containe
 
 #### **Cloudinary Image Alt Text**
 
-The first time I ran the HTML through the [**_W3C Markup Validation Service website_**](https://validator.w3.org/), I was immediately met with errors on all of my image tags due to the lack of alt text on each of them. This was caused by my misunderstanding of the metadata informationon the Cloudinary platform, as I had entered in a caption and description crediting the source of the image to each and every one of them. However, this metadata does not automatically track, so to fix this I updated my Room model to include a field below each image for alt text, which is now pulled through to the templates.
+The first time I ran the HTML through the [**_W3C Markup Validation Service website_**](https://validator.w3.org/), I was immediately met with errors on all of my image tags due to the lack of alt text on each of them. This was caused by my misunderstanding of the metadata information on the Cloudinary platform, as I had entered in a caption and description crediting the source of the image to each and every one of them. However, this metadata does not automatically track, so to fix this I updated my Room model to include a field below each image for alt text, which is now pulled through to the templates.
 
 ## **Post Development Testing**
 
@@ -221,7 +221,7 @@ I also ran the website pages through the WCAG Colour Checker, which all passed w
 
 #### **Lighthouse Scores and Cloudinary**
 
-On desktop, my average Lighthouse validation scores for peformance were between 95 and 100. The accessibility score drops from 100 to 94-95 on some pages, and upon investigation I found it was due to Bootstrap's info button styling.
+On desktop, my average Lighthouse validation scores for performance were between 95 and 100. The accessibility score drops from 100 to 94-95 on some pages, and upon investigation I found it was due to Bootstrap's info button styling.
 
 Unfortunately, on mobile I only saw one page get into the green for performance, which was the Our Rooms page, however most of the pages are above 84 with the exception of the About Us page.
 

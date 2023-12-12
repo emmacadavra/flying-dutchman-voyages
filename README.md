@@ -5,7 +5,7 @@
 Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fabled ghost ship, The Flying Dutchman. Customers are able to choose from a modest selection of unique rooms on board, from the opulant Captain's Quarters (of which the spectral Captain Hendrick Van der Decken no longer has any need), to 'The Brig' - lovingly named so for its location, though it is anything but a prison. They can make and manage bookings, learn a little about the vessel itself, as well as discover the spectacular events Flying Dutchman Voyages has to offer.
 
 
-![Am I responsive screenshot](docs/images/am-i-responsive-screenshot.png)
+![Am I responsive screenshot](docs/images/am-i-responsive.png)
 
 [**_Please follow this link to the final deployed version of this project._**](https://flying-dutchman-voyages-f488bfe43a6a.herokuapp.com/)
 
@@ -21,7 +21,7 @@ Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fable
         - [**_Entity Relationship Diagram_**](#entity-relationship-diagram)
     - [**Client Side**](#client-side)
         - [**_Colour Scheme_**](#colour-scheme)
-        = [**_Typography_**](#typography)
+        - [**_Typography_**](#typography)
 1. [**Technologies Used**](#technologies-used)
 1. [**Agile Development**](#agile-development)
 1. [**Current Features**](#current-features)
@@ -31,7 +31,7 @@ Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fable
     - [**Events Page**](#events-page)
     - [**Our Rooms Page**](#our-rooms-page)
     - [**Room Detail Page**](#room-detail-page)
-        - [**_Booking Success Page**](#booking-success-page)
+        - [**_Booking Success Page_**](#booking-success-page)
     - [**AllAuth Pages**](#allauth-pages)
     - [**My Bookings Page**](#my-bookings-page)
         - [**_Amend Booking Page_**](#amend-booking-page)
@@ -120,24 +120,37 @@ ERD
 
 #### **Colour Scheme**
 
+Before I started working on the styling of the website, I was fortunate enough to come across this beautiful painting titled 'The Flying Dutchman', by Charles Temple Dix. I had already decided that I wanted a somewhat light and airy theme for the website and this provided me not only with the perfect background images for the site, but also a great place to start in terms of colour scheme.
+
 !['The Flying Dutchman' by Charles Temple Dix](docs/images/the-flying-dutchman-charles-temple-dix.jpg)
+
+I also found I like the info button colour styling that was provided by Bootstrap4, so I started off very simple with this colour palette from [**_mycolor.space_**](https://mycolor.space/):
 
 ![Original colour palette from mycolor.space](docs/images/initial-colour-palette.png)
 
-contrast-grid.eightshapes.com
+I also used [**_mycolor.space/gradient3_**](https://mycolor.space/gradient3) for the gradients seen in the header and footer.
+
+To expand on the palette and rework it closer to the colours seen in Charles Temple Dix's painting, I uploaded the image to [**_colormind.io_**](http://colormind.io/) to generate additional colours to use on the website. Below is a colour grid created by [**_contrast-grid.eightshapes.com_**](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%2353adbb%2C%0D%0A%233d5246%2C%0D%0A%23303030%2C%0D%0A%23080808%2C%0D%0A%23212529%2C%0D%0A%23f3ead7%2C%0D%0A%23f2efe080%2C%0D%0A%23f2efe0cc%2C%0D%0A%23f4f2e3%2C%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp) that includes the final colours used across the website:
+
+![Colour contrast grid](docs/images/colour-contrast-grid.png)
 
 #### **Typography**
 
-Charm by Google Fonts
+For the main titles and some occasional features on the site, I decided to use the font 'Charm', found on Google Fonts. I felt this font was a perfect balance between extravagent and scriptive, whilst remaining clear and readable. I feel it accurately carries the theme of the website without being too overpowering.
+
+For the main body of the website I considered using a different font to Bootstrap4's native font stack, however I found that I quite liked the contrast between it and 'Charm', as they seem to compliment one another in an unexpected and simple way.
 
 ## **Technologies Used**
 
 * Python
 * Django
+* Heroku
+* ElephantSQL
 * HTML5
 * CSS3
 * Bootstrap4
-* Javascript (indirectly)
+* Javascript (through Bootstrap4)
+* FontAwesome
 
 ## **Agile Development**
 
