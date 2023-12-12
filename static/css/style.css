@@ -178,7 +178,7 @@ a:hover {
     max-width: 100%;
 }
 
-.about-image img {
+.about-image-cloudinary {
     height: 100%;
     overflow: hidden;
     object-fit: cover;
@@ -318,7 +318,7 @@ a:hover {
     max-width: 1230px;
 }
 
-.amend-booking-card img {
+.amend-booking-cloudinary {
     width: 100%;
     height: auto;
 }
@@ -435,7 +435,7 @@ a:hover {
     .about-image {
         max-width: 50%;
     }
-    
+
     .amend-booking-flex {
         flex-direction: row;
     }

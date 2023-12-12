@@ -28,7 +28,6 @@ class BookingForm(forms.Form):
         rules being added to the default clean function
         """
         self.room_id = kwargs.pop('room_id')
-        self.user_id = 'user_id' in kwargs
         self.user_id = kwargs.pop('user_id') if 'user_id' in kwargs else None
         super(BookingForm, self).__init__(*args, **kwargs)
 
@@ -39,7 +38,7 @@ class BookingForm(forms.Form):
         """
         room = Room.objects.get(id=self.room_id)
         today = datetime.date.today()
-        
+
         if 'num_passengers' in self.cleaned_data and self.cleaned_data['num_passengers'] > room.capacity:
             raise ValidationError(
                 f'Number of passengers exceeds maximum room capacity {room.capacity}.'

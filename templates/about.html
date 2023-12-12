@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load cloudinary %}
 
 {% block title %}Contact Us - {% endblock %}
 
@@ -19,7 +20,7 @@
         <div class="card fd-card about-card d-flex mx-auto">
             <div class="d-flex about-details">
                 <div class="about-image d-flex text-center">
-                    <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1702222703/ai_art___the_flying_durchmen_by_koalafish_dfji9aq_xuw41i.jpg" alt="'The Flying Dutchman' by Koalafish on DeviantArt (https://www.deviantart.com/koalafish/art/AI-Art-The-Flying-Durchmen-939757202)" />
+                    {% cloudinary "ai_art___the_flying_durchmen_by_koalafish_dfji9aq_xuw41i.jpg" class="about-image-cloudinary" width=1020 alt="'The Flying Dutchman' by Koalafish on DeviantArt (https://www.deviantart.com/koalafish/art/AI-Art-The-Flying-Durchmen-939757202)" %}
                 </div>
                 <div class="about-text d-flex flex-column justify-content-around">
                     <h2 class="fd-page-header">
@@ -75,7 +76,7 @@
                     </p>
                 </div>
                 <div class="about-image d-flex text-center">
-                    <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1702222733/ghost_ship_by_awester01_dfp1mei_c21h96.png" alt="'Ghost Ship' by awester01 on DeviantArt (https://www.deviantart.com/awester01/art/Ghost-Ship-949058730)" />
+                    {% cloudinary "ghost_ship_by_awester01_dfp1mei_c21h96.png" class="about-image-cloudinary" width=1020 alt="'Ghost Ship' by awester01 on DeviantArt (https://www.deviantart.com/awester01/art/Ghost-Ship-949058730)" %}
                 </div>
             </div>
         </div>
