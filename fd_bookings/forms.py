@@ -18,6 +18,7 @@ class BookingForm(forms.Form):
     The main form for creating and amending bookings.
     """
     room_id = None
+    user_id = None
     booking_date = forms.DateField(widget=DateInput, label='Date of Departure:', required=True)
     num_passengers = forms.IntegerField(label='Number of Passengers:', required=True)
 
@@ -27,6 +28,8 @@ class BookingForm(forms.Form):
         rules being added to the default clean function
         """
         self.room_id = kwargs.pop('room_id')
+        self.user_id = 'user_id' in kwargs
+        self.user_id = kwargs.pop('user_id') if 'user_id' in kwargs else None
         super(BookingForm, self).__init__(*args, **kwargs)
 
     def clean(self):
@@ -36,7 +39,7 @@ class BookingForm(forms.Form):
         """
         room = Room.objects.get(id=self.room_id)
         today = datetime.date.today()
-
+        
         if 'num_passengers' in self.cleaned_data and self.cleaned_data['num_passengers'] > room.capacity:
             raise ValidationError(
                 f'Number of passengers exceeds maximum room capacity {room.capacity}.'
@@ -57,7 +60,7 @@ class BookingForm(forms.Form):
                 'The Flying Dutchman only sets sail on Sundays!'
             )
 
-        if 'booking_date' in self.cleaned_data and check_availability(self.room_id, self.cleaned_data['booking_date']) is not True:
+        if 'booking_date' in self.cleaned_data and check_availability(self.room_id, self.cleaned_data['booking_date'], self.user_id) is not True:
             raise ValidationError(
                 "This room is not available for this departure date."
             )
