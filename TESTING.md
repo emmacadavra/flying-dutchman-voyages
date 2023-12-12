@@ -6,9 +6,6 @@
     - [**Manual Testing**](#manual-testing)
         - [**_Python and Django Testing_**](#python-and-django-testing)
         - [**_Front End Testing_**](#front-end-testing)
-    - [**User Story Testing**](user-story-testing)
-        - [**_As a Site User I can..._**](#as-a-site-user-i-can)
-        - [**_As a Site Admin I can..._**](#as-a-site-admin-i-can)
     - [**Noteworthy Bugs During Development**](#noteworthy-bugs-during-development)
         - [**_Virtual Environment_**](#virtual-environment)
         - [**_Linking Templates_**](#linking-templates)
@@ -34,6 +31,9 @@
         - [**_PageSpeed Insights_**](#pagespeed-insights)
     - [**Unresolved Bugs**](#unresolved-bugs)
         - [**_Safari_**](#safari)
+1. [**User Story Testing**](user-story-testing)
+    - [**As a Site User I can...**](#as-a-site-user-i-can)
+    - [**As a Site Admin I can...**](#as-a-site-admin-i-can)
 
 
 ## **Testing Throughout Development**
@@ -71,13 +71,6 @@ Below is an example of using comments as I go to make sure I understand what eac
 Using the 'python3 manage.py runserver' command, I had a locally hosted version of this project running in the browser for 99% of the time spent working on it - however for the front end testing it played a much more interactive part thanks to Google Chrome's DevTools. With this, I was able to test and play around with stylig elements, as well as getting a feel for the visual side of the user journey and how it looked on various different devices. This meant that when I wanted to implement a structural change to the page, or add new features such as a carousel of images, I was able to first test how those things would interact with the existing styling of the page, and make decisions about additional styling that may need to be included.
 
 It was absolutely instrumental in ensuring that the site not only functioned as users expected in terms of the user journey and site logic, but also in seamless responsive design that is adaptive whilst retaining all the core site features.
-
-### **User Story Testing**
-
-#### **As a Site User I can...**
-
-#### **As a Site Admin I can...**
-
 
 ### **Noteworthy Bugs During Development**
 
@@ -343,3 +336,81 @@ However, I sent the website link to a friend who does own a Mac, and he sent bac
 ![Safari screenshot 2](docs/testing/safari-testing-2.png)
 
 He was unable to replicate what I had seen on BrowserStack, however I am still including it here as acknowledgement that this may need future consideration.
+
+## **User Story Testing**
+
+Below I have recorded the acceptance criteria for each of the completed User Stories. I have merged some User Stories together as they shared a lot of similar criteria. Please note that I have not included the Contact User Stories here, for reasons explained in my separate [**_AGILE.md_**](AGILE.md) document.
+
+### **As a Site User I can...**
+
+| **_...create an account so that I am able to make and manage my bookings, and clearly see that I am logged in so that I know I am able to make and manage my bookings._** | **Complete?** |
+| :------- | :-------: |
+| Can easily find and access the Register page in the navbar | &check; |
+| Can register with a username and (optional) email | &check; |
+| Can easily find and access the Login page in the navbar | &check; |
+| Redirection to the homepage upon successful login | &check; |
+| Able to make bookings immediately once logged in | &check; |
+| Can easily find and access the My Bookings page in the navbar when logged in, not visible when not logged in | &check; |
+| Login error given when attempting to make a booking while not logged in | &check; |
+| Entering a booking ID into the URL that does not exist/belongs to another user causes 404 error | &check; |
+| Can securely access all booking functionality associated with user account only | &check; |
+
+| **_...access the booking calendar so that I can see the dates available to book trips, and can create a booking so that I can secure a place on a voyage._** | **Complete?** |
+| :------- | :-------: |
+| Can easily find and access the Our Rooms page in the navbar when not logged in | &check; |
+| Can easily find and access the Our Rooms page in the navbar when logged in | &check; |
+| Can clearly see all five room options including an image and some flavour text for each one | &check; |
+| Clicking into a specific room shows information and images specific to that room | &check; |
+| Can clearly see the room details when not logged in | &check; |
+| Can clearly see the room details when logged in | &check; |
+| Can clearly identify the booking calendar on the specific room page | &check; |
+| Login error given when attempting to make a booking while not logged in | &check; |
+| When entering information into the booking form that is invalid, can clearly see a validation error explaining which piece of information is invalid | &check; |
+| If trying to make a booking for a date on which that specific room is already booked, can clearly see the validation error explaining that this is the case | &check; |
+| Can clearly see information on room detail pages about the duration of the voyage | &check; |
+| Can clearly see information and link to the About Us page to find out more information about voyages | &check; |
+| Entering a room ID into the URL that does not exist causes 404 error | &check; |
+| Clear confirmation received when a booking is successful, linking to the My Bookings page to review | &check; |
+
+| **_...can manage any bookings I have made so that I can edit or delete them as necessary._** | **Complete?** |
+| :------- | :-------: |
+| Can easily find and access the My Bookings page in the navbar when logged in, not visible when not logged in | &check; |
+| Can clearly see a list of bookings made, with most recent bookings showing first | &check; |
+| Can clearly see an option to amend each booking separately | &check; |
+| Clicking on an 'amend booking' link redirects to a new page containing details about current booking with a new form | &check; |
+| When entering information into the booking form that is invalid, can clearly see a validation error explaining which piece of information is invalid | &check; |
+| When amending the number of passengers for a booking but keeping the same date, the form acknowledges this by validating user ID and allows the amendment | &check; |
+| Clear confirmation received when a booking amendment is successful, linking to the My Bookings page to review | &check; |
+| Can clearly see an option to cancel each booking separately | &check; |
+| Clicking on a 'cancel booking' link redirects to a new page containing details of the booking, with clear text asking if the booking should be cancelled | &check; |
+| Can see clear confirmation that a booking has been cancelled with message that appears on screen after redirecting back to My Bookings | &check; |
+| Can securely access all booking functionality associated with user account only | &check; |
+| Entering a booking ID into the URL to amend/cancel that does not exist/belongs to another user causes 404 error | &check; |
+
+| **_...clearly navigate to the events section so that I can see all events that might be of interest to me._** | **Complete?** |
+| :------- | :-------: |
+| Can easily find and access the Events page in the navbar when not logged in | &check; |
+| Can easily find and access the Events page in the navbar when logged in | &check; |
+| Can clearly see an contact email address at the top of the Events page for any queries | &check; |
+| Can clearly see that the company holds holiday-specific events together with engaging images | &check; |
+| Can clearly see information about the main Easter Sunday event along with engaging images | &check; |
+| Can clearly see disclaimers about the nature of the main Easter Sunday event and its risks | &check; |
+
+### **As a Site Admin I can...**
+
+| **_...securely login to the admin dashboard so that I can view and manage booking options, manage/delete user accounts, and can see bookings that have been made so that I can modify and delete them if necessary/contact the user with relevant information._** | **Complete?** |
+| :------- | :-------: |
+| Can successfully log in to the admin dashboard with ease | &check; |
+| Admin panel is secure, only permitting superusers and staff to access | &check; |
+| Can easily find and access the Room model data | &check; |
+| Can easily add new rooms to the site through the dashboard | &check; |
+| Can easily add edit existing rooms on the site through the dashboard | &check; |
+| Can delete rooms from the site through the dashboard | &check; |
+| Receive warning when trying to delete rooms attached to bookings to prevent booking data loss | &check; |
+| Can easily find and access the Booking model data to view all bookings made through the site | &check; |
+| Can easily filter bookings made on the site by user, booking_date, room, and the date on which the booking was created | &check; |
+| Can easily search for bookings made on the site by user, booking_date, room, and the date on which the booking was created | &check; |
+| Can easily amend bookings made on the site | &check; |
+| Can easily delete bookings made on the site | &check; |
+
+Please click the following link to return to the [**_README.md_**](README.md) document.
