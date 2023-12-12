@@ -5,11 +5,16 @@
 1. [**Testing Throughout Development**](#testing-throughout-development)
     - [**Manual Testing Methods**](#manual-testing-methods)
     - [**Logic Validation**](#logic-validation)
-1. [**Noteable Bugs During Development**](#noteable-bugs-during-development)
+    - [**Noteable Bugs During Development**](#noteable-bugs-during-development)
 1. [**Post Development Testing**](#post-development-testing)
+    - [**Post Development Bugs**](#post-development-bugs)
+        - [**_Static Files_**](#static-files)
+        - [**_Check Availability Function 1_**](#check-availability-function-1)
+        - [**_Check Availability Function 2_**](#check-availability-function-2)
     - [**Responsive Design and Functionality**](#responsive-design-and-functionality)
-        - [**_Post Development Bugs_**](#post-development-bugs)
     - [**Site Validation**](#site-validation)
+        - [**_HTML and CSS_**](#html-and-css)
+        - [**_PEP8_**](#pep8)
         - [**_Accessibility_**](#accessibility)
         - [**_Lighthouse Scores and Cloudinary_**](#lighthouse-scores-and-cloudinary)
         - [**_PageSpeed Insights_**](#pagespeed-insights)
@@ -25,7 +30,7 @@
 ### **Logic Validation**
 
 
-## **Noteable Bugs During Development**
+### **Noteable Bugs During Development**
 
 * Using & installing python & django on ubuntu - my_venv
 
@@ -54,19 +59,46 @@
 
 ## **Post Development Testing**
 
+### **Post Development Bugs**
+
+#### **Static Files**
+
+I had some issues with my static files when deploying to Heroku with Debug set to False, in that I had not used the collectstatic command to upload my local files to Cloudinary, where they are being hosted. This initially caused me to think the issue was with my local CSS file itself, so it resulted in unnecessary changes that needed to be undone before correctly using the command.
+
+#### **Check Availability Function 1**
+
+When checking the booking functionality for each room on the deployed site, I came across a major issue with one of the rooms. When I was attempting to make a booking for it, I was receiving the form validation error _"This room is not available for this departure date."_ despite being certain that no bookings had been made for that specific room on that specific date. Logging into the admin dashboard, I realised that there were no longer any bookings _at all_ for that room - meaning I must have deleted them all during booking deletion tests. I realised that the check_availability function that acts as part of form validation was only creating a list of existing bookings, and that if there were no existing bookings then it was automatically returning False. I used print statements to determine what data was being passed in and out of the function, and then fixed the bug by adding lines 13 & 14 in the screenshot below:
+
+![check_availability bug](docs/testing/check-availability-bug.png)
+
+As I was doing this, I also realised that the way I'd written the for loop meant that the check_availability function was only actually ever checking the date against the first booking on the list and then returning immediately, which was not ideal. So I added a variable called 'valid' and set it to True, then amended the if statement to update it to False and break out of the loop if it encountered a conflicting booking. The 'valid' variable is then passed back to the form for validation.
+
+#### **Check Availability Function 2**
+
+After fixing the previous bug, it wasn't long before I realised that there was another major issue arising from the logic I'd written that handled the form validation - amending an existing booking with the same date, but different number of passengers, wout result in the same _"This room is not available for this departure date."_ validation error. This was because the check_availability function was considering the booking being amended as being an existing booking that it clashed with. As both the create booking and amend booking processes use the same form, I fixed this by including an optional argument into the check_availability function, as well as additional rules in the form and related views that would mean I could modify the code on line 17 as shown in the screenshot below:
+
+![check_availability bug 2](docs/testing/check-availability-bug-2.png)
+
 ### **Responsive Design and Functionality**
 
-Tested and confirmed working on all browsers except for one page when using safari (see unresolved bugs)
+This website's functionality has been tested and confirmed as fully responsive across different breakpoints on the following browsers:
 
-#### **Post Development Bugs**
+* Google Chrome
+* Mozilla Firefox
+* Microsoft Edge
+* Opera
 
-* static files (Debug = False)
-
-* issue with check_availability
+The site has been briefly tested in Safari, however unfortunately there does seem to be an issue with one specific page due to the utilisation of flex-wrap. More details about this can be found in the [**_Unresolved Bugs_**](#unresolved-bugs) section below.
 
 ### **Site Validation**
 
+#### **HTML and CSS**
+
 HTML - link to Accessibility below
+
+#### **PEP8**
+
+[Code Institute Python Linter](https://pep8ci.herokuapp.com/#)
 
 #### **Accessibility**
 
