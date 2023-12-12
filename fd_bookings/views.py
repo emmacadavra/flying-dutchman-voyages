@@ -135,7 +135,7 @@ def amend_booking(request, *args, **kwargs):
     """
     booking_id = kwargs.get('booking_id')
     booking = get_object_or_404(Booking, id=booking_id, user=request.user)
-    
+
     if request.method == 'GET':
         form = BookingForm(room_id=booking.room.id)
         context = {
@@ -145,7 +145,11 @@ def amend_booking(request, *args, **kwargs):
         }
         return render(request, 'fd_bookings/amend_booking.html', context)
     else:
-        form = BookingForm(request.POST, room_id=booking.room.id, user_id=request.user.id)
+        form = BookingForm(
+            request.POST,
+            room_id=booking.room.id,
+            user_id=request.user.id
+            )
         context = {
             'booking': booking,
             'booking_id': booking_id,

@@ -11,7 +11,8 @@
         - [**_Post Development Bugs_**](#post-development-bugs)
     - [**Site Validation**](#site-validation)
         - [**_Accessibility_**](#accessibility)
-        - [**_Lighthouse Scores and PageSpeed Insights_**](#lighthouse-scores-and-pagespeed-insights)
+        - [**_Lighthouse Scores_**](#lighthouse-scores)
+        - [**_PageSpeed Insights_**](#pagespeed-insights)
     - [**Unresolved Bugs**](#unresolved-bugs)
     - [**Testing Final Deployed Site**](#testing-final-deployed-site)
 
@@ -71,87 +72,91 @@ HTML - link to Accessibility below
 
 HTML validation made me realise that Cloudinary alt text wasn't pulling through, leading to amending the Room model to include it
 
-#### **Lighthouse Scores and PageSpeed Insights**
+#### **Lighthouse Scores**
 
-* Homepage
+**Homepage:**
 
 ![Homepage Lighthouse score - desktop](docs/testing/lighthouse-desktop-homepage.png)
 
 ![Homepage Lighthouse score - mobile](docs/testing/lighthouse-mobile-homepage.png)
 
-* About Us
+**About Us:**
 
 ![About page Lighthouse score - desktop](docs/testing/lighthouse-desktop-about.png)
 
 ![About page Lighthouse score - mobile](docs/testing/lighthouse-mobile-about.png)
 
-* Events
+**Events:**
 
 ![Events page Lighthouse score - desktop](docs/testing/lighthouse-desktop-events.png)
 
 ![Events page Lighthouse score - mobile](docs/testing/lighthouse-mobile-events.png)
 
-* Our Rooms
+**Our Rooms:**
 
 ![Our Rooms page Lighthouse score - desktop](docs/testing/lighthouse-desktop-our-rooms.png)
 
 ![Our Rooms page Lighthouse score - mobile](docs/testing/lighthouse-mobile-our-rooms.png)
 
-* Room Details
+**Room Details:**
 
 ![Room Details page Lighthouse score - desktop](docs/testing/lighthouse-desktop-room-detail.png)
 
 ![Room Details page Lighthouse score - mobile](docs/testing/lighthouse-mobile-room-detail.png)
 
-* My Bookings
+**My Bookings:**
 
 ![My Bookings page Lighthouse score - desktop](docs/testing/lighthouse-desktop-manage-bookings.png)
 
 ![My Bookings page Lighthouse score - mobile](docs/testing/lighthouse-mobile-manage-bookings.png)
 
-* Booking Success
+**Booking Success:**
 
 ![Booking Success page Lighthouse score - desktop](docs/testing/lighthouse-desktop-booking-success.png)
 
 ![Booking Success page Lighthouse score - mobile](docs/testing/lighthouse-mobile-booking-success.png)
 
-* Amend Booking
+**Amend Booking:**
 
 ![Amend Booking page Lighthouse score - desktop](docs/testing/lighthouse-desktop-amend-booking.png)
 
 ![Amend Booking page Lighthouse score - mobile](docs/testing/lighthouse-mobile-amend-booking.png)
 
-* Cancel Booking
+**Cancel Booking:**
 
 ![Cancel Booking page Lighthouse score - desktop](docs/testing/lighthouse-desktop-cancel-booking.png)
 
 ![Cancel Booking page Lighthouse score - mobile](docs/testing/lighthouse-mobile-cancel-booking.png)
 
-* Login
+**Login:**
 
 ![Login page Lighthouse score - desktop](docs/testing/lighthouse-desktop-login.png)
 
 ![Login page Lighthouse score - mobile](docs/testing/lighthouse-mobile-login.png)
 
-* Logout
+**Logout:**
 
 ![Logout page Lighthouse score - desktop](docs/testing/lighthouse-desktop-logout.png)
 
 ![Logout page Lighthouse score - mobile](docs/testing/lighthouse-mobile-logout.png)
 
-* Register
+**Register:**
 
 ![Sign Up page Lighthouse score - desktop](docs/testing/lighthouse-desktop-register.png)
 
 ![Sign Up page Lighthouse score - mobile](docs/testing/lighthouse-mobile-register.png)
 
-* Login Error
+**Login Error:**
 
 ![Login Error page Lighthouse score - desktop](docs/testing/lighthouse-desktop-login-error.png)
 
 ![Login Error page Lighthouse score - mobile](docs/testing/lighthouse-mobile-login-error.png)
 
+#### **PageSpeed Insights
 
+![Homepage PageSpeed Insights score - desktop](docs/testing/pagespeed-desktop-homepage.png)
+
+![Homepage PageSpeed Insights score - mobile](docs/testing/pagespeed-mobile-homepage.png)
 
 ### **Unresolved Bugs**
 
