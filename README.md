@@ -20,7 +20,8 @@ Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fable
         - [**_Data Models_**](#data-models)
         - [**_Entity Relationship Diagram_**](#entity-relationship-diagram)
     - [**Client Side**](#client-side)
-        - [**_Themes/Colours/Typography_**](#themes)
+        - [**_Colour Scheme_**](#colour-scheme)
+        = [**_Typography_**](#typography)
 1. [**Technologies Used**](#technologies-used)
 1. [**Agile Development**](#agile-development)
 1. [**Current Features**](#current-features)
@@ -141,9 +142,6 @@ Charm by Google Fonts
 ## **Agile Development**
 
 Throughout this project, I adopted an agile approach, which I have detailed and reflected on in my separate [**_AGILE.md_**](AGILE.md) document.
-
-### **User Story Notes and Revisions**
-
 
 ## **Current Features**
 

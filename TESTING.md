@@ -14,7 +14,7 @@
         - [**_Required Fields in Templates_**](#required-fields)
         - [**_Switching Database_**](#switching-database)
         - [**_Room Categories_**](#room-categories)
-        - [**_Bookings Exceed Number of Passengers_**](#bookings-exceed-number-of-passengers)
+        - [**_Exceeding Max Number of Passengers_**](#exceeding-max-number-of-passengers)
         - [**_Flex vs Grid_**](#flex-vs-grid)
         - [**_Manual Form HTML_**](#manual-form-html)
         - [**_Cloudinary Image Alt Text_**](#cloudinary-image-alt-text)
@@ -74,9 +74,9 @@ About half-way through development, I logged into ElephantSQL so that I could vi
 
 #### **Room Categories**
 
-As mentioned above, originally my Room model contained a dictionary of room category names 
+As mentioned above, originally my Room model contained a dictionary of room categories made up of a short "id" string and then the name in another string. The rationale behind this was that I had initially wanted to make it so that more than one room could be created per category (ie, four individual 'single cabin' rooms, etc.) However, during my second sprint I began massively refactoring a lot of my code (detailed more in the **Sprints** section of my separate [**_AGILE.md_**](AGILE.md) document) due to feeling like I'd overcomplicated a lot of it, and caused myself unnecessary confusion by doing things one way in one view, and then another way in a different view, etc. During this time I also realised that, with the current extent of my knowledge, I was creating more bugs than I was fixing by trying to find ways to include the form validation I needed whilst there were multiple rooms within some categories. The refactoring that was required to make my code consistent and effective was ultimately worth it, but the biggest bugs I came across multiple times were due to me not focusing on the room categories first.
 
-#### **Bookings Exceed Number of Passengers**
+#### **Exceeding Max Number of Passengers**
 
 
 #### **Flex vs Grid**
