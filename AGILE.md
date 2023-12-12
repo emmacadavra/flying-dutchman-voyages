@@ -57,9 +57,9 @@ However, this is misleading as it was really only a very small part of the work 
 
 I had started collating images and content ahead of this sprint, and thankfully had already come across the beautiful painting 'The Flying Dutchman' by Charles Temple Dix which I knew I wanted to use as my main homepage background. Although it is one of the simplest pages, I spent time making sure I was happy with homepage before moving on to the Room Detail page and other pages that interact with the models database. The events page was actually one of the last pages I focused on, as it is one of the pages that does not interact with Django beyond standard template rendering functionality.
 
-Throughout the styling process, I found many opportunities to improve on my Room model, which improved the site overall. I added a short room summary, longer summary description, additional images so that I could implement a carousel effect, and alt text for those images (detailed in the **Accessibility** section of my separate [TESTING.md](TESTING.md) document). These changes meant that the website was much less bare in some places and overall made the website feel more refined.
+Throughout the styling process, I found many opportunities to improve on my Room model, which improved the site overall. I added a short room summary, longer summary description, additional images so that I could implement a carousel effect, and alt text for those images (detailed in the **Accessibility** section of my separate [**_TESTING.md_**](TESTING.md) document). These changes meant that the website was much less bare in some places and overall made the website feel more refined.
 
-At the end of this sprint, I had a complete project that I was able to review and perform post-development tests on, in order to make any final tweaks before completion. More about this can be found in the **Post Development Testing** section of my separate [TESTING.md](TESTING.md) document.
+At the end of this sprint, I had a complete project that I was able to review and perform post-development tests on, in order to make any final tweaks before completion. More about this can be found in the **Post Development Testing** section of my separate [**_TESTING.md_**](TESTING.md) document.
 
 ## **User Story Notes**
 

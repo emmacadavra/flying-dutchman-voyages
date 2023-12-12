@@ -269,7 +269,7 @@ Throughout this project, I adopted an agile approach, which I have detailed and 
 
 ### **Contact Form**
 
-One of the things I would most like to implement to this project in future is a contact form, which I ended up not including in the initial development of this project. More information about this can be found in the **User Story Notes** section of my separate [AGILE.md](AGILE.md) document.
+One of the things I would most like to implement to this project in future is a contact form, which I ended up not including in the initial development of this project. More information about this can be found in the **User Story Notes** section of my separate [**_AGILE.md_**](AGILE.md) document.
 
 ### **Additional Account & Booking Information**
 
