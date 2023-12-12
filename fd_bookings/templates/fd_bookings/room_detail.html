@@ -11,32 +11,30 @@
             <div class="carousel-inner text-center">
                 <div class="carousel-item active">
                 {% if 'placeholder' in room.room_image_1.url %}
-                    <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1702203941/captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" />
+                {% cloudinary "captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" class="room-detail-cloudinary" width=900 alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" %}
 
                 {% else %}
-                    <!-- <img src="{{ room.room_image_1.url }}" alt="{{ room.room_image_1_alt }}" /> -->
-                    {% cloudinary room.room_image_1 width=900 alt=room.room_image_1_alt %}
+
+                    {% cloudinary room.room_image_1 class="room-detail-cloudinary" width=900 alt=room.room_image_1_alt %}
                 {% endif %}
                 </div>
                 
                 <div class="carousel-item">
                 {% if 'placeholder' in room.room_image_2.url %}
-                    <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1702203941/captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" />
+                {% cloudinary "captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" class="room-detail-cloudinary" width=900 alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" %}
 
                 {% else %}
-                    <!-- <img src="{{ room.room_image_2.url }}" alt="{{ room.room_image_2_alt }}" /> -->
-                    {% cloudinary room.room_image_2 width=900 alt=room.room_image_2_alt %}
+                    {% cloudinary room.room_image_2 class="room-detail-cloudinary" width=900 alt=room.room_image_2_alt %}
 
                 {% endif %}
                 </div>
 
                 <div class="carousel-item">
                 {% if 'placeholder' in room.room_image_3.url %}
-                    <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1702203941/captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" />
+                {% cloudinary "captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" class="room-detail-cloudinary" width=900 alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" %}
                     
                 {% else %}
-                    <!-- <img src="{{ room.room_image_3.url }}" alt="{{ room.room_image_3_alt }}" /> -->
-                    {% cloudinary room.room_image_3 width=900 alt=room.room_image_3_alt %}
+                    {% cloudinary room.room_image_3 class="room-detail-cloudinary" width=900 alt=room.room_image_3_alt %}
                     
                 {% endif %}
                 </div>

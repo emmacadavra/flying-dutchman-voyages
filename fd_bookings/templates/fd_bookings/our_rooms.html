@@ -20,13 +20,18 @@
                 <a href="/room/{{ room.id }}" class="fd-room-link d-flex flex-column">
 
                     {% if 'placeholder' in room.room_image_1.url %}
-                    <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1702203941/captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" />
+                    <div class="rooms-cloudinary-container d-flex">
+                        {% cloudinary "captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" class="our-rooms-cloudinary" width=500 alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" %}
+                    </div>
 
                     {% else %}
-                    <!-- <img src="{{ room.room_image_1.url }}" alt="{{ room.room_image_1_alt }}" /> -->
-                    {% cloudinary room.room_image_1 width=500 alt=room.room_image_1_alt %}
+
+                    <div class="rooms-cloudinary-container d-flex">
+                    {% cloudinary room.room_image_1 class="our-rooms-cloudinary" width=500 alt=room.room_image_1_alt %}
+                    </div>
 
                     {% endif %}
+
                     <h2 class="card-title">{{ room.name }}</h2>
                     <p class="card-text">{{ room.summary }}</p>
                 </a>

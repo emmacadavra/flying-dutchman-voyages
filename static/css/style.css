@@ -229,10 +229,12 @@ a:hover {
 
 /* Our Rooms */
 
-.rooms-card img {
+.rooms-cloudinary-container {
     max-width: 500px;
-    height: 100%;
-    overflow: hidden;
+}
+
+.our-rooms-cloudinary {
+    width: 100%;
 }
 
 .rooms-card h2 {
@@ -268,8 +270,8 @@ a:hover {
     padding-top: 0.5rem;
 }
 
-.carousel-item img {
-    max-width: 90%;
+.carousel-item {
+    max-width: 900px;
 }
 
 /* Manage & Amend Booking */
