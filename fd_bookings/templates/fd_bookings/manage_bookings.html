@@ -20,21 +20,16 @@
     {% for booking in booking_list %}
     <div class="d-flex flex-column align-items-center justify-content-center">
         <div class="card fd-card booking-card d-flex align-items-center justify-content-center">
-            <div class="booking-image d-flex">
+            <div class="booking-image bookings-image-container d-flex">
                 {% if 'placeholder' in booking.room.room_image_1.url %}
 
-                    <div class="bookings-cloudinary-container d-flex">
                         {% cloudinary "captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" class="my-bookings-cloudinary" width=500 alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" %}
-                    </div>
 
                 {% else %}
 
-                    <div class="bookings-cloudinary-container d-flex">
                         {% cloudinary booking.room.room_image_1 class="my-bookings-cloudinary" width=500 alt=booking.room.room_image_1_alt %}
-                    </div>
 
                 {% endif %}
-
             </div>
             <div class="booking-text d-flex flex-column justify-content-between">
                 <h2 class="booking-text-title">

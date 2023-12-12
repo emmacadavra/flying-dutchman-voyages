@@ -297,7 +297,7 @@ a:hover {
     margin: 0.5rem;
 }
 
-.bookings-cloudinary-container {
+.bookings-image-container {
     max-width: 500px;
 }
 
@@ -316,6 +316,14 @@ a:hover {
 .amend-booking-card {
     padding: 0.5rem;
     max-width: 1230px;
+}
+
+.amend-image-container {
+    max-width: 860px;
+}
+
+.cancel-image-container {
+    max-width: 680px;
 }
 
 .amend-booking-cloudinary {
