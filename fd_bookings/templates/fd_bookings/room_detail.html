@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load cloudinary %}
+
 {% block title %}{{ room_name }} - {% endblock %}
 
 {% block content %}
@@ -11,19 +12,23 @@
             <div class="carousel-inner text-center">
                 <div class="carousel-item active">
                 {% if 'placeholder' in room.room_image_1.url %}
-                {% cloudinary "captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" class="room-detail-cloudinary" width=900 alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" %}
+
+                    {% cloudinary "captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" class="room-detail-cloudinary" width=900 alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" %}
 
                 {% else %}
 
                     {% cloudinary room.room_image_1 class="room-detail-cloudinary" width=900 alt=room.room_image_1_alt %}
+                
                 {% endif %}
                 </div>
                 
                 <div class="carousel-item">
                 {% if 'placeholder' in room.room_image_2.url %}
-                {% cloudinary "captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" class="room-detail-cloudinary" width=900 alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" %}
+
+                    {% cloudinary "captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" class="room-detail-cloudinary" width=900 alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" %}
 
                 {% else %}
+
                     {% cloudinary room.room_image_2 class="room-detail-cloudinary" width=900 alt=room.room_image_2_alt %}
 
                 {% endif %}
@@ -31,9 +36,11 @@
 
                 <div class="carousel-item">
                 {% if 'placeholder' in room.room_image_3.url %}
-                {% cloudinary "captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" class="room-detail-cloudinary" width=900 alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" %}
+
+                    {% cloudinary "captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" class="room-detail-cloudinary" width=900 alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" %}
                     
                 {% else %}
+                    
                     {% cloudinary room.room_image_3 class="room-detail-cloudinary" width=900 alt=room.room_image_3_alt %}
                     
                 {% endif %}

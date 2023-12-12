@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load cloudinary %}
 
 {% block title %}Manage Bookings - {% endblock %}
 
@@ -21,12 +22,19 @@
         <div class="card fd-card booking-card d-flex align-items-center justify-content-center">
             <div class="booking-image d-flex">
                 {% if 'placeholder' in booking.room.room_image_1.url %}
-                <img src="https://res.cloudinary.com/dw7gzqpa3/image/upload/v1701272049/room_placeholder_qdlprf.jpg" alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" />
+
+                    <div class="bookings-cloudinary-container d-flex">
+                        {% cloudinary "captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" class="my-bookings-cloudinary" width=500 alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" %}
+                    </div>
 
                 {% else %}
-                <img src="{{ booking.room.room_image_1.url }}" alt="{{ room.room_image_1_alt }}" />
+
+                    <div class="bookings-cloudinary-container d-flex">
+                        {% cloudinary booking.room.room_image_1 class="my-bookings-cloudinary" width=500 alt=booking.room.room_image_1_alt %}
+                    </div>
 
                 {% endif %}
+
             </div>
             <div class="booking-text d-flex flex-column justify-content-between">
                 <h2 class="booking-text-title">

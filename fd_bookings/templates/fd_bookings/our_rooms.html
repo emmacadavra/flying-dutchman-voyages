@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load cloudinary %}
+
 {% block title %}Our Rooms - {% endblock %}
 
 {% block content %}
@@ -13,22 +14,23 @@
             Feast your eyes on our unique selection of truly luxurious rooms...
         </p>
     </div>
-    <div class="d-flex align-items-center justify-content-center flex-wrap rooms-holder">
+    <div class="d-flex align-items-center justify-content-center flex-wrap">
         {% for room in room_list %}
         <div class="card fd-card rooms-card">
             <div class="card-body">
                 <a href="/room/{{ room.id }}" class="fd-room-link d-flex flex-column">
 
                     {% if 'placeholder' in room.room_image_1.url %}
-                    <div class="rooms-cloudinary-container d-flex">
-                        {% cloudinary "captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" class="our-rooms-cloudinary" width=500 alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" %}
-                    </div>
+
+                        <div class="rooms-cloudinary-container d-flex">
+                            {% cloudinary "captain_s_room_by_xpunkyx_d4xmwcx-fullview_ini3fc.jpg" class="our-rooms-cloudinary" width=500 alt="'Captain's Room' by xPuNkYx on DeviantArt (https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)" %}
+                        </div>
 
                     {% else %}
 
-                    <div class="rooms-cloudinary-container d-flex">
-                    {% cloudinary room.room_image_1 class="our-rooms-cloudinary" width=500 alt=room.room_image_1_alt %}
-                    </div>
+                        <div class="rooms-cloudinary-container d-flex">
+                        {% cloudinary room.room_image_1 class="our-rooms-cloudinary" width=500 alt=room.room_image_1_alt %}
+                        </div>
 
                     {% endif %}
 

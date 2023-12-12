@@ -48,6 +48,7 @@
 
 * images not shrinking responsively when everything else was
 
+* confusion between room.[data] and booking.room.[data]
 
 
 ## **Post Development Testing**
