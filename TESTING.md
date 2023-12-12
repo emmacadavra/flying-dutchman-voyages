@@ -3,10 +3,23 @@
 ## **Table of Contents (Testing):**
 
 1. [**Testing Throughout Development**](#testing-throughout-development)
-    - [**Manual Testing Methods**](#manual-testing-methods)
-    - [**Logic Validation**](#logic-validation)
+    - [**Manual Testing**](#manual-testing)
+        - [**_Python and Django Testing_**](#python-and-django-testing)
+        - [**_Front End Testing_**](#front-end-testing)
     - [**Noteable Bugs During Development**](#noteable-bugs-during-development)
 1. [**Post Development Testing**](#post-development-testing)
+        - [**_Virtual Environment_**](#virtual-environment)
+        - [**_Linking Templates_**](#linking-templates)
+        - [**_Valid Form_**](#valid-form)
+        - [**_Required Fields in Templates_**](#required-fields)
+        - [**_Switching Database_**](#switching-database)
+        - [**_Room Categories_**](#room-categories)
+        - [**_Bookings Exceed Number of Passengers_**](#bookings-exceed-number-of-passengers)
+        - [**_Flex vs Grid_**](#flex-vs-grid)
+        - [**_Manual Form HTML_**](#manual-form-html)
+        - [**_Cloudinary Image Alt Text_**](#cloudinary-image-alt-text)
+        - [**_No Flexible Images_**](#no-flexible-images)
+        - [**_Django Template Data Selection_**](#django-template-data-selection)
     - [**Post Development Bugs**](#post-development-bugs)
         - [**_Static Files_**](#static-files)
         - [**_Check Availability Function 1_**](#check-availability-function-1)
@@ -24,39 +37,61 @@
 
 ## **Testing Throughout Development**
 
-### **Manual Testing Methods**
+### **Manual Testing**
 
+#### **Python and Django Testing**
 
-### **Logic Validation**
+look at screenshots in notes
+
+#### **Front End Testing**
 
 
 ### **Noteable Bugs During Development**
 
-* Using & installing python & django on ubuntu - my_venv
+I faced many bugs during the development process - most of which can be attributed to still being a beginner with Django. Below are the noteworthy bugs that I documented.
 
-* Linking templates
+#### **Virtual Environment**
 
-* "valid_form()"
+The first major issue I encountered as part of this project was that, due to using my own development environment on Ubuntu rather than using Code Institute's template in a cloud-based IDE, I was unable to install Python or Django to my local machine. To fix this, I learned how to set up a virtual environment on my machine and worked from there.
 
-* success_url & reverse/reverse_lazy (now removed from code)
+#### **Linking Templates**
 
-* unable to make booking after removing room category name from template (+ screenshot)
+Early on in the project, I had some issue getting to grips with the file paths needed to link templates to views. Two of my original templates linked to the views by wrapping just the filename in single quotes, 'rooms-list.html' and 'booking_list.html', but a third template, 'make_booking.html' would not work. I fixed this issue by learning that I needed to specify the filepath as 'fd_bookings/make_booking.html'.
 
-* database
+#### **Valid Form**
 
-* changing from room categories to room names had a bigger knock-on effect than anticipated
+I considered not including this one, but decided to in the end as it did take up a considerable amount of my time! When working on the views that handle my booking form, I came across a bug that had me stumped for nearly two hours. The form was there in the template, but no matter what I tried it wouldn't submit to the database. I scoured the internet, combed through all of my code (or so I thought) for so long it gave me a headache - until I finally realised it was because within the view I'd written "valid_form()" instead of "form_valid()"..!
 
-* trying to use Bootstrap grid and flex in the same page = break
+#### **Required Fields in Templates**
 
-* trying to input form manually meant that no validation errors could be generated
+The very early structure of my project included a dictionary with room categories inside, which determined the overall logic flow of the website and form. The 'make_booking.html' template originally served as the only place users could make a booking, and so the form fields included a dropdown list of room category names. This was marked as 'required' in the form, which caused bugs later on when I started changing the way the form looked in the webpages. At the time I had manually written the HTML for the form by first running the form.as_p and then getting the IDs from each element in DevTools, so when I changed the website structure to have one page per room, and removed the dropdown list from the template, trying to make a booking would throw an error because the user was unable to even enter a form field that I'd marked as required. To fix this, I used print statements in various locations within the function in RoomDetailView so that I could see where the code stopped being read, and what it was reading if it was being read. After realising it was because the form still included the 'required' field where it no longer needed to, I removed it from the form. I also decided to go back to rendering the form.as_p as I was unable to access Django's built-in form validation errors.
 
-* sweetify/sweet alert 2 css overriding bootstrap css (now removed)
+![category-required-bug](docs/testing/category-required-bug.png)
 
-* HTML validation during sevelopment made me realise that Cloudinary alt text wasn't pulling through, leading to amending the Room model to include it
+#### **Switching Database**
 
-* images not shrinking responsively when everything else was
+About half-way through development, I logged into ElephantSQL so that I could visually see the information that was in my database, only to realise that I had not linked the database to the project in the settings.py file. When I did this, I of course needed to create a new superuser, and enter in the room data through the admin dashboard from scratch. Not necessarily a bug, but it did set me back a little.
 
-* confusion between room.[data] and booking.room.[data]
+#### **Room Categories**
+
+As mentioned above, originally my Room model contained a dictionary of room category names 
+
+#### **Bookings Exceed Number of Passengers**
+
+
+#### **Flex vs Grid**
+
+
+#### **Manual Form HTML**
+
+
+#### **Cloudinary Image Alt Text**
+
+
+#### **No Flexible Images**
+
+
+#### **Django Template Data Selection**
 
 
 ## **Post Development Testing**
@@ -266,4 +301,4 @@ However, I sent the website link to a friend who does own a Mac, and he sent bac
 
 ![Safari screenshot 2](docs/testing/safari-testing-2.png)
 
-He was unable to replicate what I seen on BrowserStack, however I am still including it here as acknowledgement that this may need future consideration.
+He was unable to replicate what I had seen on BrowserStack, however I am still including it here as acknowledgement that this may need future consideration.
