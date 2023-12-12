@@ -35,14 +35,17 @@
                                 {% csrf_token %}
                         
                                 <div class="booking-text-details">
-                                    <p>
-                                        Date of departure:
+                                    <p class="text-center">
+                                        Current date of departure:
                                     </p>
-                                    <p>
+                                    <p class="font-weight-bold text-center">
                                         {{ booking.booking_date }}
                                     </p>
-                                    <p>
-                                        Number of passengers: {{ booking.num_passengers }}
+                                    <p class="text-center">
+                                        Current number of passengers:
+                                    </p>
+                                    <p class="font-weight-bold text-center">
+                                        - {{ booking.num_passengers }} -
                                     </p>
                                 </div>
                                 <div class="d-flex">
