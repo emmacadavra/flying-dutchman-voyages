@@ -6,8 +6,10 @@
     - [**Manual Testing**](#manual-testing)
         - [**_Python and Django Testing_**](#python-and-django-testing)
         - [**_Front End Testing_**](#front-end-testing)
-    - [**Noteable Bugs During Development**](#noteable-bugs-during-development)
-1. [**Post Development Testing**](#post-development-testing)
+    - [**User Story Testing**](user-story-testing)
+        - [**_As a Site User I can..._**](#as-a-site-user-i-can)
+        - [**_As a Site Admin I can..._**](#as-a-site-admin-i-can)
+    - [**Noteworthy Bugs During Development**](#noteworthy-bugs-during-development)
         - [**_Virtual Environment_**](#virtual-environment)
         - [**_Linking Templates_**](#linking-templates)
         - [**_Valid Form_**](#valid-form)
@@ -16,10 +18,9 @@
         - [**_Room Categories_**](#room-categories)
         - [**_Exceeding Max Number of Passengers_**](#exceeding-max-number-of-passengers)
         - [**_Flex vs Grid_**](#flex-vs-grid)
-        - [**_Manual Form HTML_**](#manual-form-html)
         - [**_Cloudinary Image Alt Text_**](#cloudinary-image-alt-text)
         - [**_No Flexible Images_**](#no-flexible-images)
-        - [**_Django Template Data Selection_**](#django-template-data-selection)
+1. [**Post Development Testing**](#post-development-testing)
     - [**Post Development Bugs**](#post-development-bugs)
         - [**_Static Files_**](#static-files)
         - [**_Check Availability Function 1_**](#check-availability-function-1)
@@ -41,14 +42,46 @@
 
 #### **Python and Django Testing**
 
-look at screenshots in notes
+I used a variety of methods to test my Python / Django code as I went along, in particular using print statements to help me identify the code that was being passed between functions and templates, using the 'python3 manage.py runserver' command to test the interactivity between the Django models, views and templates, and finally by leaving myself comments that help me understand each line of code and what it's doing.
+
+At the very beginning of the project, as soon as I had created my models, I created two very simple views that fed into for loops within two basic templates. This enabled me to see exactly what data was being generated from each model:
+
+![Simple view test 1](docs/testing/temp-list-1.png)
+
+![Simple view test 2 (urls)](docs/testing/temp-list-2.png)
+
+![Simple view test 3 (booking template)](docs/testing/temp-list-booking-template.png)
+
+![Simple view test 4 (room template)](docs/testing/temp-list-room-template.png)
+
+Outputs:
+
+![Simple view test output 1 (booking)](docs/testing/temp-list-booking-output.png)
+
+![Simple view test output 2 (room)](docs/testing/temp-list-room-output.png)
+
+I found that doing this helped me visualise the code when testing.
+
+Below is an example of using comments as I go to make sure I understand what each line of code is doing, which helped me (alongside the use of print statements!) to identify where issues might arise:
+
+![Comments next to each line of code](docs/testing/amend-booking-comments.png)
 
 #### **Front End Testing**
 
+Using the 'python3 manage.py runserver' command, I had a locally hosted version of this project running in the browser for 99% of the time spent working on it - however for the front end testing it played a much more interactive part thanks to Google Chrome's DevTools. With this, I was able to test and play around with stylig elements, as well as getting a feel for the visual side of the user journey and how it looked on various different devices. This meant that when I wanted to implement a structural change to the page, or add new features such as a carousel of images, I was able to first test how those things would interact with the existing styling of the page, and make decisions about additional styling that may need to be included.
 
-### **Noteable Bugs During Development**
+It was absolutely instrumental in ensuring that the site not only functioned as users expected in terms of the user journey and site logic, but also in seamless responsive design that is adaptive whilst retaining all the core site features.
 
-I faced many bugs during the development process - most of which can be attributed to still being a beginner with Django. Below are the noteworthy bugs that I documented.
+### **User Story Testing**
+
+#### **As a Site User I can...**
+
+#### **As a Site Admin I can...**
+
+
+### **Noteworthy Bugs During Development**
+
+I faced many bugs during the development process - most of which can be attributed to still being a beginner with Django. I came across multiple instances of very similar bugs while working on the project, due to things like not providing views with the correct context for templates, or entering "room.name" in a template that was related to a view which accesses the Booking model, therefore requiring me to enter "booking.room.name". I haven't detailed these below, however, as they were numerous and easily fixed. Instead I've included other noteworthy bugs that I documented during the development process.
 
 #### **Virtual Environment**
 
@@ -60,7 +93,7 @@ Early on in the project, I had some issue getting to grips with the file paths n
 
 #### **Valid Form**
 
-I considered not including this one, but decided to in the end as it did take up a considerable amount of my time! When working on the views that handle my booking form, I came across a bug that had me stumped for nearly two hours. The form was there in the template, but no matter what I tried it wouldn't submit to the database. I scoured the internet, combed through all of my code (or so I thought) for so long it gave me a headache - until I finally realised it was because within the view I'd written "valid_form()" instead of "form_valid()"..!
+I considered not including this one, but decided to in the end as it did take up a considerable amount of my time! When working on the views that handle my booking form, I came across a bug that had me stumped for nearly two hours. The form was there in the template, but no matter what I tried it wouldn't submit to the database. I scoured the internet, combed through all of my code (or so I thought) for so long it gave me a headache - until I finally realised it was because within the view I'd mistakenly written "valid_form()" instead of Python's built-in "form_valid()"..!
 
 #### **Required Fields in Templates**
 
@@ -74,25 +107,33 @@ About half-way through development, I logged into ElephantSQL so that I could vi
 
 #### **Room Categories**
 
-As mentioned above, originally my Room model contained a dictionary of room categories made up of a short "id" string and then the name in another string. The rationale behind this was that I had initially wanted to make it so that more than one room could be created per category (ie, four individual 'single cabin' rooms, etc.) However, during my second sprint I began massively refactoring a lot of my code (detailed more in the **Sprints** section of my separate [**_AGILE.md_**](AGILE.md) document) due to feeling like I'd overcomplicated a lot of it, and caused myself unnecessary confusion by doing things one way in one view, and then another way in a different view, etc. During this time I also realised that, with the current extent of my knowledge, I was creating more bugs than I was fixing by trying to find ways to include the form validation I needed whilst there were multiple rooms within some categories. The refactoring that was required to make my code consistent and effective was ultimately worth it, but the biggest bugs I came across multiple times were due to me not focusing on the room categories first.
+As mentioned above, originally my Room model contained a dictionary of room categories made up of a short "id" string and then the name in another string. The rationale behind this was that I had initially wanted to make it so that more than one room could be created per category (ie, four individual 'single cabin' rooms, etc.) However, during my second sprint I began massively refactoring a lot of my code (detailed more in the **Sprints** section of my separate [**_AGILE.md_**](AGILE.md) document) due to feeling like I'd overcomplicated a lot of it, and caused myself unnecessary confusion by doing things one way in one view, and then another way in a different view, etc. During this time I also realised that, with the current extent of my knowledge, I was creating more bugs than I was fixing by trying to find ways to include the form validation I needed whilst there were multiple rooms within some categories but not others (there can only be one 'Captain's Quarters', after all!). The refactoring that was required to make my code more consistent and less convoluted was ultimately worth it, but the biggest bugs I came across multiple times were due to me not focusing on the room categories first. The most noteworthy of these had to do with the room URLs, for which I had created a function within the Booking model itself that would pull the URL from the room category dictionary. When I started replacing the room category code with code relating to the room IDs, I caused a lot of issues for myself by overlooking this function and thinking the code was being executed by one of the views. I was testing the room views individually by entering the ID as part of the URL, but it took some time for me to realise that the reason I could no longer navigate to them from the Our Rooms page was because the template was still trying to call the function in the Booking model. The obvious fix for this one (once I found it!) was to remove the function from the model, as it was no longer needed, and update the templates in line with the refactored views.
 
 #### **Exceeding Max Number of Passengers**
 
+During my second sprint, I became aware of a bug in my code that meant users were able to create bookings with a total number of passengers that exceeded the specified room capacity. To begin with, I fixed this in the amend-booking function by adding 'is_valid' to the context as a key:
+
+![Max passengers validation - amend booking](docs/testing/max-passengers-bug.png)
+
+After confirming this worked, I considered doing the same thing within the RoomDetailView view before looking into Django form validation options in more detail. Eventually I was able to move this validation outside of the views and directly into the form itself, thanks enormously to [**_Damon Kreft_**](https://github.com/damon-kreft) who kindly demonstrated how it is possible to include additional validation rules into Django's built-in clean function:
+
+![Custom rules added to Django's clean function](docs/testing/form-validation-fix.png)
 
 #### **Flex vs Grid**
 
-
-#### **Manual Form HTML**
-
-
-#### **Cloudinary Image Alt Text**
-
+When styling the website, in particular the homepage, I found I was running into a lot of bugs in the layout of the page. One that had me stumped for a while was an issue where the scrollbar disappeared, and I  was unable to scroll down the page to see any content that extended beyond the viewport. I was able to determine, after doing some research, that it was because I was trying to apply Bootstrap's grid classes to elements that also had flexbox classes, and creating a conflict. In the end I fixed this by sticking to flexbox classes for my webpages.
 
 #### **No Flexible Images**
 
+Following on from the previous issue, I ran into some bugs in my styling a few times where images were concerned. I had set maximum widths for them, but neglected to give them widths relational to the parent divs. This meant that, below certain widths, the page would continue to shrink while the images would not:
 
-#### **Django Template Data Selection**
+![Images not shrinking with flexbox](docs/testing/flex-images-bug.png)
 
+I made sure to add sizing rules to all images and flex styling to their containers to fix this. 
+
+#### **Cloudinary Image Alt Text**
+
+The first time I ran the HTML through the [**_W3C Markup Validation Service website_**](https://validator.w3.org/), I was immediately met with errors on all of my image tags due to the lack of alt text on each of them. This was caused by my misunderstanding of the metadata informationon the Cloudinary platform, as I had entered in a caption and description crediting the source of the image to each and every one of them. However, this metadata does not automatically track, so to fix this I updated my Room model to include a field below each image for alt text, which is now pulled through to the templates.
 
 ## **Post Development Testing**
 
@@ -275,7 +316,7 @@ All Lighthouse tests were performed using the published Heroku link, and done in
 
 ![Login Error page Lighthouse score - mobile](docs/testing/lighthouse-mobile-login-error.png)
 
-#### **PageSpeed Insights
+#### **PageSpeed Insights**
 
 Across the board, my PageSpeed Insights were lower than the Lighthouse scores - averaging at around 95 on Desktop and 70-80 on mobile, averaging at around 78. The insights provided were largely the same as the ones given by Lighthouse, and mostly had to do with using external stylesheets, and the Cloudinary image sizes.
 
