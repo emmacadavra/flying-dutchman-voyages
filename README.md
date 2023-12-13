@@ -44,6 +44,11 @@ Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fable
     - [**Slugs**](#slugs)
 1. [**Testing**](#testing)
 1. [**Deployment**](#deployment)
+    - [**Cloning/Forking**](#cloningforking)
+    - [**Setting Up the Database**](#setting-up-the-database)
+    - [**Environment Variables and Settings**](#environment-variables-and-settings)
+    - [**Cloudinary**](#cloudinary)
+    - [**Deployment to Heroku**](#deployment-to-heroku)
 1. [**Credits**](#credits)
     - [**Honourable Mentions**](#honourable-mentions)
     - [**Code and Content References**](#code-and-content-references)
@@ -58,11 +63,11 @@ Additionally, from the perspective of site admins, it provides a user-friendly w
 
 ### **Scope**
 
-When planning the project, I initially made a mind map of what I felt the project should contain - both from the user perspective and the admin perspective.
+When planning the project, I initially made a mind map using [**_Excalidraw_**](https://excalidraw.com/) of what I felt the project should contain - although crude, it helped me begin formulating what I thought the models should look like and I was able to build from there.
 
-![Original project mind map](link)
+![Original project mind map](docs/images/mindmap.png)
 
-From here, I was able to break down these requirements into three categories: 'must have', 'should have', and 'could have'. By doing this, I was able to determine the MVP, as well as consider the agile epics that could be broken down into user stories.
+From here, I expanded on this basic mind map and put some consideration into other features I'd like the project to have, such a contact form, and also put more thought into what each room (or, room category at the time) would look like. I was then able to filter these requirements into three categories: 'must have', 'should have', and 'could have'. By doing this, I was able to determine the MVP, as well as consider the agile epics that could be broken down into user stories.
 
 ### **User Stories**
 
@@ -110,11 +115,24 @@ The user stories were entered into the [**_GitHub Project Board linked to the Fl
 
 #### **Data Models**
 
-Data models
+When planning for the project, these were the considerations I made for the models:
+
+1. **User Model:**
+* The User model will be imported from Django AllAuth, which will have a one-to-many relationship with the Room and Booking models - one User can have multiple Bookings across multiple Rooms, but every booking is unique to one User and will never be available to other Users.
+
+1. **Room Model:**
+* The Room model will allow for admins to create, edit and delete rooms from the database, but will not be editable by Users. Each room in the Room model has a one-to-many relationship with both the User and Booking models - every room can have multiple bookings associated with it for multiple Users, but again every booking is unique to only one User and one Room.
+
+1. **Booking Model:**
+* The Booking model allows for Users to create, amend and delete bookings made through the booking form for a specific room. Every booking is unique to the User and room, and ensures that no bookings can be made for rooms that have already been booked on certain dates. It stores the data on the database and fetches data using the unique booking ID if the User is authenticated, so that the User is able to manage the booking.
 
 #### **Entity Relationship Diagram**
 
-ERD
+Below is an updated version of my initial ERD to include the current model fields (the Room model only includes image & alt text fields once for the sake of space), made using [**_Excalidraw_**](https://excalidraw.com/):
+
+![ERD made on Excalidraw](docs/images/erd.png)
+
+The User interacts with the booking process initially by being introduced to the different rooms available. When the user clicks to view a specific room, they are then able to make a booking for that room. Their request is validated by the booking form, linked to the Booking model and returned to the User if invalid with information about why it was invalid. If valid, their booking is successfully created, and the User can then access that booking information to cancel it if they want to, or amend it (in which case a similar process will begin again where validation checks are performed to make sure the User is able to make those changes).
 
 ### **Client Side**
 
@@ -151,6 +169,7 @@ For the main body of the website I considered using a different font to Bootstra
 * Bootstrap4
 * Javascript (through Bootstrap4)
 * FontAwesome
+* Cloudinary
 
 ## **Agile Development**
 
@@ -303,6 +322,38 @@ When I first created this project, my Room model contained a dictionary called "
 A separate file has been created for information about testing. Please click the following link to access it: [**_TESTING.md_**](TESTING.md)
 
 ## **Deployment**
+
+In this section I explain the steps I took in order to deploy this project.
+
+### **Cloning/Forking**
+
+If you wish to create a clone of this project to use on your local machine or virtual IDE environment such as Gitpod, first navigate to [this project's GitHub Repository](https://github.com/emmacadavra/flying-dutchman-voyages), and follow [GitHub's instructions on how to clone a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository). Once cloned, enter the following command in the terminal:
+```pip install -r requirements.txt```
+This will install all the required libraries and packages in one go.
+
+As I developed this project locally, I had to create a virtual environment using the command ```python -m venv .venv``` - if you clone this project to use locally, you must do the same.
+
+### **Setting Up the Database**
+
+This project uses [**_ElephantSQL_**](https://www.elephantsql.com/) to host its database. Below are the steps I took following account creation:
+* Click on 'Create New Instance'
+* Provide a project name and select the 'Tiny Turtle (Free)' plan
+* Click 'Select Region' and choose a nearby data centre
+* Review the details of the project before returning to the dashboard
+* Copy the ElephantSQL URL, which starts with 'postgres://' to input into the Django project's settings.py file (detailed further below)
+
+### **Environment Variables and Settings**
+* Create a file in the main project directory called 'env.py', and add it to the .gitignore file
+* Add the key 'SECRET_KEY' and assign it something secret as a value
+* Add the key 'DATABASE_URL' and assign it the ElephantSQL URL as a value
+* 
+
+### **Cloudinary**
+
+[**_Cloudinary_**](https://cloudinary.com/) is installed as part of this project in order to host media and static files. Below are the steps I took following account creation:
+* 
+
+### **Deployment to Heroku**
 
 
 ## **Credits**
