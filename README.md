@@ -2,7 +2,7 @@
 
 ## **Project Overview**
 
-Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fabled ghost ship, The Flying Dutchman. Customers are able to choose from a modest selection of unique rooms on board, from the opulant Captain's Quarters (of which the spectral Captain Hendrick Van der Decken no longer has any need), to 'The Brig' - lovingly named so for its location, though it is anything but a prison. They can make and manage bookings, learn a little about the vessel itself, as well as discover the spectacular events Flying Dutchman Voyages has to offer.
+Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fabled ghost ship, The Flying Dutchman. Customers are able to choose from a modest selection of unique rooms on board, from the opulent Captain's Quarters (of which the spectral Captain Hendrick Van der Decken no longer has any need), to 'The Brig' - lovingly named so for its location, though it is anything but a prison. They can make and manage bookings, learn a little about the vessel itself, as well as discover the spectacular events Flying Dutchman Voyages has to offer.
 
 
 ![Am I responsive screenshot](docs/images/am-i-responsive.png)
@@ -37,6 +37,8 @@ Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fable
         - [**_Amend Booking Page_**](#amend-booking-page)
         - [**_Cancel Booking Page_**](#cancel-booking-page)
     - [**Error Pages**](#error-pages)
+        - [**_Login Error Page_**](#login-error-page)
+    - [**Footer**](#footer)
 1. [**Considerations for Future Enhancements**](#considerations-for-future-enhancements)
     - [**Contact Form**](#contact-form)
     - [**Additional Booking Functionality**](#additional-booking-functionality)
@@ -157,7 +159,7 @@ To expand on the palette and rework it closer to the colours seen in Charles Tem
 
 #### **Typography**
 
-For the main titles and some occasional features on the site, I decided to use the font 'Charm', found on Google Fonts. I felt this font was a perfect balance between extravagent and scriptive, whilst remaining clear and readable. I feel it accurately carries the theme of the website without being too overpowering.
+For the main titles and some occasional features on the site, I decided to use the font 'Charm', found on Google Fonts. I felt this font was a perfect balance between extravagant and decorative, whilst remaining clear and readable. I feel it accurately carries the theme of the website without being too overpowering.
 
 For the main body of the website I considered using a different font to Bootstrap4's native font stack, however I found that I quite liked the contrast between it and 'Charm', as they seem to compliment one another in an unexpected and simple way.
 
@@ -180,61 +182,117 @@ Throughout this project, I adopted an agile approach, which I have detailed and 
 
 ## **Current Features**
 
-### **Header and Navigation
+Below are the main features across the website. For the sake of consistency, I have taken all desktop screenshots in Chrome on my computer (screen resolution 1920x1280px - however this includes the browser bar so viewable area is slightly smaller), and all mobile screenshots through Chrome's DevTools, using the iPhone 12 Pro setting (resolution 390x844px), due to this seeming like a good standard choice in mobile size.
+
+### **Header and Navigation**
+
+The header of the site is simple, with a pleasing colour gradient that compliments the overall colour scheme of the site. To the left is the company brand - where the user expects to see it. This brand section also functions as a link to the homepage, again as users have come to expect from websites.
+
+When a user is not logged into the website, the following information is shown in the navbar, including links to register for the site, and login:
+
+![Navbar when not logged in](docs/images/navbar-not-logged-in.png)
+
+However, when I user is successfully logged in, the display changes, allowing them to access any bookings made and log out:
 
 ![Navbar full](docs/images/navbar-full.png)
 
+When viewing the website on a screen that is smaller than the full width the navbar needs to be displayed properly, it becomes a collapsible menu on the right hand side.
+
 ![Navbar collapsed](docs/images/navbar-collapsed.png)
+
+The menu items are visible when clicking the icon, and they expand downwards - pushing the page content down, so as not to cause any conflicts with the information on the page.
 
 ![Navbar expanded](docs/images/navbar-expanded.png)
 
 ### **Home Page**
 
+The homepage is simple and clean whilst also being exciting and engaging. The gorgeous painting used as the background image draws people's attention to the boat in the foreground, before it slowly dawns on them that there's actually a much bigger boat in the background that is more interesting (and relevant to the site). 
+
 ![Homepage on desktop](docs/images/homepage.png)
 
-![Homepage mobile 320x480px](docs/images/homepage-mobile-320x480px.png)
+The homepage features a main site title, a lead paragraph below it with the company's slogan, and then three cards with links that take the user to the About Us, Our Rooms, and Events pages.
+
+The homepage is responsive, and on mobile lo
 
 ![Homepage iPhone 12 Pro](docs/images/homepage-iphone12pro.png) 
 
 ### **About Us Page**
 
-![About Us page landing view desktop](docs/images/about-page-landing-desktop.png)
+The About Us page features some engaging images and interesting information about The Flying Dutchman, as well as Flying Dutchman Voyages.
 
-![About Us page landing view iPhone 12 Pro](docs/images/about-page-landing-iphone12pro.png)
+The page title and lead paragraphs create a sense of mystery and intrigue, playing to peoples' curiosity so that they read on.
+
+![About Us page title](docs/images/about-title.png)
+
+Below the title, the main section can be found, which is split into two parts, that are themselves split into two. The first section shows a spectacular image of the ship (much of the imagery used across the site is artwork rather than photography - for obvious reasons!), next to a text area that includes a quote about the legend of The Flying Dutchman, and a quirky rebuttal about the 'real' fate of the ship.
 
 ![About Us main section 1 desktop](docs/images/about-page-section-1.png)
 
+The second part of the man section also features a text area and an image, but this time reversed to keep the page layout engaging and interesting. This is where users can see another brilliant image and find out more about the voyages on offer.
+
 ![About Us main section 2 desktop](docs/images/about-page-section-2.png)
 
-![About Us sections on tablet video](link)
+The webpage is fully responsive, and when the screen size is reduced to a certain width, the direction of the content changes, making it much easier to digest on mobile screens:
+
+![About Us mobile 1](docs/images/about-mobile-1.png)
+
+![About Us mobile 2](docs/images/about-mobile-2.png)
+
+![About Us mobile 3](docs/images/about-mobile-3.png)
+
+![About Us mobile 4](docs/images/about-mobile-4.png)
 
 ### **Events Page**
 
-![Events page landing view desktop](docs/images/events-landing-desktop.png)
+The Events page features a title area with a lead paragraph containing a contact email address for Flying Dutchman Voyages.
 
-![Events page landing view iPhone 12 Pro](docs/images/events-landing-iphone12pro.png)
+![Events page title](docs/images/events-title.png)
+
+Below this, there are two main areas on the page. Firstly, a section covering holiday events. The three events currently showing are Christmas, New Year and Halloween, each with a unique and fascinating image. The specific information about these events is not included on the webpage, as users are encouraged to contact Flying Dutchman Voyages to discuss them first. 
 
 ![Holiday Events section desktop](docs/images/holiday-events-desktop.png)
 
+Below the holiday events lies what I consider "the main event". This is a special voyage that takes place every year on Easter Sunday - the day on which the captain of the real Flying Dutchman allegedly ordered his men to set sail despite it being considered blasphemy to sail on Easter Sunday in those times. The ship never made it to port, and ghost stories were created from it. I was extremely keen to make sure this particular event was featured on the site, as it really characterises the bizarre nature of Flying Dutchman Voyages!
+
 ![Easter Sunday Event section 1 desktop](docs/images/easter-event-desktop-1.png)
+
+The second section features wording that boldly warns passengers that return is not guaranteed from this voyage, as the ship is literally spirited away and cannot therefore ever guarantee that it will always return.
 
 ![Easter Sunday Event section 2 desktop](docs/images/easter-event-desktop-2.png)
 
+This page is fully responsive, following the same layout rules seen in the About Us page.
+
 ### **Our Rooms Page**
 
-![Our Rooms page landing view desktop](docs/images/our-rooms-landing-desktop.png)
+The Our Rooms page features an image and very brief sentence of flavour text about each room available:
 
-![Our Rooms page landing iPhone 12 Pro](docs/images/our-rooms-landing-iphone12pro.png)
+![Our Rooms 1](docs/images/our-rooms-1.png)
 
+![Our Rooms 2](docs/images/our-rooms-2.png)
+
+This page uses flex-wrap to make sure that the page layout is always responsive:
+
+![Flex-wrap tablet](docs/images/our-rooms-wrap.png)
+
+![Flex-wrap mobile](docs/images/our-rooms-column.png)
 
 ### **Room Detail Page**
 
-![Room Detail page landing desktop](docs/images/room-detail-landing-desktop.png)
+Clicking through to any of the rooms on the Our Rooms page will take you to the Room Detail page for that room. This is a single Django template that takes the ID associated with whichever room is selected, and appends that to the URL to take the user to the correct room.
 
-![Room Detail page landing iPhone 12 Pro](docs/images/room-detail-landing-iphone12pro.png)
+The user is met with a large carousel of three unique images per room, and a description of the room itself.
 
+![Room detail 1](docs/images/room-detail-1.png)
+
+Below this, the details of the room (the number of beds & maximum number of passengers) is displayed next to the booking form.
+
+![Room detail 2](docs/images/room-detail-2.png)
+
+The booking form includes validation logic to ensure that the user will be informed if they try submitting a form with invalid data, from incorrect data types, too many passengers, to booking dates not being available for that room.
 
 #### **Booking Success Page**
+
+The booking success page gives the user clear feedback that a booking they have tried to make through the booking form has been successful. It also provides a clear link to the My Bookings page, in which they can view their booking details and manage their bookings.
 
 ![Booking Success page desktop](docs/images/booking-success-desktop.png)
 
@@ -242,43 +300,47 @@ Throughout this project, I adopted an agile approach, which I have detailed and 
 
 ### **My Bookings Page**
 
-![My Bookings page landing desktop](docs/images/my-bookings-landing-desktop.png)
+The My Bookings page (also called the manage-bookings page in code) features a clear title to let the user know that they can view and edit their bookings here.
 
-![My Bookings page landing iPhone 12 Pro](docs/images/my-bookings-landing-iphone12pro.png)
+![My Bookings title](docs/images/my-bookings-title.png)
 
+The page itself features centred cards that display basic overview information about the booking, as well as one of the images associated with the room.
+
+![My Bookings display 1](docs/images/my-bookings-1.png)
+
+The list of bookings is paginated, never exceeding three bookings per page due to the large area each booking takes up for styling reasons.
+
+![My Bookings display 2](docs/images/my-bookings-2.png)
 
 #### **Amend Booking Page**
 
+The Amend Booking page can only be accessed by clicking the Amend Booking button next to the relevant booking in My Bookings, or by directly appending the booking ID to the /manage_bookings/amend/ url **IF** it is done by the user who made that booking, when they are logged in. Otherwise, a 404 error is displayed.
+
 ![Amend Booking page landing desktop](docs/images/amend-booking-desktop.png)
 
-![Amend Booking page landing iPhone 12 Pro](docs/images/amend-booking-landing-iphone12pro.png)
-
+When a booking has been successfully amended, the user is met once again with the Booking Success page.
 
 #### **Cancel Booking Page**
 
+The Cancel Booking page looks similar to the Amend Booking page, and is similarly only accessible by the link next to the specific booking, or by adding the booking ID to the /manage_bookings/cancel/ url **IF** it is done by the user who made that booking, when they are logged in. Otherwise, a 404 error is displayed.
+
 ![Cancel Booking page landing iPhone 12 Pro](docs/images/cancel-booking-desktop.png)
 
-![Cancel Booking confirmation message desktop](docs/images/cancel-booking-confirmation-message-desktop.png)
-
-![Cancel Booking page landing iPhone 12 Pro](docs/images/cancel-booking-landing-iphone12pro.png)
+When a booking is successfully cancelled, the user is returned to the My Bookings page and a message appears to notify them that the booking has been cancelled.
 
 ![Cancel Booking confirmation message iPhone 12 Pro](docs/images/cancel-booking-confirmation-message-iphone12pro.png)
 
 ### **AllAuth Pages**
 
+The account registration, login and logout pages provided by Django AllAuth have been styled to match the homepage to create a sense of familiarity. The Login and Logout pages also feature messages that appear to the user when they have successfully logged in or out.
+
 #### **Register Page**
 
 ![Register page desktop](docs/images/register-desktop.png)
 
-![Register page iPhone 12 Pro](docs/images/register-landing-iphone12pro.png)
-
 #### **Login Page**
 
 ![Login page desktop](docs/images/login-desktop.png)
-
-![Login confirmation message desktop](docs/images/login-confirmation-message-desktop.png)
-
-![Login page iPhone 12 Pro](docs/images/login-landing-iphone12pro.png)
 
 ![Login confirmation message iPhone 12 Pro](docs/images/login-confirmation-message-iphone12pro.png)
 
@@ -286,17 +348,31 @@ Throughout this project, I adopted an agile approach, which I have detailed and 
 
 ![Logout page desktop](docs/images/logout-desktop.png)
 
-![Logout confirmation message desktop](docs/images/logout-confirmation-message-desktop.png)
-
-![Logout page iPhone 12 Pro](docs/images/logout-iphone12pro.png)
-
 ![Logout confirmation message iPhone 12 Pro](docs/images/logout-confirmation-message-iphone12pro.png)
 
 ### **Error Pages**
 
+Custom error pages have been created for the two most common errors users are likely to encounter: the 404 page and the 500 page. Creating a custom 400 page was particularly important, as if a user tries to enter a booking ID to the end of the /manage_bookings/amend/ or /cancel/ URLs that they did not make, it is important to make sure they are met with a 404, rather than a page asking them to login/telling them they are not authorised to perform the action, as this could jeopardise the security of the website.
+
+They have been styled similarly to the homepage due to wanting to instil the sense of familiarity associated with the brand and this background image.
+
 ![404 error page desktop](docs/images/custom-404-page.png)
 
 ![500 error page desktop](docs/images/custom-500-page.png)
+
+#### **Login Error Page**
+
+This page appears when a user tries to create a booking when they are not logged in. It has been styled similarly to those above and for the same reason.
+
+![Login Error page](docs/images/login-error.png)
+
+### **Footer**
+
+The footer is simple, using a gradient like the header, but instead going from a deep sea green to the same turquoise colour used at the beginning of the header. I think this contrast is visually appealing without taking too much of the user's attention.
+
+Within the footer are social media links.
+
+![Footer](docs/images/footer.png)
 
 ## **Considerations for Future Enhancements**
 
@@ -318,7 +394,7 @@ When starting this project, I implemented the basic Django AllAuth account creat
 
 ### **Slugs**
 
-When I first created this project, my Room model contained a dictionary called "ROOM_CATEGORIES" that included a room category string (ie. "CAPQ") and then a name string (ie. "Captain's Quarters"). This was because I had originally intended on having more than one of a certain room category available. Each room category's URL would be generated from the category string, and the page would be populated with the name string. Because I worked like this for a while before refactoring my code, when it came to refactoring I focused instead on having one of each room, and using the room's primary key as it's ID which is fed to the URL. Unfortunately it occurred to me a little too late that it might be better to add a slug field into the Room model - by which point so much of my code had been written around URLs being generated by room IDs that it became unfeasible to refactor it again to accommodate slugs instead. However, I think the site would benefit from this addition and I intend to implement it in future. 
+When I first created this project, my Room model contained a dictionary called "ROOM_CATEGORIES" that included a room category string (ie. "CAPQ") and then a name string (ie. "Captain's Quarters"). This was because I had originally intended on having more than one of a certain room category available. Each room category's URL would be generated from the category string, and the page would be populated with the name string. Because I worked like this for a while before refactoring my code, when it came to refactoring I focused instead on having one of each room, and using the room's primary key as its ID which is fed to the URL. Unfortunately it occurred to me a little too late that it might be better to add a slug field into the Room model - by which point so much of my code had been written around URLs being generated by room IDs that it became unfeasible to refactor it again to accommodate slugs instead. However, I think the site would benefit from this addition and I intend to implement it in future. 
 
 ## **Testing**
 
@@ -355,7 +431,7 @@ Below is a list of the steps and terminal commands I used to install the necessa
 1. Create the Django project:
     ```django-admin startproject project_name .``` (note: 'project_name' in this case is 'flying_dutchman' - do not forget the '.' after the project name)
 1. Create a Django app:
-    * ```python3 manage.py startapp app_name``` (note: 'app_name' in this case is 'fd_bookings'. A separate app should be created for each major aspect of the project - for example I plan to create a contact form in future which will require its own app as it is separate from the booking fucntions)
+    * ```python3 manage.py startapp app_name``` (note: 'app_name' in this case is 'fd_bookings'. A separate app should be created for each major aspect of the project - for example I plan to create a contact form in future which will require its own app as it is separate from the booking functions)
 1. In 'settings.py', which is created in the main project directory, add the following apps to the 'INSTALLED_APPS' section:
     * ![INSTALLED_APPS additions](docs/images/installed-apps.png)
 1. Run the following command to make migrations:
@@ -402,7 +478,7 @@ This project uses [**_ElephantSQL_**](https://www.elephantsql.com/) to host its 
 1. Add the key 'CLOUDINARY_URL' to 'env.py' and assign it the Cloudinary API URL as a value:
     * ```os.environ["CLOUDINARY_URL"] = "cloudinary://Cloudinary API URL"```
 1. Add the following code to 'settings.py' to tell Django to use Cloudinary to store and manage media and static files:
-    *![Cloudinary code for settings.py](docs/images/cloudinary-settings.png)
+    * ![Cloudinary code for settings.py](docs/images/cloudinary-settings.png)
 
 
 ### **Deployment to Heroku**
@@ -446,7 +522,7 @@ This project is hosted on [**_Heroku_**](https://www.heroku.com/). Below are the
 
 #### **Code**
 
-* This project followed the Code Institute code-along projects 'Hello Django' and 'I Think Therefore I Blog', and although this project is vastly different in terms of the type of prject, there will inevitably be similarities in certain parts of the code. For example, certain template code such as the code used to paginate the 'My Bookings' page, and code within .py files such as the classes found in admin.py.
+* This project followed the Code Institute code-along projects 'Hello Django' and 'I Think Therefore I Blog', and although this project is vastly different in terms of the type of project, there will inevitably be similarities in certain parts of the code. For example, certain template code such as the code used to paginate the 'My Bookings' page, and code within .py files such as the classes found in admin.py.
 
 * This project was built with Django, and as such there will be many instances throughout my code that have been taken from the [**_Django 3.2 Documentation_**](https://docs.djangoproject.com/en/3.2/), or built upon from their given examples.
 
@@ -454,7 +530,8 @@ This project is hosted on [**_Heroku_**](https://www.heroku.com/). Below are the
 
 * At the start of my project, I came across [**_DarshanDev's YouTube Channel_**](https://www.youtube.com/@darshandev1754) and found his Django Hotel Management System Tutorials to be absolutely invaluable to me ([**_Video #1 HERE_**](https://www.youtube.com/watch?v=yenjz1Wv9Yo), [**_Playlist HERE_**](https://www.youtube.com/playlist?list=PL_6Ho1hjJirn8WbY4xfVUAlcn51E4cSbY) - playlist does not contain video #1). Although I ended up refactoring almost all of the code explained in this video, he really helped me understand how each part of the project was working together.
 
-* The following code for the ```__init__``` function within a Form came from [**_Emanuele Paolini on StackOverflow_**](https://stackoverflow.com/questions/14660037/django-forms-pass-parameter-to-form)
+* The following code for the ```__init__``` function within a Form came from [**_Emanuele Paolini on StackOverflow_**](https://stackoverflow.com/questions/14660037/django-forms-pass-parameter-to-form):
+    * ![init function for form](docs/images/forms-init.png)
 
 * Although I wrote the code myself, [**_Damon Kreft_**](https://github.com/damon-kreft) deserves to be credited for teaching me about the ```clean``` function in Django Forms and how I could add to it, including helping me find the above StackOverflow answer.
 
@@ -467,8 +544,8 @@ This project is hosted on [**_Heroku_**](https://www.heroku.com/). Below are the
 #### **Content and Media**
 
 * The About Us page features three quotes in total - two of which are song lyrics written by [**_Carach Angren_**](https://www.carach-angren.nl/).
-    * _"The ship vanished as suddenly as it appeared... Should I feel fear? Was it even here..?"_ - 'The Sighting Was a Portent of Doom' from the album 'Death Came Through a Phantom Ship'
-    * _"I will round the Cape, even if I have to sail until Doomsday!"_ - 'Departure From a Nautical Curse' from the album 'Death Came Through a Phantom Ship'
+    * "The ship vanished as suddenly as it appeared... Should I feel fear? Was it even here..?" - _'The Sighting Was a Portent of Doom'_ from the album _'Death Came Through a Phantom Ship'_
+    * "I will round the Cape, even if I have to sail until Doomsday!" - _'Departure From a Nautical Curse'_ from the album _'Death Came Through a Phantom Ship'_
 
 * The third quote on the About Us page comes from [**_this downloadable document_**](https://www.woodbury-central.k12.ia.us/common/pages/DisplayFile.aspx?itemId=9931541), courtesy of Woodbury Central Community School District. The work appears to be 'Maritime Ghosts' by Tony Ellis, though I was unable to find any more information about its origins.
 
