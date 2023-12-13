@@ -45,6 +45,7 @@ Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fable
 1. [**Testing**](#testing)
 1. [**Deployment**](#deployment)
     - [**Cloning/Forking**](#cloningforking)
+    - [**Project Setup**](#project-setup)
     - [**Setting Up the Database**](#setting-up-the-database)
     - [**Environment Variables and Settings**](#environment-variables-and-settings)
     - [**Cloudinary**](#cloudinary)
@@ -52,6 +53,8 @@ Flying Dutchman Voyages offers a one-of-a-kind experience - cruises on the fable
 1. [**Credits**](#credits)
     - [**Honourable Mentions**](#honourable-mentions)
     - [**Code and Content References**](#code-and-content-references)
+        - [**_Code_**](#code)
+        - [**_Content and Media_**](#content-and-media)
 
 ## **Planning Stages**
 
@@ -333,6 +336,8 @@ This will install all the required libraries and packages in one go, meaning you
 
 As I developed this project locally, I had to create a virtual environment using the command ```python -m venv .venv``` - if you clone this project to use locally, you must do the same. Ensure that the virtual environment is not tracked by version control by adding it to the .gitignore file.
 
+### **Project Setup**
+
 Below is a list of the steps and terminal commands I used to install the necessary libraries and packages for this project following the creation of the GitHub repository:
 
 1. Create a virtual environment (as mentioned above):
@@ -405,7 +410,7 @@ This project uses [**_ElephantSQL_**](https://www.elephantsql.com/) to host its 
 This project is hosted on [**_Heroku_**](https://www.heroku.com/). Below are the steps I took to deploy my project following account creation, project setup and database setup with [**_ElephantSQL_**](https://www.elephantsql.com/):
 
 1. On the Heroku Dashboard, create a new app. The app name must be unique and should be related to the Django project name
-1. Set your location as appropriate
+1. Set location as appropriate
 
 1. Open the 'Settings' tab and navigate to 'Config Vars' - Click 'Reveal Config Vars'
 1. Add the following config vars:
@@ -417,7 +422,7 @@ This project is hosted on [**_Heroku_**](https://www.heroku.com/). Below are the
     * ```DISABLE_COLLECT_STATIC = 1```
 1. Obtain the project URL from Heroku, and add it to the 'ALLOWED_HOSTS' section of 'settings.py'
 1. Create a Procfile in the root project directory and add the following code:
-    * ```web: gunicorn project_name.wsgi``` (note that 'project_name' must be the same as your Django project)
+    * ```web: gunicorn project_name.wsgi``` (note that 'project_name' must be the same as the Django project)
 1. Save all project files, and use the following commands to add, commit and push the changes to the GitHub repository:
     * ```git add .```
     * ```git commit -m "Initial commit"```
@@ -429,9 +434,75 @@ This project is hosted on [**_Heroku_**](https://www.heroku.com/). Below are the
 
 ### **Honourable Mentions**
 
-- [**_Damon Kreft_**](https://github.com/damon-kreft)
+* [**_Damon Kreft_**](https://github.com/damon-kreft)
 
-- [**_Richard Wells_**](https://github.com/D0nni387)
+* [**_Richard Wells_**](https://github.com/D0nni387)
+
+* [**_Kieran Peat_**](https://github.com/kieranpeat)
+
+* [**_Carach Angren_**](https://www.carach-angren.nl/)
 
 ### **Code and Content References**
 
+#### **Code**
+
+* This project followed the Code Institute code-along projects 'Hello Django' and 'I Think Therefore I Blog', and although this project is vastly different in terms of the type of prject, there will inevitably be similarities in certain parts of the code. For example, certain template code such as the code used to paginate the 'My Bookings' page, and code within .py files such as the classes found in admin.py.
+
+* This project was built with Django, and as such there will be many instances throughout my code that have been taken from the [**_Django 3.2 Documentation_**](https://docs.djangoproject.com/en/3.2/), or built upon from their given examples.
+
+* Similarly, a great deal of this project's styling relies on Bootstrap4, and there will be many instances throughout my code that have been taken from the [**_Bootstrap4.6 Documentation_**](https://getbootstrap.com/docs/4.6/getting-started/introduction/), or built upon from their given examples.
+
+* At the start of my project, I came across [**_DarshanDev's YouTube Channel_**](https://www.youtube.com/@darshandev1754) and found his Django Hotel Management System Tutorials to be absolutely invaluable to me ([**_Video #1 HERE_**](https://www.youtube.com/watch?v=yenjz1Wv9Yo), [**_Playlist HERE_**](https://www.youtube.com/playlist?list=PL_6Ho1hjJirn8WbY4xfVUAlcn51E4cSbY) - playlist does not contain video #1). Although I ended up refactoring almost all of the code explained in this video, he really helped me understand how each part of the project was working together.
+
+* The following code for the ```__init__``` function within a Form came from [**_Emanuele Paolini on StackOverflow_**](https://stackoverflow.com/questions/14660037/django-forms-pass-parameter-to-form)
+
+* Although I wrote the code myself, [**_Damon Kreft_**](https://github.com/damon-kreft) deserves to be credited for teaching me about the ```clean``` function in Django Forms and how I could add to it, including helping me find the above StackOverflow answer.
+
+* I wasted a lot of time trying to wrap my head around the best way to integrate a date picker into my Django Form, rather than have the default date entry field that includes a huge margin for user error. I am extremely grateful to [**_Asim Zahid on Medium_**](https://mrasimzahid.medium.com/how-to-implement-django-datepicker-calender-in-forms-date-field-9e23479b5db) for writing this article and providing the solution:
+    * ![Custom date widget 1](docs/images/custom-widget-1.png)
+    * ![Custom date widget 2](docs/images/custom-widget-2.png)
+
+#### **Content and Media**
+
+* The About Us page features three quotes in total - two of which are song lyrics written by [**_Carach Angren_**](https://www.carach-angren.nl/).
+    * _"The ship vanished as suddenly as it appeared... Should I feel fear? Was it even here..?"_ - 'The Sighting Was a Portent of Doom' from the album 'Death Came Through a Phantom Ship'
+    * _"I will round the Cape, even if I have to sail until Doomsday!"_ - 'Departure From a Nautical Curse' from the album 'Death Came Through a Phantom Ship'
+
+* The third quote on the About Us page comes from [**_this downloadable document_**](https://www.woodbury-central.k12.ia.us/common/pages/DisplayFile.aspx?itemId=9931541), courtesy of Woodbury Central Community School District. The work appears to be 'Maritime Ghosts' by Tony Ellis, though I was unable to find any more information about its origins.
+
+* All icons used are from [**Font Awesome**](https://fontawesome.com/)
+
+* All fonts have been imported from [**Google Fonts**](https://fonts.google.com/)
+
+* Colour palettes from [**_mycolor.space_**](https://mycolor.space/), [**_mycolor.space/gradient3_**](https://mycolor.space/gradient3) and [**_colormind.io_**](http://colormind.io/)
+
+* Colour contrast grid from [**_contrast-grid.eightshapes.com_**](https://contrast-grid.eightshapes.com/?version=1.1.0&background-colors=&foreground-colors=%2353adbb%2C%0D%0A%233d5246%2C%0D%0A%23303030%2C%0D%0A%23080808%2C%0D%0A%23212529%2C%0D%0A%23f3ead7%2C%0D%0A%23f2efe080%2C%0D%0A%23f2efe0cc%2C%0D%0A%23f4f2e3%2C%0D%0A&es-color-form__tile-size=compact&es-color-form__show-contrast=aaa&es-color-form__show-contrast=aa&es-color-form__show-contrast=aa18&es-color-form__show-contrast=dnp)
+
+* Mind map and ERD drawn on [**_Excalidraw_**](https://excalidraw.com/)
+
+* Images and static files hosted by [**_Cloudinary_**](https://cloudinary.com/)
+
+* **Images:**
+
+    * Main background image (including cropped version used for some page backgrounds): [**_'The Flying Dutchman' by Charles Temple Dix_**](https://commons.wikimedia.org/wiki/File:The_Flying_Dutchman_by_Charles_Temple_Dix.jpg)
+    * All three Captain's Quarters images: [**_'Captain's Cabin' by WONJIN on ArtStation_**](https://www.artstation.com/artwork/RnzxOX)
+    * [**_'Ghost Ship' by awester01 on DeviantArt_**](https://www.deviantart.com/awester01/art/Ghost-Ship-949058730)
+    * [**_'The Flying Dutchman' by Koalafish on DeviantArt_**](https://www.deviantart.com/koalafish/art/AI-Art-The-Flying-Durchmen-939757202)
+    * [**_'High-seas encounter' by George Grie at neosurrealismart.com_**](https://www.neosurrealismart.com/surreal-pictures/176-Ghost-ship-series-High-seas-encounter-web.jpg)
+    * [**_'Phantom Voyage' by George Grie at neosurrealismart.com_**](https://www.neosurrealismart.com/surreal-pictures/177-Ghost-ship-series-Phantom-Voyage-web.jpg)
+    * [**_'Ship Shipwreck Sea' by 51581 on pixabay.com_**](https://pixabay.com/illustrations/ship-shipwreck-sea-waves-tall-ship-1366926/)
+    * [**_'AI Generated Ship Galleon' by ChesterMirt on pixabay.com_**](https://pixabay.com/illustrations/ai-generated-ship-galleon-sea-8252763/)
+    * [**_'AI Generated Pirate Ship Phantom Ship' by SerenityArt on pixabay.com_**](https://pixabay.com/illustrations/ai-generated-pirate-ship-8316938/)
+    * [**_'Captain's Room' by xPuNkYx on DeviantArt_**](https://www.deviantart.com/xpunkyx/art/Captain-s-Room-298360401)
+    * [**_'Second Class stateroom on the 'Balmoral Castle' (1910) RMG G10619' by Bedford Lemere & Co. Wikipedia Commons_**](https://commons.wikimedia.org/wiki/File:Second_Class_stateroom_on_the_%27Balmoral_Castle%27_(1910)_RMG_G10619.tiff)
+    * [**_Second Class cabin E-90 on board the RMS Olympic, 1911 by Bedford Lemere & Co. on Wikimedia Commons_**](https://commons.wikimedia.org/wiki/File:2nd_Class_Cabin_E-90_of_the_Olympic.jpg)
+    * [**_'La Grace - kapitanská kajuta' by Luděk Kocourek on Wikimedia Commons_**](https://en.m.wikipedia.org/wiki/File:La_Grace_-_kapitansk%C3%A1_kajuta.jpg)
+    * [**_'Captain Sigsbee in the Captain's cabin on board the "Maine"' from the British Library_**](https://commons.wikimedia.org/wiki/File:Sigsbee_Captains_Cabin.jpg)
+    * [**_'Civil War Naval Museum, USS Hartford Captain's cabin' by The Island Kings on Flickr_**](https://www.flickr.com/photos/divemasterking2000/3354364880)
+    * [**_'Civil War Naval Museum, USS Hartford Captain's cabin' by The Island Kings on Flickr_**](https://www.flickr.com/photos/15775662@N00/3293703037/)
+    * [**_'Sailors Hammocks onboard Nelsons flagship HMS Victory' by unknown, posted by Albertbailey on r/CozyPlaces_**](https://www.reddit.com/r/CozyPlaces/comments/e1q68v/sailors_hammocks_onboard_nelsons_flagship_hms/)
+    * [**_'Grand Turk, a replica of a three-masted 6th rate frigate from Nelson's days. - hammock' by Georges Jansoone on Wikimedia Commons_**](https://commons.wikimedia.org/wiki/File:Grand_Turk(38).jpg)
+    * [**_'HMS Warrior hammocks and cannons' by Chris Waits on Wikimedia Commons_**](https://commons.wikimedia.org/wiki/File:HMS_Warrior_hammocks_and_cannons.jpg)
+    * [**_'Une Chambre d' Officier à Board' by unknown mid 19th century, posted by Itwilliammowett on Tumblr_**](https://www.tumblr.com/ltwilliammowett/636211568466640896/une-chambre-d-officier-%C3%A0-board-by-unknown-mid)
+    * [**_'Las Palmas ( Gran Canaria ). Casa de Colon - Collections. Reconstruction of Columbus' cabin on the Santa Maria in 1492' by Wolfgang Sauber on Wikimedia Commons_**](https://commons.wikimedia.org/wiki/File:Las_Palmas_Casa_de_Colon_-_Museum_Kolumbus_Kaj%C3%BCte_1.jpg)
+    * [**_'Las Palmas ( Gran Canaria ). Casa de Colon - Collections. Reconstruction of Columbus' cabin on the Santa Maria in 1492' by Wolfgang Sauber on Wikimedia Commons_**](https://commons.wikimedia.org/wiki/Category:Casa_de_Col%C3%B3n_(Las_Palmas_de_Gran_Canaria)_-_Collections#/media/File:Las_Palmas_Casa_de_Colon_-_Museum_Kolumbus_Kaj%C3%BCte_2.jpg)
