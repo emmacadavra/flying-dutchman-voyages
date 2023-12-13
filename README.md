@@ -327,34 +327,103 @@ In this section I explain the steps I took in order to deploy this project.
 
 ### **Cloning/Forking**
 
-If you wish to create a clone of this project to use on your local machine or virtual IDE environment such as Gitpod, first navigate to [this project's GitHub Repository](https://github.com/emmacadavra/flying-dutchman-voyages), and follow [GitHub's instructions on how to clone a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository). Once cloned, enter the following command in the terminal:
+If you wish to create a clone of this project to use on your local machine or virtual IDE environment such as Gitpod, first navigate to [this project's GitHub Repository](https://github.com/emmacadavra/flying-dutchman-voyages), and follow [GitHub's instructions on how to clone a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository). If you are using a local environment, you can enter the following command in the terminal:
 ```pip install -r requirements.txt```
-This will install all the required libraries and packages in one go.
+This will install all the required libraries and packages in one go, meaning you will not have to follow the set-up steps below.
 
-As I developed this project locally, I had to create a virtual environment using the command ```python -m venv .venv``` - if you clone this project to use locally, you must do the same.
+As I developed this project locally, I had to create a virtual environment using the command ```python -m venv .venv``` - if you clone this project to use locally, you must do the same. Ensure that the virtual environment is not tracked by version control by adding it to the .gitignore file.
+
+Below is a list of the steps and terminal commands I used to install the necessary libraries and packages for this project following the creation of the GitHub repository:
+
+1. Create a virtual environment (as mentioned above):
+    * ```python -m venv .venv```
+    * Add the .venv file to .gitignore
+1. Open the virtual environment and install Django with Gunicorn:
+    * ```pip3 install 'django<4' gunicorn```
+1. Install the supporting database libraries:
+    * ```pip3 install dj_database_url==0.5.0 psycopg2```
+1. Install Cloudinary libraries:
+    * ```pip3 install dj3-cloudinary-storage```
+    * ```pip3 install urllib3==1.26.15```
+1. Create a 'requirements.txt' file:
+    * ```pip3 freeze --local > requirements.txt```
+1. Create the Django project:
+    ```django-admin startproject project_name .``` (note: 'project_name' in this case is 'flying_dutchman' - do not forget the '.' after the project name)
+1. Create a Django app:
+    * ```python3 manage.py startapp app_name``` (note: 'app_name' in this case is 'fd_bookings'. A separate app should be created for each major aspect of the project - for example I plan to create a contact form in future which will require its own app as it is separate from the booking fucntions)
+1. In 'settings.py', which is created in the main project directory, add the following apps to the 'INSTALLED_APPS' section:
+    * ![INSTALLED_APPS additions](docs/images/installed-apps.png)
+1. Run the following command to make migrations:
+    * ```python3 manage.py makemigrations```
+1. Run the following command to migrate changes:
+    * ```python3 manage.py migrate```
+1. Run the following command to run the server and test whether the project is working locally:
+    * ```python3 manage.py runserver```
+1. The Django success page should now show, but if not, the 'ALLOWED_HOSTS' section of 'settings.py' needs updating to include the URL given by Django if an error is displayed.
 
 ### **Setting Up the Database**
 
 This project uses [**_ElephantSQL_**](https://www.elephantsql.com/) to host its database. Below are the steps I took following account creation:
-* Click on 'Create New Instance'
-* Provide a project name and select the 'Tiny Turtle (Free)' plan
-* Click 'Select Region' and choose a nearby data centre
-* Review the details of the project before returning to the dashboard
-* Copy the ElephantSQL URL, which starts with 'postgres://' to input into the Django project's settings.py file (detailed further below)
+1. Click on 'Create New Instance'
+1. Provide a project name and select the 'Tiny Turtle (Free)' plan
+1. Click 'Select Region' and choose a nearby data centre
+1. Review the details of the project before returning to the dashboard
+1. Copy the ElephantSQL URL, which starts with 'postgres://', in order to link it to the Django project (detailed further below)
 
 ### **Environment Variables and Settings**
-* Create a file in the main project directory called 'env.py', and add it to the .gitignore file
-* Add the key 'SECRET_KEY' and assign it something secret as a value
-* Add the key 'DATABASE_URL' and assign it the ElephantSQL URL as a value
-* 
+
+1. Create a file in the main project directory called 'env.py', and add it to the .gitignore file - this files stores private environment variables and must be kept hidden
+1. Add the key 'DATABASE_URL' to env.py and assign it the ElephantSQL URL as a value:
+    * ```os.environ["DATABASE_URL"] = "postgres://ElephantSQL Database URL"```
+1. Add the key 'SECRET_KEY' to env.py and assign it something secret (and more secure than "SecretKey123"!) as a value:
+    * ```os.environ["SECRET_KEY"] = "SecretKey123"```
+1. Navigate to the 'settings.py' file and make sure the following code is added to the top of the file:
+    * ![Settings.py imports](docs/images/settings-imports.png)
+1. Replace Django's default 'DATABASES' in the with the following code:
+    * ![Updated DATABASES code](docs/images/databases-updated-code.png)
+1. Replace Django's default 'SECRET_KEY' with the following code:
+    * ![Updated SECRET_KEY code](docs/images/secret-key-code.png)
+1. Add the following code to 'settings.py' to correctly link up project templates:
+    * ```BASE_DIR = Path(__file__).resolve().parent.parent```
+    * ```TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')```
+    * ![Templates code in settings.py](docs/images/templates-settings.png)
 
 ### **Cloudinary**
 
-[**_Cloudinary_**](https://cloudinary.com/) is installed as part of this project in order to host media and static files. Below are the steps I took following account creation:
-* 
+[**_Cloudinary_**](https://cloudinary.com/) is installed as part of this project in order to host media and static files. Below are the steps I took following account creation and installing Cloudinary through Django:
+1. Navigate to the Cloudinary Dashboard
+1. Copy the code from the 'API Environment variable', section of the Dashboard:
+    * ![Cloudinary API Environment variable](docs/images/cloudinary-api.png)
+1. Add the key 'CLOUDINARY_URL' to 'env.py' and assign it the Cloudinary API URL as a value:
+    * ```os.environ["CLOUDINARY_URL"] = "cloudinary://Cloudinary API URL"```
+1. Add the following code to 'settings.py' to tell Django to use Cloudinary to store and manage media and static files:
+    *![Cloudinary code for settings.py](docs/images/cloudinary-settings.png)
+
 
 ### **Deployment to Heroku**
 
+This project is hosted on [**_Heroku_**](https://www.heroku.com/). Below are the steps I took to deploy my project following account creation, project setup and database setup with [**_ElephantSQL_**](https://www.elephantsql.com/):
+
+1. On the Heroku Dashboard, create a new app. The app name must be unique and should be related to the Django project name
+1. Set your location as appropriate
+
+1. Open the 'Settings' tab and navigate to 'Config Vars' - Click 'Reveal Config Vars'
+1. Add the following config vars:
+    * ```PORT = 8000```
+    * ```DATABASE_URL = postgres://ElephantSQL Database URL``` (note that this must be the unique ElephantSQL URL from the created database)
+    * ```SECRET KEY = SecretKey123``` (note that this must be the unique secret key made previously for this project)
+    * ```CLOUDINARY_URL = cloudinary://Cloudinary API URL``` (note that this must be the unique Cloudinary API URL obtained previously)
+1. Add the following temporary config var (to be removed before final deployment):
+    * ```DISABLE_COLLECT_STATIC = 1```
+1. Obtain the project URL from Heroku, and add it to the 'ALLOWED_HOSTS' section of 'settings.py'
+1. Create a Procfile in the root project directory and add the following code:
+    * ```web: gunicorn project_name.wsgi``` (note that 'project_name' must be the same as your Django project)
+1. Save all project files, and use the following commands to add, commit and push the changes to the GitHub repository:
+    * ```git add .```
+    * ```git commit -m "Initial commit"```
+    * ```git push```
+1. Navigate to the 'Deploy' tab in the Heroku dashboard and link the GitHub repository to the project.
+1. Manually deploy from the main GitHub repository branch.
 
 ## **Credits**
 

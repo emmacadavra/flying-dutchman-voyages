@@ -90,8 +90,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'flying_dutchman.wsgi.application'
 
-SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
