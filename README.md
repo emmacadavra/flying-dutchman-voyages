@@ -434,13 +434,13 @@ This project is hosted on [**_Heroku_**](https://www.heroku.com/). Below are the
 
 ### **Honourable Mentions**
 
-* [**_Damon Kreft_**](https://github.com/damon-kreft)
+* [**_Damon Kreft_**](https://github.com/damon-kreft) - words cannot express how much I value your knowledge, care and encouragement. This project was built during a particularly difficult time, and I don't think I could have continued on in the way that I did without your love, encouragement and support. Thank you as always from the bottom of my heart for always having my back and inspiring me to grow.
 
-* [**_Richard Wells_**](https://github.com/D0nni387)
+* [**_Richard Wells_**](https://github.com/D0nni387) - to me you are not just a mentor but an absolutely angelic source of wisdom, encouragement and support. I will never be able to thank you enough for the sheer amount of time and effort you dedicate to supporting me with my learning and creating such a comfortable space to explore what I have been learning along the way.
 
-* [**_Kieran Peat_**](https://github.com/kieranpeat)
+* [**_Kieran Peat_**](https://github.com/kieranpeat) - thank you so much for always taking such an eager interest in my projects, and dedicating time to trying them out and providing feedback despite your limited time to do so. Thank you also for reliably being "my friend with a Mac" that I can turn to when Safari won't play ball! 
 
-* [**_Carach Angren_**](https://www.carach-angren.nl/)
+* [**_Carach Angren_**](https://www.carach-angren.nl/) - as mentioned in the [**_Content and Media_**](#content-and-media) section below, I have taken some direct quotes from songs written by Carach Angren, but I wanted to include them here as well just because it wouldn't feel right not to do so. Every album released by this band is themed and feels more like musical storytelling than anything else. I was always interested in ghost stories, and stories of ghost ships as well, but 'Death Came Through a Phantom Ship' is my favourite album by this band and it inspired a large amount of the content of the project.
 
 ### **Code and Content References**
 
@@ -461,6 +461,8 @@ This project is hosted on [**_Heroku_**](https://www.heroku.com/). Below are the
 * I wasted a lot of time trying to wrap my head around the best way to integrate a date picker into my Django Form, rather than have the default date entry field that includes a huge margin for user error. I am extremely grateful to [**_Asim Zahid on Medium_**](https://mrasimzahid.medium.com/how-to-implement-django-datepicker-calender-in-forms-date-field-9e23479b5db) for writing this article and providing the solution:
     * ![Custom date widget 1](docs/images/custom-widget-1.png)
     * ![Custom date widget 2](docs/images/custom-widget-2.png)
+
+* Throughout the project, I often utilised and relied upon Code Institute's Slack channel and community, as well as using other online resources such as StackOverflow and W3Schools.
 
 #### **Content and Media**
 
